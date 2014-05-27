@@ -4,7 +4,7 @@
   <title><![CDATA[lzteng]]></title>
   <link href="http://lzteng.com/atom.xml" rel="self"/>
   <link href="http://lzteng.com/"/>
-  <updated>2014-05-27T22:11:57+08:00</updated>
+  <updated>2014-05-27T22:34:04+08:00</updated>
   <id>http://lzteng.com/</id>
   <author>
     <name><![CDATA[ZwEin]]></name>
@@ -12,16 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[test]]></title>
-    <link href="http://lzteng.com/Diary/2014/05/27/test/"/>
-    <updated>2014-05-27T17:19:54+08:00</updated>
-    <id>http://lzteng.com/Diary/2014/05/27/test</id>
-    <content type="html"><![CDATA[<p class='post-footer'>版权所有 ©ZwEin | 转载请注明出处：<a href='http://lzteng.com/Diary/2014/05/27/test/'>http://lzteng.com/Diary/2014/05/27/test/</a></p>
-
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Parse Note]]></title>
