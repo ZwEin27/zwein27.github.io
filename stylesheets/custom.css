@@ -214,6 +214,8 @@ aside.sidebar section {
 body {
   font-family: "Helvetica", "STHeiti", "Microsoft YaHei", "微软雅黑", sans-serif, "宋体", "Simsun";
   line-height: 2em;
+  font-size: 18px;
+  color: #555;  
 }
 
 
@@ -236,7 +238,8 @@ html,body {
   padding-top: 20px;
 }
 .col-md-9 {
-  padding-left: 30px;
+  padding-left: 55px;
+  width: 95%; /* 设置中间内容栏row的宽度为100%，覆盖侧边栏的显示区域 */
 }
 
 /* aside 样式修改 */
@@ -339,6 +342,9 @@ article[role=article] > footer {
   padding-bottom: 1em;
   margin-top: .3em;
 }
+.entry-content {
+  font-size: 18px;
+}
 .entry-content a:hover {
   text-shadow: none;
   color: #FFF;
@@ -351,6 +357,16 @@ article[role=article] > footer {
 .entry-content a {
   padding: 2px;
   color: #00AEFF;
+}
+.entry-content p {
+  line-height: 170%;
+  margin-bottom: 1.1em;
+  font-size: 18px;
+ 
+  display: block;
+
+
+  color: #555;
 }
 
 
@@ -570,3 +586,55 @@ article[role=article] > footer {
 i {
   display: inline;
 }
+
+
+/* indexer */
+.content_indexer{
+}
+
+.content_indexer h2,h3{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.indexer-body{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 1.3em;
+  font-size: 18px;
+  color: #FF706C;
+}
+
+.indexer-body ul{
+  display: block;
+  -webkit-margin-before: 0.2em;
+  -webkit-margin-after: 0.2em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+}
+.indexer-body li{
+  margin-bottom: 0.5em;
+  line-height: 170%;
+  /*margin: 0;*/
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 100%;
+  font-family: inherit;
+  text-align: justify;
+  display: list-item;
+}
+.indexer-body a{
+  color: #FF706C;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  outline: none;
+  -webkit-box-sizing: border-box;
+}
+
+
+
