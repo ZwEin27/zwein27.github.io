@@ -50,14 +50,42 @@
 {% endunless %}
 
 
+<!-- 添加索引 -->
+<div class="content_indexer">
+  <h2 class="indexer-title">Catalog</h2>
+  <div class="indexer-body">
+      {{ content | indexer_aside }}
+  </div>
+</div>
+
+<!-- 添加Tag -->
+<div class="article_tag">
+      <i class="fa fa-bookmark"></i>
+      
+      {% if page.tags.first[0] == null %}
+          {% for tag in page.tags %} 
+            <a href="{{ site.url }}/blog/tags/index.html#{{ tag }}-ref">{{ tag }} </a>
+            
+          {% endfor %}
+      {% else %}
+          {% for tag in page.tags %} 
+           <a href="{{ site.url }}/blog/tags/index.html#{{ tag[0] }}-ref">{{ tag[0] }} </a>
+            
+          {% endfor %}
+      {% endif %}
+      
+ </div>
+
 {% if index %}
+
   <div class="entry-content clearfix">{{ content | excerpt }}</div>
+
   {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
+
   {% if excerpted == 'true' %}
     <footer>
       <a class="more-link" rel="full-article" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
-      
-
+    
       <!-- add tags after post -->
       <div class="article_tag">
         <i class="fa fa-bookmark"></i>
@@ -75,10 +103,9 @@
         {% endif %}
         
       </div>
-
-
     </footer>
   {% endif %}
+
 {% else %}
   <div class="entry-content clearfix">{{ content }}</div>
 {% endif %}

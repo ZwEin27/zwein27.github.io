@@ -9,10 +9,9 @@ comments: true
   <div class="page-content {% unless page.sidebar == false or site.post_asides == empty and site.default_asides == empty %}col-md-9{% endunless %}">
 
     <article class="hentry" role="article">
-      
 
-        
-            {% include article.html %}
+      <!-- 日志内容 -->
+      {% include article.html %}
          
 
       <!-- footer -->
@@ -65,7 +64,7 @@ comments: true
 
 
   <!-- sidebar -->
-  {% unless page.sidebar == false %}
+<!--   {% unless page.sidebar == false %}
   <aside class="sidebar">
     {% if site.post_asides.size %}
       {% include_array post_asides %}
@@ -73,7 +72,7 @@ comments: true
       {% include_array default_asides %}
     {% endif %}
   </aside>
-  {% endunless %}
+  {% endunless %} -->
 
 
  
