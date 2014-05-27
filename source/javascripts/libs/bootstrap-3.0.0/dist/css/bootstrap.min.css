@@ -227,12 +227,12 @@ button, input, select[multiple], textarea {
 	background-image: none
 }
 a {
-	color: #428bca;
+	color: #555555;
 	text-decoration: none
 }
 a:hover, a:focus {
-	color: #2a6496;
-	text-decoration: underline
+	color: #000000;
+	text-decoration: none
 }
 a:focus {
 	outline: thin dotted #333;
@@ -329,8 +329,8 @@ cite {
 	text-align: center
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 500;
+	font-family: Helvetica, STHeiti, 微软雅黑, 'Helvetica Neue', sans-serif, 宋体, Simsun;
+	font-weight: bold;
 	line-height: 1.1
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
@@ -492,7 +492,16 @@ address {
 	line-height: 1.428571429
 }
 code, pre {
-	font-family: Monaco, Menlo, Consolas, "Courier New", monospace
+	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+
+	/*padding: 0 3px 2px;
+	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+	font-size: 12px;
+	color: #333;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;*/
+
 }
 code {
 	padding: 2px 4px;
@@ -514,9 +523,26 @@ pre {
 	background-color: #f5f5f5;
 	border: 1px solid #ccc;
 	border-radius: 4px
+	/*display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0,0,0,0.15);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;*/
 }
 pre.prettyprint {
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	display: block;
+	background-color: #333;
 }
 pre code {
 	padding: 0;

@@ -1,5 +1,24 @@
 {% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}{% include head.html %}
   <body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == false %} class="no-sidebar" {% endif %} {% if page.sidebar == 'collapse' or site.sidebar == 'collapse' %} class="collapse-sidebar sidebar-footer" {% endif %}>
+
+    <!--[if lt IE 9]>
+     <script type="text/javascript">
+
+      var browser=navigator.appName;
+      var b_version=navigator.appVersion;
+      var version=parseFloat(b_version);
+    
+      document.getElementById('browser-warning').style.display='block';
+      
+        alert("为保证浏览效果，建议使用Firefox或者Chrome等非IE内核的浏览器！");
+      
+  </script>
+  <![endif]-->
+
+
+
+<a name="gotop"></a><!-- 回到顶部 -->
+
     <div id="wrap">
       <header role="banner">
         {% include navigation.html %}
@@ -12,5 +31,14 @@
     <footer role="contentinfo">{% include footer.html %}</footer>
     {% include after_footer.html %}
     </div>
+
+
+    
+
+
+  {% include before_body.html %}
+
+
+<a name="gobottom"></a><!-- 回到底部 -->
   </body>
 </html>

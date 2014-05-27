@@ -1,0 +1,110 @@
+
+<!-- custom js code 
+  <script type="text/javascript" src="{{ root_url }}/javascripts/libs/prettify/prettify.js"></script>
+
+  <script type="text/javascript"> 
+    $(document).ready(function(){
+    $('pre').addClass('prettyprint linenums') 
+    })
+  </script>
+  <script type="text/javascript"> 
+    $(function() {window.prettyPrint && prettyPrint();});
+    $(function() {$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');});
+  </script>
+-->
+<!--
+<script src="{{ root_url }}/javascripts/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+-->
+<!-- duoshuo -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"{{ site.duoshuo_short_name }}"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+<script>
+//导航栏添加active
+$(function(){
+  function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+      return str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  var url = window.location.pathname;  
+  var activePage = stripTrailingSlash(url);
+
+  $('.nav li a').each(function(){  
+    var currentPage = stripTrailingSlash($(this).attr('href'));
+
+    if (activePage == currentPage) {
+      $(this).parent().addClass('active'); 
+    } 
+  });
+});
+</script>
+
+
+<!-- wumii -->
+    <script type="text/javascript">
+    var wumiiPermaLink = "{{ root_url }}{{ post.url }}"; //请用代码生成文章永久的链接
+    var wumiiTitle = "{{ page.title }}"; //请用代码生成文章标题
+    var wumiiTags = "{{ page.tags }}"; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiCategories = [{{ page.tags }}]; //请用代码生成文章分类，分类名放在 JSONArray 中，如: ["分类1", "分类2"]
+    var wumiiSitePrefix = "http://zwein27.github.io/";
+    var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+  <a href="http://www.wumii.com/widget/relatedItems" style="border:0;">
+      <img src="http://static.wumii.cn/images/pixel.png" alt="无觅关联推荐，快速提升流量" style="border:0;padding:0;margin:0;" />
+  </a>
+
+
+
+<!-- 回到顶部特效 -->
+
+
+
+<div class="go">
+  <a title="goTop" class="top" href="#gotop"></a>
+  <a title="Connect me" class="feedback" href="mailto:zwein27@gmail.com" target="_blank"></a>
+  <a title="goBottom" class="bottom" href="#gobottom"></a>
+</div>
+
+
+<!-- prettify代码高亮 -->
+  <script src="{{ root_url }}/javascripts/libs/prettify/prettify.js"></script>
+  <script>
+      /*需要在调用prettify.js的prettyPrint方法之前添加标签*/
+        $(function() {  
+          $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+        });
+        $(function() { 
+            window.prettyPrint && prettyPrint();
+        });
+  </script>
+
+
+<!-- 为markdown的超链接加上target="_blank" -->
+<script type="text/javascript">
+  function addBlankTargetForLinks () {
+    $('a[href^="http"]').each(function(){
+        $(this).attr('target', '_blank');
+    });
+  }
+
+  $(document).bind('DOMNodeInserted', function(event) {
+    addBlankTargetForLinks();
+  });
+</script>
+
+<!-- 新浪开发平台关注按钮 -->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>

@@ -1,2 +1,64 @@
-{% capture category %}{{ post.categories | size }}{% endcapture %}
-<h5><span class="meta text-muted">{% include post/date.html %}{{ time }}</span>&nbsp;<a href="{{ root_url }}{{ post.url }}">{{post.title}}</a></h5>
+{% capture tags_url %}{{ root_url }}/blog/tags/index.html{% endcapture %}
+
+{% capture category_size %}{{ post.categories | size }}{% endcapture %}
+{% capture tag_size %}{{ post.tags | size }}{% endcapture %}
+	<h1>
+		<a href="{{ root_url }}{{ post.url }}">{{post.title}}</a>
+	</h1>	
+	<span class="date" style="display:incline">
+		{% include post/date.html %}{{ time | date: "%b %d, %a"}}
+			
+	</span>
+
+	<span class="a_meta text-muted">
+		<!-- duoshuo comments -->
+			<a class="comments" href="{{site.url}}{% if page.permalink %}{{ page.permalink }}{% else %}{{ post.url }}{% endif %}#comments"
+             data-thread-key="{% if page.permalink %}{{ page.permalink }}{% else %}{{ post.url }}{% endif %}">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="{% if page.permalink %}{{ page.permalink }}{% else %}{{ post.url }}{% endif %}"></span>
+             </i>
+            </a>
+            &nbsp;|&nbsp;
+
+		{% if category_size != "0" %}
+			Posted in
+			{% capture first_cate %}{{ post.categories | first }}{% endcapture %}
+			<a href="{{ root_url }}/blog/categories/index.html#{{first_cate}}-ref" alt="{{first_cate}}">{{first_cate}}&nbsp;</a>
+		{% endif %}
+		{% if tag_size != "0" %}
+			&nbsp;|&nbsp;
+			Tagged with
+			{% if tag_size == "1" %}
+				{% capture first_tag %}{{ post.tags | first }}{% endcapture %}
+				<a href="{{tags_url}}#{{first_tag}}-ref" alt="{{first_tag}}">{{first_tag}}</a>.
+			{% else %}
+				{% if tag_size == "2" %}
+					{% capture first_tag %}{{ post.tags | first }}{% endcapture %}
+					<a href="{{tags_url}}#{{first_tag}}-ref" alt="{{first_tag}}">{{first_tag}}&nbsp;</a>
+						and 
+					{% capture last_tag %}{{ post.tags | last }}{% endcapture %}
+					<a href="{{tags_url}}#{{last_tag}}-ref" alt="{{last_tag}}">{{last_tag}}</a>.
+				{% else %}
+					{% for tag in post.tags %}
+						{% if forloop.last %}
+							and <a href="{{tags_url}}#{{tag}}-ref" alt="{{tag}}">{{tag}}</a>.
+						{% else %}
+							<a href="{{tags_url}}#{{tag}}-ref" alt="{{tag}}">{{tag}}</a>,
+						{% endif %}
+					{% endfor %} 
+				{% endif %}
+			{% endif %}
+
+		{% endif %}
+		
+		<br/>
+		{{post.description}}
+
+
+	</span>
+	&nbsp;
+
+	
+
+
+

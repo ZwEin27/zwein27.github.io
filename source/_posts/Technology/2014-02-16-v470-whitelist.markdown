@@ -1,0 +1,147 @@
+---
+layout: post
+url: /Technology/2014/02/16/v470-whitelist/index.html
+title: "联想V470黑苹果 去除白名单 & 驱动 & 功能配置"
+date: 2014-02-16 22:22:07 +0800
+permalink: /Technology/2014/02/16/v470-whitelist/
+comments: true
+category: Technology
+tags: DIY
+keywords: V470 Whitelist 白名单 驱动 配置 硬件ID 黑苹果
+description: 将联想V470笔记本黑苹果化的一些配置记录，包括去除白名单
+lang: zh
+indexer: true
+disqus-url: /_posts/2014/02/16/v470-whitelist.markdown
+---
+
+	******设备信息******
+	系统版本 : OS X 10.9.1 (13B42)
+	处理器名称 : Intel Core i5
+	内存 : 8 GB
+	显卡 : Intel HD Graphics 3000
+	声卡 : ALC272
+	硬盘 : HGST HTS721010A9E630   
+	光驱 : TSSTcorp CDDVDW TS-L633F
+	无线网卡 : BCM94322HM8L
+
+<!-- more -->
+
+##去除白名单
+
+1. 下载工具文件[Lenovo_V470_43CN43WW_NWL](http://pan.baidu.com/s/1kTnyTP9)
+2.	解压并打开`bios_mod`文件夹
+3.	该文件夹中的`BIOS1.WPH`即修改后的BIOS文件，并且该文件夹下整合了刷BIOS的工具
+4.	用管理员身份运行cmd，并转到`bios_mod`文件夹下
+5.	输入`winflash.exe /sd /sv BIOS1.WPH`回车，等待操作完成，重启机器，进入win操作系统，安装网卡驱动，运行一切正常。
+
+注：刷BIOS后，如果重启后，提示检测不到硬件或者安装驱动后没有无线信号灯问题。可以重新启动进入CMOS设置，调入默认值，重启即可。
+
+网卡选择`BCM94322HM8L`，通吃MAC OS X 10.6-10.9, 直接免驱。
+刷BIOS过程不需要硬件ID，解压完文件直接输入命令，等待操作完成即可。
+
+##V470黑苹果驱动配置
+
+###声卡
+
+[ALC272声卡驱动文件](http://pan.baidu.com/s/1c0xM7kc)
+在黑苹果环境下直接打开安装即可
+
+###亮度调节
+
+节约时间，没有去弄调整亮度的小太阳，而是使用第三方工具[shades](http://pan.baidu.com/s/1dD9pNTv)
+安装完成后，可以在系统`偏好设置`中进行设置，桌面顶部会有快捷操作图标，能够进行亮度调节。设置成开机启动后，能够自动调节亮度为上一次关机时的状态。
+
+###睡眠后的系统故障
+黑苹果长时间不动，会自动进入睡眠状态，唤醒之后发现鼠标挂了，=。=，表现是鼠标可移动，但是左右键均失灵。
+
+解决办法：
+系统“偏好设置”->“安全性与隐私”->配置成如下图所示即可。
+![排除睡眠后的系统故障](/images/blog/Snip20140216_4.png)
+
+
+##黑苹果系统配置
+###终端运行Sublime Text
+
+有两种方法
+
+* 使用软连接
+
+终端下输入
+
+	ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+
+* 使用 alias (别名)
+
+终端下输入：
+
+	sudo vi  /etc/bashrc
+	
+在最下面添加一下代码并保持(VIM如何保存这里不再赘述)
+
+	alias subl='open -a "Sublime Text"'
+
+这里subl可以是任意值，以后可以使用该名称打开Sublime Text
+
+推荐使用alias，方便配置，并且不需要添加额外的文件
+
+###Finder里显示隐藏文件
+
+设置Finder里显示隐藏文件
+
+	defaults write com.apple.finder AppleShowAllFiles -bool true
+
+
+设置Finder里不显示隐藏文件
+
+	defaults write com.apple.finder AppleShowAllFiles -bool false
+	
+### 使黑苹果对NTFS文件具有读写权限	
+
+原本黑苹果下只能够查看NTFS文件系统中的文件，通过安装[Paragon NTFS](http://dl.vmall.com/c0witnfz2p)这个应用，能够让你正常访问并操作NTFS系统下的文件。
+
+### 查看MAC是64位还是32位
+
+* 方法一
+
+点击工具栏左上角点击 （苹果Logo）标志，关于本机  -->  更多信息 --> 系统报告  -->(左侧栏中)软件
+
+![方法1](http://img.my.csdn.net/uploads/201304/08/1365377909_7832.png)
+
+* 方法二
+
+打开终端，输入命令 `uname -a` 回车
+  **x86_64 表示系统为64位
+  i686 表示系统32位的**
+
+![方法2](http://img.my.csdn.net/uploads/201304/08/1365377936_4073.png)
+
+* 方法三
+
+在终端输入命令
+
+	ioreg -l -p IODeviceTree | grep "firmware-abi" | sed -e 's/[^0-9A-Z]//g'
+
+**输出：EFI64 －－就说明系统是64位
+输出：EFI32 －－就说明系统是32位**
+
+![方法3](http://img.my.csdn.net/uploads/201304/08/1365377947_2498.png)
+
+
+## Mac 应用程序
+
+### Mac下文件清理工具
+
+在Mac下，可以使用[CleanMyMac2](http://dl.vmall.com/c03sn0hxaz)来清理一些垃圾文件。
+
+
+
+
+
+> 参考： 
+> [Biosrepair](http://www.biosrepair.com/bios/ibmbmd.htm)
+> [Bios-Mod](http://www.bios-mods.com/forum/Thread-REQUEST-Lenovo-V470-4396-WhiteList-Removal)
+> [新风作浪的博客专栏](http://blog.csdn.net/duxinfeng2010/article/details/8629435)
+
+
+
+

@@ -1,5 +1,6 @@
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -10,11 +11,29 @@
             <a class="navbar-brand" href="{{ root_url }}/">{{ site.title }}</a>
         </div>
 
-        <div class="navbar-collapse collapse">
+        <div  class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ root_url }}/">Blog</a></li>
-                <li><a href="{{ root_url }}/blog/archives">Archives</a></li>
-                <li><a href="{{ root_url }}/about">About</a></li>
+                <li><a href="{{ root_url }}/blog">Blog</a></li>
+                <li><a href="{{ root_url }}/blog/archives">Archive</a></li>
+                <li><a href="{{ root_url }}/blog/categories">Categories</a></li>
+                <li><a href="{{ root_url }}/blog/tags">Tags</a></li>
+                <li><a href="{{ root_url }}/blog/about">About</a></li>
+
+               
+
+
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -42,4 +61,11 @@
             {% endif %}
         </div>
     </div>
+
+
+    <div id="topbarloading"></div>
+    
 </nav>
+
+
+

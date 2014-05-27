@@ -1,0 +1,28 @@
+---
+layout: default
+title: "ZwEin27 - zwein' blog"
+comments: true
+sharing: false
+footer: true
+navbar: Blog
+---
+<div class="row">
+	<div class="page-content {% unless site.default_asides == empty and site.blog_index_asides == empty %}col-md-9{% endunless %}">
+		<div class="blog-index">
+			  {% assign index = true %}
+		      {% for post in paginator.posts %}
+		      {% assign content = post.content %}
+			  	<article class="post">{% include article.html %}</article>
+			  {% endfor %}
+		</div>
+
+	</div>
+
+	<aside class="sidebar">
+		  {% if site.blog_index_asides.size %}
+		    {% include_array blog_index_asides %}
+		  {% else %}
+		    {% include_array default_asides %}
+		  {% endif %}
+	</aside>
+</div>

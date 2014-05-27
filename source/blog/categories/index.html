@@ -1,0 +1,42 @@
+---
+layout: page
+title: "categories"
+date: 2014-02-17 19:38
+comments: true
+sharing: true
+footer: true
+category: 
+tags: 
+keywords: Categories ZwEin Blog Lzteng
+description: 
+lang: zh
+---
+
+<ul class="tag_box">
+	<h3>Category</h3>
+	 {% for category in site.categories %} 
+    	<li><a href="{{ root_url }}{{ page.url }}#{{ category[0] }}-ref">
+    		{{ category[0] | join: "/" }} <span>{{ category[1].size }}</span>
+    	</a></li>
+    {% endfor %}
+</ul>
+
+
+<div class="tags_tagdetail">
+	
+		{% for tag in site.categories  %} 
+			
+				<h4 id="{{tag[0]}}-ref">{{tag[0]}} (<span>{{ tag[1].size }}</span>)</h4>
+				<ul>
+					{% for post in site.posts  %} 
+						{% if post.categories contains tag[0] %}
+							<li>
+								<a href="{{post.url}}">{{post.title}}</a>
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+		
+		{% endfor %}
+	
+</div>

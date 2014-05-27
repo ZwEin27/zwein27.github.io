@@ -1,0 +1,93 @@
+---
+layout: post
+url: /Diary/2014/02/26/baas-note/index.html
+title: "BaaS 笔记"
+date: 2014-02-26 22:22:03 +0800
+permalink: /Diary/2014/02/26/baas-note/
+comments: true
+category: Technology
+tags: BaaS 
+keywords: Parse
+description: 
+lang: zh
+indexer: true
+disqus-url: /_posts/2014/02/26/baas-note.markdown
+---
+
+## 什么是BaaS
+
+BaaS, 后端即服务，是Backend as a Service的缩写
+
+BaaS是指专为移动应用开发者提供整合云后端的服务。开发者无需过多研究服务器端程序，而只需调用云计算平台提供的API，使用相应SDK，就能迅速完成数据存储、账户管理、消息推送、社交网络整合等功能。
+<!-- more -->
+## 国外的BaaS
+
+### StackMob
+
+[StackMob](https://www.stackmob.com/product/)是一家提供移动应用后端服务的公司，成立于2010年1月，有人把StackMob称为移动版的Heroku。StackMob的创始人之一Ty Amell，2004年从西北大学获得MIS专业的学士学位。2007-2009年间，他在知名的音乐分享网站imeem担任工程经理，负责移动和前端产品，经历了从0到120万用户的全过程。他意识到，如果能够建立一个平台，帮助许许多多移动开发者提供后端云服务，便能够大大简化他们的工作。
+
+StackMob平台分为三个版本，Standard、Pro，还有Enterprise，各个版本的功能表可以参照[Pricing](https://www.stackmob.com/pricing/)
+
+StackMob按照功能收费，可以再[Marketplace](https://marketplace.stackmob.com/)看到所有提供的功能，并有标注收费还是免费。
+
+### Parse
+
+[Parse](https://www.parse.com/products)是由YC孵化出来的，专为移动应用提供后台服务的云计算平台，为开发者包办繁琐的后台服务，让开发者只需专注于具体的开发工作。它提供任意数据保存，照片或其它文件存储，发送推送通知，创建用户帐号，使用地理位置数据以及添加Facebook/Twitter帐号登录等服务。
+
+Parse用户无需再费时费力地折腾Facebook帐号连接和推送通知等服务器端的功能，只需把相应SDK拖放到应用内即可。
+
+Band of the Day是苹果App Store 2011年度一款重量级的应用，它就使用了Parse的服务。此外，有些大公司也在使用Parse。
+
+Parse资费可以查看[Pricing](https://www.parse.com/plans)，主要分为三个版本，Basic，Pro，和Enterprice。
+
+* Basic版本每月拥有一百万的REQUEST和PUSH支持，超出部分额外计费。
+* Pro版本每月1500w的REQUEST还有500w的PUSH, 还有其他附加功能，每月需要199美元
+* Enterprise为定制版本，根据定制收费
+
+http://www.zhihu.com/question/22098754
+http://17startup.com/startuplist/view/752
+http://blog.csdn.net/kavensu/article/details/17767239
+
+### 其他
+
+* [Kinvey](http://www.kinvey.com/)
+* [Sencha.io](http://www.sencha.com/products/io)
+* [Amazon EC2](http://aws.amazon.com/cn/ec2/)
+
+## 国内的BaaS
+
+### Bmob
+
+[Bmob](http://www.bmob.cn/)是国内第一家专注于移动应用云存储的平台，是基于PaaS模式的云计算平台。开发者可以使用Bmob设计存储框架、获取应用密钥、下载SDK并嵌入应用程序、调用相应API，应用发布后查看存储的统计分析数据，整个流程能够快速实现，并且Bmob的云服务是免费的。
+
+### AVOS Cloud
+
+基本上是模仿Parse设计的，界面设计的很不错，并且官方称坚持每周更新。官方讨论群活跃，一般一问问题都会有专门的人员给予简答，赞一个。不过或许是因为工作量和进度规划问题，AVOS的官方版本中还存在一些问题，比如官方指南中就有各种排版问题和文字错误，并且内容大多是从Parse上翻译的，有些看不明白的地方，到时可以去Parse上参考一下。
+
+AVOS Cloud的在国内的响应速度比较好，不需要翻墙浏览查看文档，这一点是目前对Parse的优势。不过Parse在相应速度上还是比较客观的，对速度要求不大，并且想体验更多功能的还是可以先拿Parse练练手。
+
+AVOS也有提供官方Demo，不过有一个Demo好像还是移植的，界面都乱了，o(╯□╰)o，这一点可以看看Parse的，虽然不是太好，但是可以马上运行。
+
+目前AVOS还在不断完善，相信会越来越好，加入更多本地化元素，支持国产
+
+
+### 其他
+
+[Amtbaas.com](http://amtbaas.com/)
+
+
+
+
+
+> 更多内容可以参考：
+> 
+* [六大BaaS产品推荐：移动开发必备的后端云服务](http://www.csdn.net/article/2013-03-06/2814373-baas-for-mobile-backend-development)
+* [移动后端服务BaaS现状](http://keegan-lee.diandian.com/post/2012-11-10/40041810560)
+* [为开发者提供各类服务(BaaS)的公司](http://17startup.com/startuplist/view/752)
+>
+
+
+
+
+
+

@@ -18,7 +18,7 @@ deploy_branch  = "master"
 
 public_dir      = "public"    # compiled site directory
 source_dir      = "source"    # source file directory
-blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
+blog_index_dir  = 'source/blog'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
 posts_dir       = "_posts"    # directory for blog files
@@ -27,10 +27,6 @@ new_post_ext    = "markdown"  # default new post file extension when using the n
 new_page_ext    = "markdown"  # default new page file extension when using the new_page task
 server_port     = "4000"      # port for preview server eg. localhost:4000
 
-if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
-  puts '## Set the codepage to 65001 for Windows machines'
-  `chcp 65001`
-end
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
 task :install, :theme do |t, args|
@@ -77,13 +73,18 @@ task :watch do
 end
 
 desc "preview the site in a web browser"
-task :preview do
+task :preview, :filename do |t, args|
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll --auto")
   compassPid = Process.spawn("compass watch")
   rackupPid = Process.spawn("rackup --port #{server_port}")
+
+
+  filename = args[:filename] || ""
+  system "sleep 2; open http://localhost:4000/blog#{filename}"
+
 
   trap("INT") {
     [jekyllPid, compassPid, rackupPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
@@ -93,17 +94,31 @@ task :preview do
   [jekyllPid, compassPid, rackupPid].each { |pid| Process.wait(pid) }
 end
 
+
+
+
+
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
 desc "Begin a new post in #{source_dir}/#{posts_dir}"
-task :new_post, :title do |t, args|
+task :new_post, :title, :category do |t, args|
   if args.title
     title = args.title
   else
     title = get_stdin("Enter a title for your post: ")
   end
+
+# add category
+  if args.category
+    category = args.category  
+  else
+    category = "Diary"
+  end
+    
+
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
-  mkdir_p "#{source_dir}/#{posts_dir}"
-  filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  mkdir_p "#{source_dir}/#{posts_dir}/posts"
+  filename = "#{source_dir}/#{posts_dir}/#{category}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
@@ -111,12 +126,25 @@ task :new_post, :title do |t, args|
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: post"
+    post.puts "url: /#{category}/#{Time.now.strftime('%Y/%m/%d')}/#{title.to_url}/index.html"
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
+    post.puts "permalink: /#{category}/#{Time.now.strftime('%Y/%m/%d')}/#{title.to_url}/"
     post.puts "comments: true"
-    post.puts "categories: "
+    post.puts "category: #{category}"
+    post.puts "tags: "
+    post.puts "keywords: "
+    post.puts "description: "
+    post.puts "lang: zh"
+    post.puts "published: true"
+    post.puts "indexer: true"
+    post.puts "disqus-url: /#{posts_dir}/#{Time.now.strftime('%Y/%m/%d')}/#{title.to_url}.#{new_post_ext}"
     post.puts "---"
   end
+  #system 'open ./source/_posts'
+  system "sleep 2; open /Users/zwein/Blog/zwein27.github.io/#{source_dir}/#{posts_dir}"
+  system "sleep 2; open -a  /Applications/Mou.app /Users/zwein/Blog/zwein27.github.io/#{filename}"
+
 end
 
 # usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to "new-page.markdown")
@@ -151,6 +179,11 @@ task :new_page, :filename do |t, args|
       page.puts "comments: true"
       page.puts "sharing: true"
       page.puts "footer: true"
+      page.puts "category: "
+      page.puts "tags: "
+      page.puts "keywords: "
+      page.puts "description: "
+      page.puts "lang: zh"
       page.puts "---"
     end
   else
@@ -187,8 +220,8 @@ task :update_style, :theme do |t, args|
   end
   mv "sass", "sass.old"
   puts "## Moved styles into sass.old/"
-  cp_r "#{themes_dir}/"+theme+"/sass/", "sass", :remove_destination=>true
-  cp_r "sass.old/custom/.", "sass/custom/", :remove_destination=>true
+  cp_r "#{themes_dir}/"+theme+"/sass/", "sass"
+  cp_r "sass/custom/.", "sass.old/custom"
   puts "## Updated Sass ##"
 end
 
@@ -261,8 +294,8 @@ multitask :push do
   cp_r "#{public_dir}/.", deploy_dir
   cd "#{deploy_dir}" do
     system "git add -A"
+    puts "\n## Committing: Site updated at #{Time.now.utc}"
     message = "Site updated at #{Time.now.utc}"
-    puts "\n## Committing: #{message}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing generated #{deploy_dir} website"
     system "git push origin #{deploy_branch}"

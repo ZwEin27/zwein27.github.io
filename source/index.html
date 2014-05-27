@@ -1,33 +1,85 @@
 ---
-layout: default
-navbar: Blog
+layout:
+title: ZwEin
+body_id: homepage
 ---
 
-<div class="row">
-  <div class="page-content {% unless site.default_asides == empty and site.blog_index_asides == empty %}col-md-9{% endunless %}">
-    <div class="blog-index">
-      {% assign index = true %}
-      {% for post in paginator.posts %}
-      {% assign content = post.content %}
-        <article class="post">
-          {% include article.html %}
-        </article>
-      {% endfor %}
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{{ page.title }}{{ page.post_title_label }}</title>
+
+    <meta name="author" content="ZwEin" />
+    <meta name="publisher" content="ZwEin" />
+    <meta name="keywords" content="ZwEin Blog Ruby Rails Java Android Programming Testing Software Engineering" />
+    <meta name="description" content="ZwEin (LINGZHE TENG) - Programmer, Designer" />
+    <!-- 新浪 -->
+    <meta property="wb:webmaster" content="df940a3dbf57e160" />
+    <!-- baidu -->
+    <meta name="baidu-site-verification" content="mqpzxukah8" />
+
+
+    <link href="{{ root_url }}/favicon.png" type="image/png" rel="icon">
+
+    <link href="{{ root_url }}/stylesheets/homepage/syntax.css" rel="stylesheet" type="text/css" media="screen, projection, print" />
+    <link href="{{ root_url }}/stylesheets/homepage/screen.css" rel="stylesheet" type="text/css" media="screen, projection, print" />
+    <link href="{{ root_url }}/stylesheets/homepage/font.css" rel="stylesheet" type="text/css" media="screen, projection, print" />
+
+
+
+    <!--[if lte IE 7]><script src="{{ root_url }}/javascripts/homepage/icomoon-lte-ie7.js"></script><![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="{{ root_url }}/javascripts/homepage/header.js" type="text/javascript"></script>
+    <script src="{{ root_url }}/javascripts/homepage/post.js" type="text/javascript"></script>
+    <script src="{{ root_url }}/javascripts/homepage/google_analytics.js" type="text/javascript"></script>
+
+
+  </head>
+  <body id="{{page.body_id}}">
+    <!--[if lt IE 9]><div style='clear: both; height: 59px; width=820px; position: relative;'> <a href="http://www.google.com/chrome"><img src="http://www.ie6countdown.com/images/upgrade.jpg" border="0" height="42" width="820" alt="It looks like you're trying to use the web. You should download a modern browser. Seriously." /></a></div><![endif]-->
+    <div id="content-wrapper">
+
+      <!-- content -->
+      <div id="arenas-of-awesome">
+        <ul>
+          <li>
+            <a class="core-nav icon-quill-2" href="/blog" title="ZwEin - Blog"></a>
+          </li>
+          <li>
+            <a class="core-nav icon-feed" href="#" title="Jason Rudolph - Atom/RSS Feed"></a>
+          </li>
+          <li>
+            <a class="core-nav icon-twitter" href="#" title="Jason Rudolph - jasonrudolph on Twitter"></a>
+          </li>
+          <li>
+            <a class="core-nav icon-github" href="#" title="Jason Rudolph - jasonrudolph on GitHub"></a>
+          </li>
+          <li>
+            <a class="core-nav icon-info-2" href="#" title="Jason Rudolph - About"></a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div id="push"></div>
     </div>
+    <div id="footer">
+      <p id="contact-info"><a class="core-nav" href="mailto:zwein27@gmail.com" target="_blank">ZwEin@Zwein27.github.com</a></p>
+      <p id="contact-info">
+      Powered by  <a class="core-nav" href="mailto:zwein27@gmail.com">Jason Rudolph</a>
+      </p>
+      <p id="copyright">
+        <!-- <a class="core-nav icon-cc" rel="license" title="Some Rights Reserved — Creative Commons License" href="https://github.com/jasonrudolph/jasonrudolph.com/blob/master/README.markdown#license"></a> -->
+        
 
-    <ul class="pager">
-      {% if paginator.next_page %}
-        <li class="previous"><a href="{{paginator.next_page}}">&larr;&nbsp;Older</a></li>
-      {% else %}
-        <li class="previous disabled"><a href="#">&larr;&nbsp;Older</a></li>
-      {% endif %}
-      <li><a href="/blog/archives">Blog Archives</a></li>
-      {% if paginator.previous_page %}
-        <li class="next"><a href="{{paginator.previous_page}}">Newer&nbsp;&rarr;</a></li>
-      {% else %}
-        <li class="next disabled"><a href="#">Newer&nbsp;&rarr;</a></li>
-      {% endif %}
-    </ul>
-  </div>
-
-</div>
+      </p>
+    </div>
+  </body>
+</html>

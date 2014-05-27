@@ -1,0 +1,26 @@
+---
+layout: post
+url: /Development/2014/02/20/ios-note-10-xml/index.html
+title: "iOS Note 10 - XML"
+date: 2014-02-20 14:32:35 +0800
+permalink: /Development/2014/02/20/ios-note-10-xml/
+comments: true
+category: Development
+tags: iOS
+keywords: iOS
+description: iOS
+lang: zh
+published: false
+indexer: true
+disqus-url: /_posts/2014/02/20/ios-note-10-xml.markdown
+---
+
+
+
+> 参考
+>
+> Ryan's zone - 
+> [使用GDataXML解析XML文档](http://blog.csdn.net/ryantang03/article/details/7868246) & 
+> [XML解析之KissXML的使用](http://blog.csdn.net/ryantang03/article/details/7926268) & 
+> [NSJSONSerialization使用](http://blog.csdn.net/ryantang03/article/details/8314928)
+> 

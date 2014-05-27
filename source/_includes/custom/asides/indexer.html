@@ -1,0 +1,13 @@
+{% if page.indexer == true %}
+<section>
+	<div class="panel-heading">
+	  <h3 class="panel-title">Catalog</h3>
+	</div>
+	<div class="panel-body">
+	 <p>
+	 {{ content | indexer_aside }}
+	 </p>
+	</div>
+</section>
+{% endif %}
+

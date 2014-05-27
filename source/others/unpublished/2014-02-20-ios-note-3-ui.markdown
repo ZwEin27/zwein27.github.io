@@ -1,0 +1,277 @@
+---
+layout: post
+url: /Development/2014/02/20/ios-note-3-ui/index.html
+title: "iOS 开发笔记 3 - UI"
+date: 2014-02-20 00:15:31 +0800
+permalink: /Development/2014/02/20/ios-note-3-ui/
+comments: true
+category: Development
+tags: iOS
+keywords: UI iOS
+description: iOS开发的UI笔记
+lang: zh
+indexer: true
+disqus-url: /_posts/2014/02/20/ios-note-3-ui.markdown
+---
+
+
+
+
+## UI 基础
+
+### IOS 触摸事件
+
+在IOS开发中会遇到各种操作事件，通过程序可以对这些事件做出响应。
+
+在IOS中，由响应者链来对事件进行响应，所有事件响应的类都是UIResponder的子类，响应者链是一个由不同对象组成的层次结构，其中的每个对象将依次获得响应事件消息的机会。
+
+当发生事件时，事件首先被发送给第一响应者，第一响应者往往是事件发生的视图，也就是用户触摸屏幕的地方。事件将沿着响应者链一直向下传递，直到被接受并做出处理。
+
+路线图如 First Responser——>The Window——>The Application——>App Delegate
+
+正常的响应者链流程经常被委托（delegation）打断，一个对象（通常是视图）可能将响应工作委托给另一个对象来完成（通常是视图控制器ViewController），这就是为什么做事件响应时在ViewController中必须实现相应协议来实现事件委托。
+
+<!-- more -->
+
+
+#### UITouch
+
+UITouch对象是一个手指接触到屏幕并在屏幕上移动或离开屏幕时创建的。它有几个属性和实例方法：
+phase：属性，返回一个阶段常量，指出触摸开始、继续、结束或被取消，分别对应UITouchPhaseBegan、UITouchPhaseMoved等
+
+* tapCount：属性，轻按屏幕的次数
+* timeStamp：属性，触摸发生的时间
+* view：属性，触摸始于那个视图
+* window：属性，触摸始于哪个窗口
+* lacationInView：方法，触摸在指定视图中的当前位置
+* previousLocationView：方法，触摸在指定视图中的前一个位置
+
+#### UIEvent
+
+UIEvent对象包含一组相关的UITouch对象
+
+由UITouch对象组成UIEvent对象，可以理解成一个完整的触摸操作是一个UIEvent，而这一系列完整操作中的每个点就是UITouch（按下、移动、离开）。
+
+UIEvent的作用是提供相关触摸操作的列表，如果要获取在屏幕上触摸的手势，可以使用该对象，这一些列操作都存储在Foundation框架中的NSSet对象中。
+
+#### UIResponder
+
+UIResponser提供四个事件响应的方法，这些方法是事件捕捉的核心。
+
+这些方法都接收两个参数，一个是NSSet（包含指定阶段的触摸）和一个UIEvent。
+
+* touchesBegan:withEvent: 在手指触摸屏幕时报告UITouchPhaseBegan事件
+* touchesMoved:withEvent: 在手指在屏幕上移动时报告UITouchPhaseMoved事件
+* touchesEnded:withEvent: 在手指离开屏幕时报告UITouchPhaseEnded事件
+* touchesCancelled:withEvent: 在因接听电话或其他因素导致取消触摸时报告UITouchPhaseCancelled事件
+
+#### 触摸事件的例子
+
+定义一个方法用来响应触摸事件
+
+	-(void)manageTouches:(NSSet *)touches
+	{
+	    for (UITouch *touch in touches) {
+	        switch (touch.phase) {
+	            caseUITouchPhaseBegan:
+	                NSLog(@"began...");                
+	                break;
+	                
+	            caseUITouchPhaseMoved:
+	                 NSLog(@"move...");       
+	                break;
+	                
+	            caseUITouchPhaseEnded:
+	                 NSLog(@"end...");       
+	                break;
+	            default:
+	                break;
+	        }
+	    }
+	}
+
+然后在ViewController中响应该方法：
+	
+	-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+	
+	-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+	
+	-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+
+关于多点触摸，可以参考Apple IOS SDK开发文档，多点触摸在游戏及其一些新奇的应用中比较多，在常规的应用开发中还是比较少的用到多点触摸。
+
+
+
+
+### UIControl对象
+
+UIKit提供了一组控件：UISwitch开关、UIButton按钮、UISegmentedControl分段控件、UISlider滑块、UITextField文本字段控件、UIPageControl分页控件。
+
+控件是对UIView派生类的实用增强及补充，并可以直接附着于导航栏、表格单元，甚至更大的对象。
+
+这些控件的基类均是UIControl，而UIControl派生自UIView类，所以每个控件都有很多视图的特性，包括附着于其他视图的能力。
+
+所有控件都拥有一套共同的属性和方法。
+
+UIControl本身也包含了一些属性和方法，但是不能直接使用UIControl类，它只是定义了子类都需要使用的方法。
+
+#### 属性
+
+##### contentVerticalAlignment
+
+控件如何在垂直方向上布置自身的内容。默认是将内容顶端对其，对于文本字段，可能会改成UIControlContentVerticalAlignmentCenter。
+
+对于这个字段，可以使用下列诸值：
+
+	UIControlContentVerticalAlignmentCenter  
+	UIControlContentVerticalAlignmentTop  
+	UIControlContentVerticalAlignmentBottom  
+	UIControlContentVerticalAlignmentFill  
+	
+##### contentHorizontalAlignment
+
+水平对齐方式，可以只用下列值：
+
+	UIControlContentHorizontalAlignmentCenter
+	UIControlContentHorizontalAlignmentTop
+	UIControlContentHorizontalAlignmentBottom
+	UIControlContentHorizontalAlignmentFill
+	
+#### 事件通知
+
+UIControl类提供了一个标准机制，来进行事件登记和接收。
+
+这令你可以指定你的控件在发生特定事件时，通知代理类的一个方法。如果要注册一个事件，可以使用：
+
+              [ myControl addTarget: myDelegate 
+                          action:@selector(myActionmethod:)
+                          forControlEvents:UIControlEventValueChanged ];
+                          
+事件可以用逻辑OR合并在一起，因此可以再一次单独的addTarget调用中指定多个事件。
+
+
+#### UIControl 支持的事件
+
+下列事件为基类UIControl所支持，除非另有说明，也适用于所有控件。
+
+**UIControlEventTouchDown**:
+单点触摸按下事件：用户点触屏幕，或者又有新手指落下的时候。
+
+**UIControlEventTouchDownRepeat**:
+多点触摸按下事件，点触计数大于1：用户按下第二、三、或第四根手指的时候。
+
+**UIControlEventTouchDragInside**:
+当一次触摸在控件窗口内拖动时。
+
+**UIControlEventTouchDragOutside**:
+当一次触摸在控件窗口之外拖动时。
+
+**UIControlEventTouchDragEnter**:
+当一次触摸从控件窗口之外拖动到内部时。
+
+**UIControlEventTouchDragExit**:
+当一次触摸从控件窗口内部拖动到外部时。
+
+**UIControlEventTouchUpInside**:
+所有在控件之内触摸抬起事件。
+
+**UIControlEventTouchUpOutside**:
+所有在控件之外触摸抬起事件(点触必须开始与控件内部才会发送通知)。
+
+**UIControlEventTouchCancel**:
+所有触摸取消事件，即一次触摸因为放上了太多手指而被取消，或者被上锁或者电话呼叫打断。
+
+**UIControlEventTouchChanged**:
+当控件的值发生改变时，发送通知。用于滑块、分段控件、以及其他取值的控件。你可以配置滑块控件何时发送通知，在滑块被放下时发送，或者在被拖动时发送。
+
+**UIControlEventEditingDidBegin**:
+当文本控件中开始编辑时发送通知。
+
+**UIControlEventEditingChanged**:
+当文本控件中的文本被改变时发送通知。
+
+**UIControlEventEditingDidEnd**:
+当文本控件中编辑结束时发送通知。
+
+**UIControlEventEditingDidOnExit**:
+当文本控件内通过按下回车键（或等价行为）结束编辑时，发送通知。
+
+**UIControlEventAlltouchEvents**:
+通知所有触摸事件。
+
+**UIControlEventAllEditingEvents**:
+通知所有关于文本编辑的事件。
+
+**UIControlEventAllEvents**:
+通知所有事件。
+
+**除了默认事件以外，自定义控件类还可以用0x0F000000到0x0FFFFFFF之间的值，来定义他们自己的时间。**
+
+#### 事件相关方法
+
+##### 事件删除 removeTarget()
+
+要删除一个或多个事件的相应动作，可以使用UIControl类的removeTarget方法。
+
+使用nil值就可以将给定事件目标的所有动作删除：
+
+	[ myControl removeTarget:myDelegate 
+                  action:nil
+                  forControlEvents:UIControlEventAllEvents];
+
+##### 获得事件完整的动作列表 allTargets()
+                  
+要取得关于一个控件所有指定动作的列表，可以使用allTargets方法。这个方法返回一个NSSet，其中包含事件的完整列表：
+
+	NSSet* myActions = [myConreol allTargets ];
+	
+##### 获取特定事件目标的全部动作列表 actionsForTarget()
+	
+用actionsForTarget方法，来获取针对某一特定事件目标的全部动作列表：
+
+	NSArray* myActions = [ myControl actionForTarget:UIControlEventValueChanged ];	
+	
+##### 为指定事件通知事件变化 sendActionsForControlEvent()
+
+如果设计了一个自定义控件类，可以使用sendActionsForControlEvent方法，为基本的UIControl事件或自己的自定义事件发送通知。
+
+例如，如果你的控件值正在发生变化，就可以发送相应通知，通过控件的代码可以指定事件目标，这个通知将被传播到这些指定的目标。例：
+
+	[ self sendActionsForControlEvents:UIControlEventValueChanged ];
+	
+##### 事件响应
+
+当委托类得到事件通知时，他将收到一个指向事件发送者的指针。下面的例子用于处理分段控件的事件，你的动作方法（action method）应遵循类似的处理方式：
+
+	-(void) myAction:(id)sender{
+       UISegmentedControl* control = (UISegmentedControl*)sender;
+       if(control == myControl1){
+        /*查询控件得值*/
+      	/*响应myControl1的动作*/
+       }
+	}
+	
+
+### ViewController间传值
+
+具体实例可以参考：[两个ViewController间传值](http://blog.csdn.net/ryantang03/article/details/7913754)
+
+
+
+### 提示框开源库 - MBProgressHUD
+
+[提示框第三方库之MBProgressHUD](http://blog.csdn.net/ryantang03/article/details/7877120)
+
+
+> 参考
+>
+> [Ryan's zone](http://blog.csdn.net/tangren03/article/category/1073221/5)
+>
+> [UIControl IOS控件编程—IOS开发](http://blog.csdn.net/iukey/article/details/7300412)
+
+
+
+
+
+
+

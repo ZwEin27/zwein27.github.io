@@ -1,0 +1,43 @@
+<section>
+
+		<div class="panel-heading">
+			<h3 class="panel-title">Post Info</h3>
+		</div>
+		<div class="panel-body">
+		<p>
+			Author: {{site.author}}
+		</p>
+
+		<p>Date: <span class="date" style="display:incline">
+		{% include post/date.html %}{{ time | date: "%B %d, %Y (%a)"}}</span>
+		</p>
+
+		<p>
+
+			<!-- add tags for aside bar -->
+      <div class="article_tag">
+        <i class="fa fa-bookmark"></i>
+        
+        {% if page.tags.first[0] == null %}
+            {% for tag in page.tags %} 
+              <a href="{{ site.url }}/blog/tags/index.html#{{ tag }}-ref">{{ tag }} </a>
+              
+            {% endfor %}
+        {% else %}
+            {% for tag in page.tags %} 
+             <a href="{{ site.url }}/blog/tags/index.html#{{ tag[0] }}-ref">{{ tag[0] }} </a>
+              
+            {% endfor %}
+        {% endif %}
+        
+      </div>
+
+
+		</p>
+		</div>
+
+
+
+	
+
+</section>
