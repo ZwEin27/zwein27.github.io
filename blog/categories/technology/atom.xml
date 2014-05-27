@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Technology | lzteng]]></title>
+  <link href="http://lzteng.com/blog/categories/technology/atom.xml" rel="self"/>
+  <link href="http://lzteng.com/"/>
+  <updated>2014-05-27T20:17:19+08:00</updated>
+  <id>http://lzteng.com/</id>
+  <author>
+    <name><![CDATA[ZwEin]]></name>
+    <email><![CDATA[ZwEin27@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Parse Note]]></title>
+    <link href="http://lzteng.com/Diary/2014/02/27/parse-note/"/>
+    <updated>2014-02-27T19:40:39+08:00</updated>
+    <id>http://lzteng.com/Diary/2014/02/27/parse-note</id>
+    <content type="html"><![CDATA[<h2>Parse在IOS下的环境配置</h2>
+
+<p><a href="https://parse.com/apps/quickstart#parse_push/ios/existing">官方教程</a></p>
+
+<p>运行后可能会遇到下面的问题：</p>
+
+<pre><code> Undefined symbols for architecture armv7:
+ "_FBTokenInformationTokenKey", referenced from:
+ -[PFFacebookTokenCachingStrategy accessToken] in Parse(PFFacebookTokenCachingStrategy.o)
+ -[PFFacebookTokenCachingStrategy setAccessToken:] in Parse(PFFacebookTokenCachingStrategy.o)
+ "_FBTokenInformationExpirationDateKey", referenced from:
+ -[PFFacebookTokenCachingStrategy cacheTokenInformation:] in     Parse(PFFacebookTokenCachingStrategy.o)
+ -[PFFacebookTokenCachingStrategy expirationDate] in Parse(PFFacebookTokenCachingStrategy.o)
+ -[PFFacebookTokenCachingStrategy setExpirationDate:] in Parse(PFFacebookTokenCachingStrategy.o)
+ "_OBJC_METACLASS_$_FBSessionTokenCachingStrategy", referenced from:
+ _OBJC_METACLASS_$_PFFacebookTokenCachingStrategy in Parse(PFFacebookTokenCachingStrategy.o)
+ "_OBJC_CLASS_$_FBSessionTokenCachingStrategy", referenced from:
+ _OBJC_CLASS_$_PFFacebookTokenCachingStrategy in Parse(PFFacebookTokenCachingStrategy.o)
+ "_FBTokenInformationUserFBIDKey", referenced from:
+ -[PFFacebookTokenCachingStrategy facebookId] in Parse(PFFacebookTokenCachingStrategy.o)
+ -[PFFacebookTokenCachingStrategy setFacebookId:] in Parse(PFFacebookTokenCachingStrategy.o)
+ "_OBJC_CLASS_$_FBRequest", referenced from:
+ objc-class-ref in Parse(PFFacebookAuthenticationProvider.o)
+ "_OBJC_CLASS_$_FBSession", referenced from:
+ objc-class-ref in Parse(PFFacebookAuthenticationProvider.o)
+ ld: symbol(s) not found for architecture armv7
+ clang: error: linker command failed with exit code 1 (use -v to see invocation)
+</code></pre>
+
+<p>解决方法：
+新建一个名为FBMissingSymbols的Obj-C文件，删除掉.h文件，因为并不需要使用到。
+在.m文件中添加以下内容即可<!-- more --></p>
+
+<pre><code>NSString *FBTokenInformationExpirationDateKey = @"";
+NSString *FBTokenInformationTokenKey = @"";
+NSString *FBTokenInformationUserFBIDKey = @"";
+@interface FBAppCall:NSObject
+@end
+@implementation FBAppCall
+@end
+@interface FBRequest:NSObject
+@end
+@implementation FBRequest
+@end
+@interface FBSession:NSObject
+@end
+@implementation FBSession
+@end
+@interface FBSessionTokenCaching:NSObject
+@end
+@implementation FBSessionTokenCaching
+@end
+@interface FBSessionTokenCachingStrategy:NSObject
+@end
+@implementation FBSessionTokenCachingStrategy
+@end
+</code></pre>
+
+<p>参考自：<a href="http://stackoverflow.com/questions/15457136/parse-for-ios-errors-when-trying-to-run-the-app">stackoverflow.com</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BaaS 笔记]]></title>
+    <link href="http://lzteng.com/Diary/2014/02/26/baas-note/"/>
+    <updated>2014-02-26T22:22:03+08:00</updated>
+    <id>http://lzteng.com/Diary/2014/02/26/baas-note</id>
+    <content type="html"><![CDATA[<h2>什么是BaaS</h2>
+
+<p>BaaS, 后端即服务，是Backend as a Service的缩写</p>
+
+<p>BaaS是指专为移动应用开发者提供整合云后端的服务。开发者无需过多研究服务器端程序，而只需调用云计算平台提供的API，使用相应SDK，就能迅速完成数据存储、账户管理、消息推送、社交网络整合等功能。</p>
+
+<!-- more -->
+
+
+<h2>国外的BaaS</h2>
+
+<h3>StackMob</h3>
+
+<p><a href="https://www.stackmob.com/product/">StackMob</a>是一家提供移动应用后端服务的公司，成立于2010年1月，有人把StackMob称为移动版的Heroku。StackMob的创始人之一Ty Amell，2004年从西北大学获得MIS专业的学士学位。2007-2009年间，他在知名的音乐分享网站imeem担任工程经理，负责移动和前端产品，经历了从0到120万用户的全过程。他意识到，如果能够建立一个平台，帮助许许多多移动开发者提供后端云服务，便能够大大简化他们的工作。</p>
+
+<p>StackMob平台分为三个版本，Standard、Pro，还有Enterprise，各个版本的功能表可以参照<a href="https://www.stackmob.com/pricing/">Pricing</a></p>
+
+<p>StackMob按照功能收费，可以再<a href="https://marketplace.stackmob.com/">Marketplace</a>看到所有提供的功能，并有标注收费还是免费。</p>
+
+<h3>Parse</h3>
+
+<p><a href="https://www.parse.com/products">Parse</a>是由YC孵化出来的，专为移动应用提供后台服务的云计算平台，为开发者包办繁琐的后台服务，让开发者只需专注于具体的开发工作。它提供任意数据保存，照片或其它文件存储，发送推送通知，创建用户帐号，使用地理位置数据以及添加Facebook/Twitter帐号登录等服务。</p>
+
+<p>Parse用户无需再费时费力地折腾Facebook帐号连接和推送通知等服务器端的功能，只需把相应SDK拖放到应用内即可。</p>
+
+<p>Band of the Day是苹果App Store 2011年度一款重量级的应用，它就使用了Parse的服务。此外，有些大公司也在使用Parse。</p>
+
+<p>Parse资费可以查看<a href="https://www.parse.com/plans">Pricing</a>，主要分为三个版本，Basic，Pro，和Enterprice。</p>
+
+<ul>
+<li>Basic版本每月拥有一百万的REQUEST和PUSH支持，超出部分额外计费。</li>
+<li>Pro版本每月1500w的REQUEST还有500w的PUSH, 还有其他附加功能，每月需要199美元</li>
+<li>Enterprise为定制版本，根据定制收费</li>
+</ul>
+
+
+<p><a href="http://www.zhihu.com/question/22098754">http://www.zhihu.com/question/22098754</a>
+<a href="http://17startup.com/startuplist/view/752">http://17startup.com/startuplist/view/752</a>
+<a href="http://blog.csdn.net/kavensu/article/details/17767239">http://blog.csdn.net/kavensu/article/details/17767239</a></p>
+
+<h3>其他</h3>
+
+<ul>
+<li><a href="http://www.kinvey.com/">Kinvey</a></li>
+<li><a href="http://www.sencha.com/products/io">Sencha.io</a></li>
+<li><a href="http://aws.amazon.com/cn/ec2/">Amazon EC2</a></li>
+</ul>
+
+
+<h2>国内的BaaS</h2>
+
+<h3>Bmob</h3>
+
+<p><a href="http://www.bmob.cn/">Bmob</a>是国内第一家专注于移动应用云存储的平台，是基于PaaS模式的云计算平台。开发者可以使用Bmob设计存储框架、获取应用密钥、下载SDK并嵌入应用程序、调用相应API，应用发布后查看存储的统计分析数据，整个流程能够快速实现，并且Bmob的云服务是免费的。</p>
+
+<h3>AVOS Cloud</h3>
+
+<p>基本上是模仿Parse设计的，界面设计的很不错，并且官方称坚持每周更新。官方讨论群活跃，一般一问问题都会有专门的人员给予简答，赞一个。不过或许是因为工作量和进度规划问题，AVOS的官方版本中还存在一些问题，比如官方指南中就有各种排版问题和文字错误，并且内容大多是从Parse上翻译的，有些看不明白的地方，到时可以去Parse上参考一下。</p>
+
+<p>AVOS Cloud的在国内的响应速度比较好，不需要翻墙浏览查看文档，这一点是目前对Parse的优势。不过Parse在相应速度上还是比较客观的，对速度要求不大，并且想体验更多功能的还是可以先拿Parse练练手。</p>
+
+<p>AVOS也有提供官方Demo，不过有一个Demo好像还是移植的，界面都乱了，o(╯□╰)o，这一点可以看看Parse的，虽然不是太好，但是可以马上运行。</p>
+
+<p>目前AVOS还在不断完善，相信会越来越好，加入更多本地化元素，支持国产</p>
+
+<h3>其他</h3>
+
+<p><a href="http://amtbaas.com/">Amtbaas.com</a></p>
+
+<blockquote><p>更多内容可以参考：</p>
+
+<ul>
+<li><a href="http://www.csdn.net/article/2013-03-06/2814373-baas-for-mobile-backend-development">六大BaaS产品推荐：移动开发必备的后端云服务</a></li>
+<li><a href="http://keegan-lee.diandian.com/post/2012-11-10/40041810560">移动后端服务BaaS现状</a></li>
+<li><a href="http://17startup.com/startuplist/view/752">为开发者提供各类服务(BaaS)的公司</a></li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress Settings]]></title>
+    <link href="http://lzteng.com/Technology/2014/02/22/octopress-settings/"/>
+    <updated>2014-02-22T10:56:34+08:00</updated>
+    <id>http://lzteng.com/Technology/2014/02/22/octopress-settings</id>
+    <content type="html"><![CDATA[<h2>Post Settings</h2>
+
+<h3>截图配置</h3>
+
+<p>使用Octopress进行博客编写，截图是一件麻烦的事情，未配置的情况下，添加一个截图需要：</p>
+
+<ul>
+<li>使用截图工具进行截图</li>
+<li>将截图放置在blog中的图片目录</li>
+<li>获取保存的截图地址</li>
+<li>使用octopress的图片标签进行图片插入</li>
+</ul>
+
+
+<p>o(╯□╰)o&hellip;单就这个方式来说，一点都不优雅，需要花费好多时间</p>
+
+<p>下面将对我在MAC系统上为方便截图进行的配置。</p>
+
+<!-- more -->
+
+
+<h4>使用系统截图工具Screencapture</h4>
+
+<p><code>ScreenCapture</code> 是MAC系统自带的截图工具，支持快捷键和shell激活。</p>
+
+<p>这里主要使用Shell脚本激活的方式进行截图。</p>
+
+<h5>Screencapture 快捷键</h5>
+
+<ul>
+<li>Shift+Command+3  截取全屏幕至桌面</li>
+<li>Shift+Command+4  截取部分屏幕至桌面</li>
+<li>Shift+Command+4+空格 截取窗口或原件至桌面</li>
+<li>Shift+Command+4 然后Esc  退出截屏</li>
+<li>Shift+Command+Control+3  截取全屏幕至剪贴板</li>
+<li>Shift+Command+Control+4  截取部分屏幕至剪贴板</li>
+<li>Shift+Command+Control+4+空格 截取窗口或原件至剪贴板</li>
+<li>Shift+Command+4 拉出选框 然后 空格 移动选框</li>
+<li>Shift+Command+4 然后 Shift  保持选框高度（宽度），修改宽度（高度）</li>
+<li>Shift+Command+4 然后 Option  保持选框中心，修改半径</li>
+</ul>
+
+
+<h5>Screencapture Shell 命令</h5>
+
+<pre><code>screencapture -h
+</code></pre>
+
+<p>使用<code>-h</code>参数，能够获得帮助说明，顾不对其他使用方法进行赘述。</p>
+
+<p>这里主要使用<code>-i</code>进行区域截图。</p>
+
+<p>例如：</p>
+
+<pre><code>screencapture -i "/你的截图保存位置";
+</code></pre>
+
+<p>执行这条命令，将会激活截图。此时：</p>
+
+<ul>
+<li>按下Control键，表示截图将会输出至剪贴板</li>
+<li>按下Space键，表示进行窗口截图，再次按下则返回区域截图</li>
+<li>按下Espace，表示取消本次截图</li>
+</ul>
+
+
+<h4>使用 Alfred 定制工作流</h4>
+
+<p>Alfred是MAC下一款优秀的快速启动工具，使用它能够配置工作流，方便使用简单的命令或者快捷键实现一系列复杂的操作。</p>
+
+<h5>添加新的工作流</h5>
+
+<p>打开Alfred的<code>Preferences</code>，在<code>Workflows</code>中添加新的<code>Empty Workflow</code></p>
+
+<p><img src="/images/blog/2014/02/140222132445.png" alt="image" /></p>
+
+<h5>添加触发事件</h5>
+
+<p>这里选择快捷触发。</p>
+
+<p>点击添加按钮，选择 Trigger &ndash;> Hotkey， 你可以选择你喜欢的方式来触发截图</p>
+
+<p>如下图：</p>
+
+<p><img src="/images/blog/2014/02/140222132722.png" alt="image" /></p>
+
+<h5>添加操作脚本</h5>
+
+<p>点击添加按钮，选择 Actions &ndash;> Runscript</p>
+
+<p>在Script中添加以下代码：</p>
+
+<pre><code># 参数配置
+year=$(date +%Y);
+month=$(date +%m);
+image_name="$(date +%y%m%d%H%M%S).png";
+octopress_path="/Users/zwein/Blog/zwein27.github.io";
+imagePath="${octopress_path}/source/images/blog/${year}/${month}/";
+
+# 根据年月放置文件夹
+if [ ! -d "${imagePath}" ]
+then
+    mkdir -p "${imagePath}"; 
+fi
+
+# 截图
+# 参数可以输入-h查看
+screencapture -iS "${imagePath}${image_name}";
+
+# 使用系统自带的“预览”程序，进行图片的注释
+# 打开“预览”程序，也可以通过使用screencapture的 P 参数。
+open -a /Applications/Preview.app "${imagePath}${image_name}";
+
+# 输出图片在Blog中的位置到剪贴板
+echo "/images/blog/${year}/${month}/${image_name}" | pbcopy;
+</code></pre>
+
+<p>这样就完成了截图的配置。</p>
+
+<p>输入设置的快捷键， 可以进行截图，通过按下Space切换截图形式，按下Escape选择是否取消当前截图。</p>
+
+<p>截完的图片的保存位置可以再Script脚本中配置，截图完成后打开Preview进行预览和简单的配置。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[联想V470黑苹果 去除白名单 & 驱动 & 功能配置]]></title>
+    <link href="http://lzteng.com/Technology/2014/02/16/v470-whitelist/"/>
+    <updated>2014-02-16T22:22:07+08:00</updated>
+    <id>http://lzteng.com/Technology/2014/02/16/v470-whitelist</id>
+    <content type="html"><![CDATA[<pre><code>******设备信息******
+系统版本 : OS X 10.9.1 (13B42)
+处理器名称 : Intel Core i5
+内存 : 8 GB
+显卡 : Intel HD Graphics 3000
+声卡 : ALC272
+硬盘 : HGST HTS721010A9E630   
+光驱 : TSSTcorp CDDVDW TS-L633F
+无线网卡 : BCM94322HM8L
+</code></pre>
+
+<!-- more -->
+
+
+<h2>去除白名单</h2>
+
+<ol>
+<li>下载工具文件<a href="http://pan.baidu.com/s/1kTnyTP9">Lenovo_V470_43CN43WW_NWL</a></li>
+<li>解压并打开<code>bios_mod</code>文件夹</li>
+<li>该文件夹中的<code>BIOS1.WPH</code>即修改后的BIOS文件，并且该文件夹下整合了刷BIOS的工具</li>
+<li>用管理员身份运行cmd，并转到<code>bios_mod</code>文件夹下</li>
+<li>输入<code>winflash.exe /sd /sv BIOS1.WPH</code>回车，等待操作完成，重启机器，进入win操作系统，安装网卡驱动，运行一切正常。</li>
+</ol>
+
+
+<p>注：刷BIOS后，如果重启后，提示检测不到硬件或者安装驱动后没有无线信号灯问题。可以重新启动进入CMOS设置，调入默认值，重启即可。</p>
+
+<p>网卡选择<code>BCM94322HM8L</code>，通吃MAC OS X 10.6-10.9, 直接免驱。
+刷BIOS过程不需要硬件ID，解压完文件直接输入命令，等待操作完成即可。</p>
+
+<h2>V470黑苹果驱动配置</h2>
+
+<h3>声卡</h3>
+
+<p><a href="http://pan.baidu.com/s/1c0xM7kc">ALC272声卡驱动文件</a>
+在黑苹果环境下直接打开安装即可</p>
+
+<h3>亮度调节</h3>
+
+<p>节约时间，没有去弄调整亮度的小太阳，而是使用第三方工具<a href="http://pan.baidu.com/s/1dD9pNTv">shades</a>
+安装完成后，可以在系统<code>偏好设置</code>中进行设置，桌面顶部会有快捷操作图标，能够进行亮度调节。设置成开机启动后，能够自动调节亮度为上一次关机时的状态。</p>
+
+<h3>睡眠后的系统故障</h3>
+
+<p>黑苹果长时间不动，会自动进入睡眠状态，唤醒之后发现鼠标挂了，=。=，表现是鼠标可移动，但是左右键均失灵。</p>
+
+<p>解决办法：
+系统“偏好设置”->“安全性与隐私”->配置成如下图所示即可。
+<img src="/images/blog/Snip20140216_4.png" alt="排除睡眠后的系统故障" /></p>
+
+<h2>黑苹果系统配置</h2>
+
+<h3>终端运行Sublime Text</h3>
+
+<p>有两种方法</p>
+
+<ul>
+<li>使用软连接</li>
+</ul>
+
+
+<p>终端下输入</p>
+
+<pre><code>ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+</code></pre>
+
+<ul>
+<li>使用 alias (别名)</li>
+</ul>
+
+
+<p>终端下输入：</p>
+
+<pre><code>sudo vi  /etc/bashrc
+</code></pre>
+
+<p>在最下面添加一下代码并保持(VIM如何保存这里不再赘述)</p>
+
+<pre><code>alias subl='open -a "Sublime Text"'
+</code></pre>
+
+<p>这里subl可以是任意值，以后可以使用该名称打开Sublime Text</p>
+
+<p>推荐使用alias，方便配置，并且不需要添加额外的文件</p>
+
+<h3>Finder里显示隐藏文件</h3>
+
+<p>设置Finder里显示隐藏文件</p>
+
+<pre><code>defaults write com.apple.finder AppleShowAllFiles -bool true
+</code></pre>
+
+<p>设置Finder里不显示隐藏文件</p>
+
+<pre><code>defaults write com.apple.finder AppleShowAllFiles -bool false
+</code></pre>
+
+<h3>使黑苹果对NTFS文件具有读写权限</h3>
+
+<p>原本黑苹果下只能够查看NTFS文件系统中的文件，通过安装<a href="http://dl.vmall.com/c0witnfz2p">Paragon NTFS</a>这个应用，能够让你正常访问并操作NTFS系统下的文件。</p>
+
+<h3>查看MAC是64位还是32位</h3>
+
+<ul>
+<li>方法一</li>
+</ul>
+
+
+<p>点击工具栏左上角点击 （苹果Logo）标志，关于本机  &mdash;>  更多信息 &mdash;> 系统报告  &mdash;>(左侧栏中)软件</p>
+
+<p><img src="http://img.my.csdn.net/uploads/201304/08/1365377909_7832.png" alt="方法1" /></p>
+
+<ul>
+<li>方法二</li>
+</ul>
+
+
+<p>打开终端，输入命令 <code>uname -a</code> 回车
+  <strong>x86_64 表示系统为64位
+  i686 表示系统32位的</strong></p>
+
+<p><img src="http://img.my.csdn.net/uploads/201304/08/1365377936_4073.png" alt="方法2" /></p>
+
+<ul>
+<li>方法三</li>
+</ul>
+
+
+<p>在终端输入命令</p>
+
+<pre><code>ioreg -l -p IODeviceTree | grep "firmware-abi" | sed -e 's/[^0-9A-Z]//g'
+</code></pre>
+
+<p><strong>输出：EFI64 －－就说明系统是64位
+输出：EFI32 －－就说明系统是32位</strong></p>
+
+<p><img src="http://img.my.csdn.net/uploads/201304/08/1365377947_2498.png" alt="方法3" /></p>
+
+<h2>Mac 应用程序</h2>
+
+<h3>Mac下文件清理工具</h3>
+
+<p>在Mac下，可以使用<a href="http://dl.vmall.com/c03sn0hxaz">CleanMyMac2</a>来清理一些垃圾文件。</p>
+
+<blockquote><p>参考：
+<a href="http://www.biosrepair.com/bios/ibmbmd.htm">Biosrepair</a>
+<a href="http://www.bios-mods.com/forum/Thread-REQUEST-Lenovo-V470-4396-WhiteList-Removal">Bios-Mod</a>
+<a href="http://blog.csdn.net/duxinfeng2010/article/details/8629435">新风作浪的博客专栏</a></p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress 域名定制]]></title>
+    <link href="http://lzteng.com/Technology/2014/02/06/octopress-domain-settings/"/>
+    <updated>2014-02-06T19:28:35+08:00</updated>
+    <id>http://lzteng.com/Technology/2014/02/06/octopress-domain-settings</id>
+    <content type="html"><![CDATA[<p>使用Github Pages搭建博客进行的差不多了，原本就想注册一个属于自己的域名，今天特定实施了一下</p>
+
+<h2>选择域名注册服务机构</h2>
+
+<p>比较了挺多域名注册服务提供商，比如国内的万网，还有国外的Godaddy等等，最后选择了国外的<code>Godaddy</code>。下面对一些我觉得比较好的域名注册提供商进行比较。</p>
+
+<!-- more -->
+
+
+<h3><a href="http://www.godaddy.com/">Godaddy</a></h3>
+
+<p>根据网络上的评论，Godaddy的规模是最大的，也经常会有一些优惠，优惠码可以通过搜索<code>Godaddy 优惠码</code>找到很多，不过现在并没有太多的价格优势。笔者选择购买的.com域名，未优惠的价格为$12.99，使用优惠码<code>iap899c1</code>优惠后的价格为$8.99，便宜的比较多。值得一提的是Godaddy支持<code>支付宝</code>付款，并且直接选择美元支付在切换到支付宝付款页面时会便宜几块钱。实际笔者购买该域名话费为55.66元，还算可以。</p>
+
+<p>网络上有很多Godaddy的优惠码，很多网页也会不定期的更新，在笔者买的时候有找到$1.99的优惠码，无奈该优惠码仅支持美国籍的信用卡付款，而且一个信用卡用户仅能使用一次，因此最后没有选择这个方式，还在淘宝上花了不少时间,T.T&hellip;.</p>
+
+<p>这里再推荐个提供<code>优惠码</code>的的网站，方便大家找到合适的优惠码:<a href="http://coupons.namedog.com/">NameDog</a></p>
+
+<h3><a href="https://www.name.com/">Name</a></h3>
+
+<p>相比Godaddy，Name的优惠码没有那么多，但是有提供whois隐私保护免费的优惠码，这项服务用来保护注明注册者的隐私信息，原价有的地方$9.99，Name上是$1.99好像，使用优惠码可以免费，对于隐私保密方面有特殊要求的用户可以选择在Name购买。对于com域名，name上1年要$9.99没有，这是在不用优惠码的情况下的，相对Godaddy来说还算便宜，不过由于其还不支持支付宝付款，对于国内用户来说不是很方便。</p>
+
+<h3><a href="http://www.net.cn/">万网</a></h3>
+
+<p>笔者购买域名的时候万网的广告做的铺天盖地，看到也确实便宜，对比Godaddy来说是便宜的，首付49元，后期续费都是55元。要知道，Godaddy上要使用优惠码才能达到和万网续费一个水平的价格，而且貌似优惠码的优惠力度越来越小了。没有选择万网是因为万网是国内产品，想到可能会面临的备案等麻烦，还是选择了拥抱外面的世界了。</p>
+
+<h2>域名配置</h2>
+
+<h3>配置Godaddy域名解析</h3>
+
+<p>在Godaddy上购买域名成功之后，可以到其<a href="https://dcc.godaddy.com/">控制面板</a>配置域名解析。考虑到主要在国内使用，笔者选择<a href="https://www.dnspod.cn">Dnspod</a>来解析域名。首先需要在Dnspod上注册一个账号，然后新建一个域名，并正确配置A记录和CNAME记录，记录成功后可以根据官方提供的<a href="https://support.dnspod.cn/Kb/showarticle/tsid/42/">教程</a>修改Godaddy的NameServers。</p>
+
+<h3>配置Github Pages</h3>
+
+<p>在Octopress根目录的source文件夹下新建CNAME文件，并在里面输入想要绑定的域名。比如顶级域名 example.com 或者二级域名 xxx.example.com.
+由于DNS解析改成使用Dnspod, 所以可以在Dnspod上配置CNAME信息。</p>
+
+<p>如笔者在Dnspod上添加记录为：主机记录(@)，记录类型(CNAME)，记录值(xxxx.github.io)。</p>
+
+<p>并且在CNAME中填写lzteng.com
+这样使用lzteng.com，便可以自动解析到笔者的Github Pages</p>
+
+<p>注意：配置DNS可能需要72小时以内的时间，需要耐心等待，笔者设置完成后还没1个小时便可以访问了。</p>
+]]></content>
+  </entry>
+  
+</feed>

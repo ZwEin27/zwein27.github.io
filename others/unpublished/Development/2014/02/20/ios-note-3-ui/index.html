@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="cn"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>iOS 开发笔记 3 - UI - lzteng</title>
+  <meta name="author" content="ZwEin">
+
+  <meta name="description" content="iOS开发的UI笔记">
+  <meta name="keywords" content="UI iOS">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-3-ui">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
+
+  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+<link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  
+
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">lzteng</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Blog</a></li>
+                <li><a href="/blog/archives">Archives</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:lzteng.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-20T00:15:31+08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        iOS 开发笔记 3 - UI
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><h2 id="id-2c3e48645aeb1762553fb4b400aa74f4">1 UI 基础</h2>
+
+<h3 id="id-c7befa3e21f5a6ad88568fa8492f581f">1.1 IOS 触摸事件</h3>
+
+<p>在IOS开发中会遇到各种操作事件，通过程序可以对这些事件做出响应。</p>
+
+<p>在IOS中，由响应者链来对事件进行响应，所有事件响应的类都是UIResponder的子类，响应者链是一个由不同对象组成的层次结构，其中的每个对象将依次获得响应事件消息的机会。</p>
+
+<p>当发生事件时，事件首先被发送给第一响应者，第一响应者往往是事件发生的视图，也就是用户触摸屏幕的地方。事件将沿着响应者链一直向下传递，直到被接受并做出处理。</p>
+
+<p>路线图如 First Responser——>The Window——>The Application——>App Delegate</p>
+
+<p>正常的响应者链流程经常被委托（delegation）打断，一个对象（通常是视图）可能将响应工作委托给另一个对象来完成（通常是视图控制器ViewController），这就是为什么做事件响应时在ViewController中必须实现相应协议来实现事件委托。</p>
+
+<!-- more -->
+
+
+<h4 id="id-2c66823d22b6dd0ad4ec76bcd1c6196f">1.1.1 UITouch</h4>
+
+<p>UITouch对象是一个手指接触到屏幕并在屏幕上移动或离开屏幕时创建的。它有几个属性和实例方法：
+phase：属性，返回一个阶段常量，指出触摸开始、继续、结束或被取消，分别对应UITouchPhaseBegan、UITouchPhaseMoved等</p>
+
+<ul>
+<li>tapCount：属性，轻按屏幕的次数</li>
+<li>timeStamp：属性，触摸发生的时间</li>
+<li>view：属性，触摸始于那个视图</li>
+<li>window：属性，触摸始于哪个窗口</li>
+<li>lacationInView：方法，触摸在指定视图中的当前位置</li>
+<li>previousLocationView：方法，触摸在指定视图中的前一个位置</li>
+</ul>
+
+
+<h4 id="id-d32fa018123cde94e46df5a866804ca5">1.1.2 UIEvent</h4>
+
+<p>UIEvent对象包含一组相关的UITouch对象</p>
+
+<p>由UITouch对象组成UIEvent对象，可以理解成一个完整的触摸操作是一个UIEvent，而这一系列完整操作中的每个点就是UITouch（按下、移动、离开）。</p>
+
+<p>UIEvent的作用是提供相关触摸操作的列表，如果要获取在屏幕上触摸的手势，可以使用该对象，这一些列操作都存储在Foundation框架中的NSSet对象中。</p>
+
+<h4 id="id-8ccde3e20fc1e3d46fa766dfe8dbc692">1.1.3 UIResponder</h4>
+
+<p>UIResponser提供四个事件响应的方法，这些方法是事件捕捉的核心。</p>
+
+<p>这些方法都接收两个参数，一个是NSSet（包含指定阶段的触摸）和一个UIEvent。</p>
+
+<ul>
+<li>touchesBegan:withEvent: 在手指触摸屏幕时报告UITouchPhaseBegan事件</li>
+<li>touchesMoved:withEvent: 在手指在屏幕上移动时报告UITouchPhaseMoved事件</li>
+<li>touchesEnded:withEvent: 在手指离开屏幕时报告UITouchPhaseEnded事件</li>
+<li>touchesCancelled:withEvent: 在因接听电话或其他因素导致取消触摸时报告UITouchPhaseCancelled事件</li>
+</ul>
+
+
+<h4 id="id-8cf84e8c54e550c80e38c64ac2863179">1.1.4 触摸事件的例子</h4>
+
+<p>定义一个方法用来响应触摸事件</p>
+
+<pre><code>-(void)manageTouches:(NSSet *)touches
+{
+    for (UITouch *touch in touches) {
+        switch (touch.phase) {
+            caseUITouchPhaseBegan:
+                NSLog(@"began...");                
+                break;
+
+            caseUITouchPhaseMoved:
+                 NSLog(@"move...");       
+                break;
+
+            caseUITouchPhaseEnded:
+                 NSLog(@"end...");       
+                break;
+            default:
+                break;
+        }
+    }
+}
+</code></pre>
+
+<p>然后在ViewController中响应该方法：</p>
+
+<pre><code>-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+</code></pre>
+
+<p>关于多点触摸，可以参考Apple IOS SDK开发文档，多点触摸在游戏及其一些新奇的应用中比较多，在常规的应用开发中还是比较少的用到多点触摸。</p>
+
+<h3 id="id-35176a090d4b40e99523016d3d90e7ce">1.2 UIControl对象</h3>
+
+<p>UIKit提供了一组控件：UISwitch开关、UIButton按钮、UISegmentedControl分段控件、UISlider滑块、UITextField文本字段控件、UIPageControl分页控件。</p>
+
+<p>控件是对UIView派生类的实用增强及补充，并可以直接附着于导航栏、表格单元，甚至更大的对象。</p>
+
+<p>这些控件的基类均是UIControl，而UIControl派生自UIView类，所以每个控件都有很多视图的特性，包括附着于其他视图的能力。</p>
+
+<p>所有控件都拥有一套共同的属性和方法。</p>
+
+<p>UIControl本身也包含了一些属性和方法，但是不能直接使用UIControl类，它只是定义了子类都需要使用的方法。</p>
+
+<h4 id="id-24d67862f87f439db7ca957aecb77cce">1.2.1 属性</h4>
+
+<h5 id="id-d233cd3c7acffdb29ab040dfcfeb7b02">1.2.1.1 contentVerticalAlignment</h5>
+
+<p>控件如何在垂直方向上布置自身的内容。默认是将内容顶端对其，对于文本字段，可能会改成UIControlContentVerticalAlignmentCenter。</p>
+
+<p>对于这个字段，可以使用下列诸值：</p>
+
+<pre><code>UIControlContentVerticalAlignmentCenter  
+UIControlContentVerticalAlignmentTop  
+UIControlContentVerticalAlignmentBottom  
+UIControlContentVerticalAlignmentFill  
+</code></pre>
+
+<h5 id="id-f41a921059b8705161520d6c66ae1af2">1.2.1.2 contentHorizontalAlignment</h5>
+
+<p>水平对齐方式，可以只用下列值：</p>
+
+<pre><code>UIControlContentHorizontalAlignmentCenter
+UIControlContentHorizontalAlignmentTop
+UIControlContentHorizontalAlignmentBottom
+UIControlContentHorizontalAlignmentFill
+</code></pre>
+
+<h4 id="id-23beab83e2c01ddab6b6e2bb2dd725a8">1.2.2 事件通知</h4>
+
+<p>UIControl类提供了一个标准机制，来进行事件登记和接收。</p>
+
+<p>这令你可以指定你的控件在发生特定事件时，通知代理类的一个方法。如果要注册一个事件，可以使用：</p>
+
+<pre><code>          [ myControl addTarget: myDelegate 
+                      action:@selector(myActionmethod:)
+                      forControlEvents:UIControlEventValueChanged ];
+</code></pre>
+
+<p>事件可以用逻辑OR合并在一起，因此可以再一次单独的addTarget调用中指定多个事件。</p>
+
+<h4 id="id-82b8f5c321ea8079992ded39119297cb">1.2.3 UIControl 支持的事件</h4>
+
+<p>下列事件为基类UIControl所支持，除非另有说明，也适用于所有控件。</p>
+
+<p><strong>UIControlEventTouchDown</strong>:
+单点触摸按下事件：用户点触屏幕，或者又有新手指落下的时候。</p>
+
+<p><strong>UIControlEventTouchDownRepeat</strong>:
+多点触摸按下事件，点触计数大于1：用户按下第二、三、或第四根手指的时候。</p>
+
+<p><strong>UIControlEventTouchDragInside</strong>:
+当一次触摸在控件窗口内拖动时。</p>
+
+<p><strong>UIControlEventTouchDragOutside</strong>:
+当一次触摸在控件窗口之外拖动时。</p>
+
+<p><strong>UIControlEventTouchDragEnter</strong>:
+当一次触摸从控件窗口之外拖动到内部时。</p>
+
+<p><strong>UIControlEventTouchDragExit</strong>:
+当一次触摸从控件窗口内部拖动到外部时。</p>
+
+<p><strong>UIControlEventTouchUpInside</strong>:
+所有在控件之内触摸抬起事件。</p>
+
+<p><strong>UIControlEventTouchUpOutside</strong>:
+所有在控件之外触摸抬起事件(点触必须开始与控件内部才会发送通知)。</p>
+
+<p><strong>UIControlEventTouchCancel</strong>:
+所有触摸取消事件，即一次触摸因为放上了太多手指而被取消，或者被上锁或者电话呼叫打断。</p>
+
+<p><strong>UIControlEventTouchChanged</strong>:
+当控件的值发生改变时，发送通知。用于滑块、分段控件、以及其他取值的控件。你可以配置滑块控件何时发送通知，在滑块被放下时发送，或者在被拖动时发送。</p>
+
+<p><strong>UIControlEventEditingDidBegin</strong>:
+当文本控件中开始编辑时发送通知。</p>
+
+<p><strong>UIControlEventEditingChanged</strong>:
+当文本控件中的文本被改变时发送通知。</p>
+
+<p><strong>UIControlEventEditingDidEnd</strong>:
+当文本控件中编辑结束时发送通知。</p>
+
+<p><strong>UIControlEventEditingDidOnExit</strong>:
+当文本控件内通过按下回车键（或等价行为）结束编辑时，发送通知。</p>
+
+<p><strong>UIControlEventAlltouchEvents</strong>:
+通知所有触摸事件。</p>
+
+<p><strong>UIControlEventAllEditingEvents</strong>:
+通知所有关于文本编辑的事件。</p>
+
+<p><strong>UIControlEventAllEvents</strong>:
+通知所有事件。</p>
+
+<p><strong>除了默认事件以外，自定义控件类还可以用0x0F000000到0x0FFFFFFF之间的值，来定义他们自己的时间。</strong></p>
+
+<h4 id="id-5483efaa1d51164a655169a677274bb6">1.2.4 事件相关方法</h4>
+
+<h5 id="id-3ed7a564597739e393259caee21b2cf8">1.2.4.1 事件删除 removeTarget()</h5>
+
+<p>要删除一个或多个事件的相应动作，可以使用UIControl类的removeTarget方法。</p>
+
+<p>使用nil值就可以将给定事件目标的所有动作删除：</p>
+
+<pre><code>[ myControl removeTarget:myDelegate 
+              action:nil
+              forControlEvents:UIControlEventAllEvents];
+</code></pre>
+
+<h5 id="id-58cb09ff54e258769b2a7e557afe8fb7">1.2.4.2 获得事件完整的动作列表 allTargets()</h5>
+
+<p>要取得关于一个控件所有指定动作的列表，可以使用allTargets方法。这个方法返回一个NSSet，其中包含事件的完整列表：</p>
+
+<pre><code>NSSet* myActions = [myConreol allTargets ];
+</code></pre>
+
+<h5 id="id-f0dadeb5711f11343532bdb8dd40f194">1.2.4.3 获取特定事件目标的全部动作列表 actionsForTarget()</h5>
+
+<p>用actionsForTarget方法，来获取针对某一特定事件目标的全部动作列表：</p>
+
+<pre><code>NSArray* myActions = [ myControl actionForTarget:UIControlEventValueChanged ];  
+</code></pre>
+
+<h5 id="id-a768b19916f691cff3995eaac24d291e">1.2.4.4 为指定事件通知事件变化 sendActionsForControlEvent()</h5>
+
+<p>如果设计了一个自定义控件类，可以使用sendActionsForControlEvent方法，为基本的UIControl事件或自己的自定义事件发送通知。</p>
+
+<p>例如，如果你的控件值正在发生变化，就可以发送相应通知，通过控件的代码可以指定事件目标，这个通知将被传播到这些指定的目标。例：</p>
+
+<pre><code>[ self sendActionsForControlEvents:UIControlEventValueChanged ];
+</code></pre>
+
+<h5 id="id-b5f66e5e391e730b7cef152c3827d759">1.2.4.5 事件响应</h5>
+
+<p>当委托类得到事件通知时，他将收到一个指向事件发送者的指针。下面的例子用于处理分段控件的事件，你的动作方法（action method）应遵循类似的处理方式：</p>
+
+<pre><code>-(void) myAction:(id)sender{
+   UISegmentedControl* control = (UISegmentedControl*)sender;
+   if(control == myControl1){
+    /*查询控件得值*/
+    /*响应myControl1的动作*/
+   }
+}
+</code></pre>
+
+<h3 id="id-0679fad39e5017ad802d2954f94463d5">1.3 ViewController间传值</h3>
+
+<p>具体实例可以参考：<a href="http://blog.csdn.net/ryantang03/article/details/7913754">两个ViewController间传值</a></p>
+
+<h3 id="id-20e828da6612ec436ed97b17c9928c4f">1.4 提示框开源库 &ndash; MBProgressHUD</h3>
+
+<p><a href="http://blog.csdn.net/ryantang03/article/details/7877120">提示框第三方库之MBProgressHUD</a></p>
+
+<blockquote><p>参考</p>
+
+<p><a href="http://blog.csdn.net/tangren03/article/category/1073221/5">Ryan&rsquo;s zone</a></p>
+
+<p><a href="http://blog.csdn.net/iukey/article/details/7300412">UIControl IOS控件编程—IOS开发</a></p></blockquote>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-20T00:15:31+08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-3-ui/" data-via="zwein27" data-counturl="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-3-ui/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+        
+        
+      </footer>
+    </article>
+    
+  </div>
+</div>
+
+        </div>
+      </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - ZwEin<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
+  </small>
+  <a href="#" id="back">Back to Top</a>
+</p>
+
+<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+</nav>
+
+</div>
+</footer>
+    <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+    </div>
+  </body>
+</html>

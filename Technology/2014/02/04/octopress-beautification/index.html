@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="cn"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Octopress 主题美化 - lzteng</title>
+  <meta name="author" content="ZwEin">
+
+  <meta name="description" content="记录Octopress美化的一些内容">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lzteng.com/Technology/2014/02/04/octopress-beautification">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
+
+  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+<link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  
+
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">lzteng</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Blog</a></li>
+                <li><a href="/blog/archives">Archives</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:lzteng.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-04T16:05:34+08:00" pubdate data-updated="true">Feb 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        Octopress 主题美化
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><p>关于Octopress Theme自定义的一些内容</p>
+
+<h2>定制 Octopress Theme</h2>
+
+<p>Octopress本身就有很多第三方的<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">Theme</a>, 试用了一些，感觉都挺不错的。最后选用了<a href="https://github.com/mjhea0/octoplate">Octoplate</a>, 这款主题是基于 Twitter Bootstrap 3 定制的，支持的Theme更多，也感觉更容易自定义。</p>
+
+<p>添加 <code>Octoplate</code> 的方式也很简单：</p>
+
+<pre>
+$ cd octopress
+$ git clone git://github.com/mjhea0/octoplate.git .themes/octoplate
+$ rake install['octoplate']
+$ rake generate && rake preview
+$ rake deploy
+</pre>
+
+
+<p>新添加的Theme被放到octopress根目录下的<code>.theme</code>文件夹，执行<code>rake install</code>,能够将主题包中的内容加载到octopress根目录下，并提换已有文件。</p>
+
+<!-- more -->
+
+
+<p>注：Octoplate主题包中本身缺少一些文件，因而最好在原有Theme为classic的前提下进行添加该Theme的操作。</p>
+
+<p>由于采用基于 <a href="http://getbootstrap.com/">Twitter Bootstrap 3</a> 定制的框架，因而采取了其官方推荐的主题修改方式。即在不改变原有样式的基础上，添加一个CSS文件，所有的修改都在这个文件中，方便将来的升级。</p>
+
+<h2>添加页面加载进度条</h2>
+
+<p>在想要添加进度条的地方加入如下代码</p>
+
+<pre><code>&lt;div id="topbarloading"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>jQuery代码</p>
+
+<pre><code>$(document).ready(function () {
+ jQuery("#topbarloading").animate({
+        width: "100%"
+    },
+    {
+        queue: false,
+        duration: 5000
+    });
+})
+</code></pre>
+
+<p>CSS代码</p>
+
+<pre><code>/* Loading Bar */
+#topbarloading {
+  background-color: #F1F1F1;
+  background-image: url(https://zlz.im/wp-content/themes/dot-b/images/all.png);
+  background-position: 0px -632px;
+  color: #333;
+  display: block;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0px;
+  height: 4px;
+  line-height: 18px;
+  width: 20%;
+}
+</code></pre>
+
+<p>参考: <a href="http://liufeiyu.cn/">liufeiyu的博客</a>  <a href="http://hzlzh.io/">自力博客</a></p>
+
+<h2>添加jQuery时间轴</h2>
+
+<h3>jQuery时间轴插件 Timeglider</h3>
+
+<p><a href="https://timeglider.com">Timeglider</a> 是一款jQuery时间轴插件，分为Student，Basic，Group 三个版本，其中Student版为免费版本。</p>
+
+<p>Student版的Timeglider支持一个用户，最大允许3条时间线，并且支持嵌套，刚好可以放在Blog中使用。</p>
+
+<p>使用一个邮箱并且填好一些简单的信息就可以完成注册。</p>
+
+<h3>在blog中添加Timeglider</h3>
+
+<p>在Blog中添加Timeglider很容易。注册完成之后，会进入编辑时间轴界面，可以在该界面进行添加时间轴灯操作。</p>
+
+<p>通过顶部的Sharing菜单，可以获得选择想要公开的时间线的嵌套代码。</p>
+
+<p>在Blog的相关位置贴上该代码即可。</p>
+
+<p class='post-footer'>版权所有 ©ZwEin | 转载请注明出处：<a href='http://lzteng.com/Technology/2014/02/04/octopress-beautification/'>http://lzteng.com/Technology/2014/02/04/octopress-beautification/</a></p>
+
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-04T16:05:34+08:00" pubdate data-updated="true">Feb 4<span>th</span>, 2014</time>
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/Technology/2014/02/04/octopress-beautification/" data-via="zwein27" data-counturl="http://lzteng.com/Technology/2014/02/04/octopress-beautification/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            
+            <li class="next"><a href="/Technology/2014/02/06/octopress-domain-settings/" title="Next Post: Octopress 域名定制">Octopress 域名定制 &raquo;</a></li>
+            
+          </ul>
+        
+      </footer>
+    </article>
+    
+  </div>
+</div>
+
+        </div>
+      </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - ZwEin<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
+  </small>
+  <a href="#" id="back">Back to Top</a>
+</p>
+
+<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+</nav>
+
+</div>
+</footer>
+    <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+    </div>
+  </body>
+</html>

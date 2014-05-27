@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="cn"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>iOS 开发笔记 1 - 基础 - lzteng</title>
+  <meta name="author" content="ZwEin">
+
+  <meta name="description" content="iOS开发入门">
+  <meta name="keywords" content="iOS Basic Develop 开发 基础 入门">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lzteng.com/others/unpublished/Development/2014/02/19/ios-note-1-basic">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
+
+  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+<link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  
+
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">lzteng</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Blog</a></li>
+                <li><a href="/blog/archives">Archives</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:lzteng.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-19T21:14:55+08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        iOS 开发笔记 1 - 基础
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><h2 id="id-e51e79c6d37e0651249b385b645d3af0">1 学习资料</h2>
+
+<h3 id="id-4cb7f32c955d4c5b336ac9166ea371b8">1.1 阅读书目</h3>
+
+<ul>
+<li><a href="https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOSCh/chapters/Introduction.html">《马上着手开发 iOS 应用程序 (Start Developing iOS Apps Today)》</a></li>
+<li>《Your First iOS App》</li>
+<li>《Your Second iOS App: Storyboards》</li>
+<li>《Your Third iOS App: iCloud》</li>
+<li>《iOS Technology Overview》</li>
+<li>《iOS Human Interface Guidelines》</li>
+<li>《Learning Objective-C: A Primer》和《Programming with Objective-C》</li>
+<li>《iOS App Programming Guide》</li>
+<li>《View Programming Guide for iOS》和《View Controller Programming Guide for iOS》</li>
+<li>《Table View Programming Guide for iOS》</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3 id="id-021ee5b7abb39cf4892cd694195869f5">1.2 开发社区</h3>
+
+<ul>
+<li><a href="http://www.cocoachina.com/">CocoaChina</a></li>
+</ul>
+
+
+<h3 id="id-2143c8627fa00f84aa0cd4b0b5aed288">1.3 技术博客</h3>
+
+<ul>
+<li><a href="http://blog.csdn.net/ryantang03/article/category/1073221">Ryan&rsquo;s zone</a></li>
+<li><a href="http://blog.csdn.net/iukey/article/list/2">刘伟Derick-IOS应用开发</a></li>
+<li><a href="http://blog.csdn.net/totogo2010/article/category/1155959">容芳志专栏</a></li>
+<li><a href="http://blog.csdn.net/q199109106q/article/category/1340820">M了个J</a></li>
+</ul>
+
+
+<h3 id="id-a43345b6a5222195f7ab026255827811">1.4 开源项目汇总</h3>
+
+<ul>
+<li><a href="http://www.oschina.net/ios/codingList">开源中国-IOS代码库</a></li>
+<li><a href="http://code.cocoachina.com/">CocoaChina-开发者代码库</a></li>
+<li><a href="http://code4app.com/">Code4App</a></li>
+</ul>
+
+
+<p>waiting for more&hellip;</p>
+
+<h3 id="id-fd0f399ae74ff14197bb7fd82eaa07d6">1.5 开发工具汇总</h3>
+
+<p>waiting for more&hellip;</p>
+
+<h4 id="id-146184a44f3817cc13c5409a527283ae">1.5.1 XCode</h4>
+
+<h5 id="id-f7d2996639d97b4a03fc0e40e2eb853a">1.5.1.1 快捷键</h5>
+
+<ul>
+<li>快速切换XCode项目： cmd+～</li>
+</ul>
+
+
+<h2 id="id-8519e085ee893c7e069f2b95e9fc9b20">2 基础概念</h2>
+
+<h3 id="id-9d8cf1ec3183c36ee7ceac3274867e96">2.1 XCode、Objective-C、Cocoa</h3>
+
+<ul>
+<li>XCODE</li>
+</ul>
+
+
+<p>iOS开发环境，笔者学习时使用的时XCODE5版本。类似于Visual Studio, Netbeans 或者 Eclipse之类的程序。</p>
+
+<ul>
+<li>Objective-C</li>
+</ul>
+
+
+<p>iOS的开发语言， 是C语言的超集。</p>
+
+<ul>
+<li>Cocoa</li>
+</ul>
+
+
+<p>包含一堆函数库，包含一些写好的现成的功能，方便使用者调用。</p>
+
+<h3 id="id-2e554455f5a6794f9c8335b79f0c2c17">2.2 iOS程序运行流程</h3>
+
+<h4 id="id-8a2ed312818c2dfed7683a5df726f2c0">2.2.1 mian.m 文件</h4>
+
+<p>iOS应用程序的主入口</p>
+
+<p>main函数的两个参数为命令行参数，在ios开发中不会用到这些元素.包括这两个参数是为了与标准ANSI C保持一致</p>
+
+<h4 id="id-1abf97608b3d31d6bc160f89c172395f">2.2.2 UIApplicationMain 函数</h4>
+
+<p>为应用程序提供主入口点，创建新的应用程序实例和它的委托。委托负责处理应用程序状态变更，并为那些变更提供响应。</p>
+
+<h4 id="id-1559c35b03a1791d6daa47f7bc591f5b">2.2.3 UIViewController</h4>
+
+<p>启动和加载窗口后，应用程序委托退居幕后，几乎所有应用程序语义都转到UIViewController类的某个子类，应用程序委托通常不再发挥作用，除非应用程序将要结束，或者出现内存问题。</p>
+
+<p>UIViewController继承了UIResponder，而UIResponder继承了NSObject，UIViewController是所有视图控制器的父类。</p>
+
+<p>在MVC模式中，UIViewController扮演C（controller）的角色，控制视图以及模型的操作。</p>
+
+<p>ViewController的简单生命周期：</p>
+
+<ul>
+<li>loadView：创建视图控制器（如果不是从.xib加载）</li>
+<li>viewDidLoad：视图已加载</li>
+<li>viewWillAppear：视图加载前运行</li>
+<li>viewWillDisappear：视图消失前（被关闭或覆盖）运行</li>
+<li>willRotateToInterfaceOrientation:duration：开始旋转时运行</li>
+<li>didRotateToInterfaceOrientation：旋转结束时运行</li>
+</ul>
+
+
+<p>loadView和viewDidLoad的区别：
+loadView在视图初始化的时候调用，应用开启后只调用一次
+viewDidLoad在每次进入一个视图的时候都会调用</p>
+
+<h4 id="id-2e2795c7a7562333397be7ff225a039c">2.2.4 运行流程</h4>
+
+<p>main() &mdash;&ndash;> 应用程序委托（AppDelegate） &mdash;&mdash;> 视图控制器（UIViewConstroller）</p>
+
+<blockquote><p>参考</p>
+
+<p><a href="http://blog.csdn.net/tangren03/article/category/1073221/5">Ryan&rsquo;s zone</a></p></blockquote>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-19T21:14:55+08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/others/unpublished/Development/2014/02/19/ios-note-1-basic/" data-via="zwein27" data-counturl="http://lzteng.com/others/unpublished/Development/2014/02/19/ios-note-1-basic/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+        
+        
+      </footer>
+    </article>
+    
+  </div>
+</div>
+
+        </div>
+      </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - ZwEin<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
+  </small>
+  <a href="#" id="back">Back to Top</a>
+</p>
+
+<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+</nav>
+
+</div>
+</footer>
+    <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+    </div>
+  </body>
+</html>

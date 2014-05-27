@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="cn"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>iOS 开发笔记 6 - 定位和地图 - lzteng</title>
+  <meta name="author" content="ZwEin">
+
+  <meta name="description" content="iOS开发中有关定位和地图的相关内容">
+  <meta name="keywords" content="iOS Location Map">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-6-location-and-map">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
+
+  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+<link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  
+
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">lzteng</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Blog</a></li>
+                <li><a href="/blog/archives">Archives</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:lzteng.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-20T09:36:54+08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        iOS 开发笔记 6 - 定位和地图
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><h2 id="id-82720fb0147de05c9c9622abdd8edd97">1 Core Location</h2>
+
+<p>IOS中的core location提供了定位功能，能定位装置的当前坐标，同时能得到装置移动信息。</p>
+
+<p>因为对定位装置的轮询是很耗电的，所以最好只在非常必要的前提下启动。</p>
+
+<p>其中，最重要的类是CLLocationManager，定位管理。</p>
+
+<p><a href="http://blog.csdn.net/csj1987/article/details/6657468">http://blog.csdn.net/csj1987/article/details/6657468</a></p>
+
+<p>其定位有3种方式：
+1，GPS，最精确的定位方式，貌似iphone1是不支持的。
+2，蜂窝基站三角定位，这种定位在信号基站比较秘籍的城市比较准确。
+3，Wifi，这种方式貌似是通过网络运营商的数据库得到的数据，在3种定位种最不精确</p>
+
+<!-- more -->
+
+
+<p>IOS SDK提供的Core Location能比较好的提供获取位置信息的功能，获取位置信息涉及如下几个类：</p>
+
+<h3 id="id-36301c2df1ae9e883c170f2244db4aba">1.1 CLLocationManager（位置管理器）</h3>
+
+<h3 id="id-607a6ab2ba84ea45b60e2602288fbff2">1.2 CLLocation, CLLocationManagerdelegate（协议、提供委托方法）</h3>
+
+<h3 id="id-f049c5957ff04e7019d5acce577ec7f3">1.3 CLLocationCoodinate2D（存储坐标位置）</h3>
+
+<h4 id="id-113770ec91624776c9cdb3b27acba6d8">1.3.1 CLLocationManager的属性</h4>
+
+<h5 id="id-d8dad4bbc2f2cd6692ca05f6e978dfbb">1.3.1.1 desiredAccuracy:位置的精度属性</h5>
+
+<p>取值有如下几种：</p>
+
+<ul>
+<li><p><strong>kCLLocationAccuracyBest</strong>:
+精确度最佳</p></li>
+<li><p><strong>kCLLocationAccuracynearestTenMeters</strong>:
+精确度10m以内</p></li>
+<li><p><strong>kCLLocationAccuracyHundredMeters</strong>:
+精确度100m以内</p></li>
+<li><p><strong>kCLLocationAccuracyKilometer</strong>:
+精确度1000m以内</p></li>
+<li><p><strong>kCLLocationAccuracyThreeKilometers</strong>:
+精确度3000m以内</p></li>
+</ul>
+
+
+<h5 id="id-cba6fcd61cf3e6713721f0284599102a">1.3.1.2 distanceFilter：横向移动多少距离后更新位置信息</h5>
+
+<h5 id="id-14018ba13522ba42a3c016f97161f88c">1.3.1.3 delegate：响应CLLocationManagerdelegate的对象</h5>
+
+<h3 id="id-4976032e8022892422d1291d36a94c4b">1.4 使用Core Location进行定位</h3>
+
+<p>1，引入CoreLocation的包，一般的默认模板里是没有的，所以需要手动导入。</p>
+
+<p>2，通过启动CLLocationManager来启动定位服务，因为定位信息是需要轮询的，而且对于程序来说是需要一定时间才会得到的，所以lcationManager的操作大多都给委托来完成。</p>
+
+<p>加载locationManager的代码：</p>
+
+<pre><code>CLLocationManager *locationManager = [[CLLocationManager alloc] init];//创建位置管理器
+locationManager.delegate=self;
+
+locationManager.desiredAccuracy=kCLLocationAccuracyBest;
+locationManager.distanceFilter=1000.0f;
+//启动位置更新
+[locationManager startUpdatingLocation];
+</code></pre>
+
+<p>desiredAccuracy，设置定位的精度，可以设为最优，装置会自动用最精确的方式去定位。</p>
+
+<p>distanceFilter，距离过滤器，为了减少对定位装置的轮询次数，位置的改变不会每次都去通知委托，而是在移动了足够的距离时才通知委托程序，它的单位是米，这里设置为至少移动1000再通知委托处理更新。</p>
+
+<p>startUpdatingLocation，启动定位管理，一般来说，在不需要更新定位时最好关闭它，用stopUpdatingLocation，可以节省电量。</p>
+
+<h3 id="id-774c28599044713aac47153001eedb31">1.5 委托CLLocationManagerDelegate</h3>
+
+<p>对于委托CLLocationManagerDelegate，最常用的方法是：</p>
+
+<pre><code>- (void)locationManager:(CLLocationManager *)manager   
+    didUpdateToLocation:(CLLocation *)newLocation   
+    fromLocation:(CLLocation *)oldLocation;
+</code></pre>
+
+<p>这个方法即定位改变时委托会执行的方法。</p>
+
+<p>可以得到新位置，旧位置，CLLocation里面有经度纬度的坐标值，</p>
+
+<p>同时CLLocation还有个属性horizontalAccuracy，用来得到水平上的精确度，它的大小就是定位精度的半径，单位为米。
+如果值为－1，则说明此定位不可信。</p>
+
+<p>另外委托还有一个常用方法是</p>
+
+<pre><code>- (void)locationManager:(CLLocationManager *)manager   
+       didFailWithError:(NSError *)error ;
+</code></pre>
+
+<p>当定位出现错误时就会调用这个方法。</p>
+
+<h3 id="id-dee39714119f3dfcdc853eefbe1c8b0d">1.6 地理位置反向编码</h3>
+
+<p>Core Location 中得到的定位信息都是以经度和纬度等表示的地理信息</p>
+
+<p>很多时候我们需要把它反向编码成普通人能读懂的地理位置描述如：X国XX市XXX区XXX街道XX号，这就需要用到MapKit中的一个地理位置反向编码工具：MKReverseGeocoder，</p>
+
+<h4 id="id-b3025625dddf2b96b84e982d93f0ecba">1.6.1 实现方法</h4>
+
+<h5 id="id-4018309fa209d46b7f3c823c687776d6">1.6.1.1 实现协议MKReverseGeocoderDelegate</h5>
+
+<p>首先要实现协议MKReverseGeocoderDelegate，因为将坐标信息发到服务器再反回来需要一定的时间，所以为了防止阻塞，发出信息后并不知到什么时候会返回信息，信息返回时会通知委托方法。</p>
+
+<p>这里实现这个类主要时为了实现2个方法如下：</p>
+
+<pre><code>- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error{
+    NSLog(@"MKReverseGeocoder has failed.");
+}
+- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark{
+
+    NSLog(@"当前地理信息为：%@",placemark);
+}
+</code></pre>
+
+<p>didFailWithError这个方法是来处理返回错误信息的</p>
+
+<p>didFindPlacemark则是地理信息返回值，地理信息包含在placemark里面，此对象中包含国家，城市，区块，街道等成员变量。</p>
+
+<h5 id="id-75c660741410d4d1ca1a68d7a1460b44">1.6.1.2 反向编码器</h5>
+
+<p>然后可以init一个反向编码器，然后发出请求了：</p>
+
+<pre><code>MKReverseGeocoder *reverseGeocoder =[[MKReverseGeocoder alloc] initWithCoordinate:coordinate];
+    NSLog(@"%g",coordinate.latitude);
+    NSLog(@"%g",coordinate.longitude);
+    reverseGeocoder.delegate = self;
+    [reverseGeocoder start];
+</code></pre>
+
+<p>MKReverseGeocoder除了start方法，还有cancel方法来取消请求。</p>
+
+<h2 id="id-31cda5a1f7f2e8c984699d0236ed03f1">2 地图展示</h2>
+
+<h3 id="id-39bc052e2edd2be37bddb9444b91a5bc">2.1 使用MKMapView展示地图</h3>
+
+<p>MKMapView提供了一套可植入的地图接口，可以让我们在应用中展示地图，并对其进行相关的操作。</p>
+
+<p>一般来说，我们可以指定一个展示区域，放一些标记在上面，还可以加盖一些层在上面。</p>
+
+<p>MKMapView依赖Google map里面相关服务（如Google Earth API等），所以地图的左下角会有Google字样。</p>
+
+<h4 id="id-b3025625dddf2b96b84e982d93f0ecba">2.1.1 实现方法</h4>
+
+<p>waiting for more&hellip;</p>
+
+<blockquote><p>参考</p>
+
+<p><a href="http://blog.csdn.net/csj1987/article/details/6657468">关于Core Location－ios定位</a>
+<a href="http://blog.csdn.net/ryantang03/article/details/7798580">Ryan&rsquo;s zone</a></p></blockquote>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-20T09:36:54+08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-6-location-and-map/" data-via="zwein27" data-counturl="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-6-location-and-map/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+        
+        
+      </footer>
+    </article>
+    
+  </div>
+</div>
+
+        </div>
+      </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - ZwEin<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
+  </small>
+  <a href="#" id="back">Back to Top</a>
+</p>
+
+<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+</nav>
+
+</div>
+</footer>
+    <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+    </div>
+  </body>
+</html>

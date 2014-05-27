@@ -4,8 +4,8 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="cn"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>JavaScript - My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>JavaScript - lzteng</title>
+  <meta name="author" content="ZwEin">
 
   
   
@@ -16,9 +16,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ZwEin27.github.io/javascripts/libs/bootstrap-3.0.0/javascript.html">
+  <link rel="canonical" href="http://lzteng.com/javascripts/libs/bootstrap-3.0.0/javascript.html">
   <link href="/favicon.png" type="image/png" rel="icon">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
 
   <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
@@ -45,7 +45,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">My Octopress Blog</a>
+            <a class="navbar-brand" href="/">lzteng</a>
         </div>
 
         <div class="navbar-collapse collapse">
@@ -64,8 +64,8 @@
                 
             </ul>
             
-                <form class="search navbar-form navbar-right" action="https://www.google.com/search" method="GET">
-                    <input type="hidden" name="q" value="site:ZwEin27.github.io">
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:lzteng.com">
                     <div class="form-group">
                         <input class="form-control" type="text" name="q" placeholder="Search">
                     </div>
@@ -87,7 +87,7 @@
     </div>
 
     <h3 id="js-individual-compiled">Individual or compiled</h3>
-    <p>Plugins can be included individually (using Bootstrap&#8217;s individual <code>*.js</code> files), or all at once (using <code>bootstrap.js</code> or the minified <code>bootstrap.min.js</code>).</p>
+    <p>Plugins can be included individually (using Bootstrap's individual <code>*.js</code> files), or all at once (using <code>bootstrap.js</code> or the minified <code>bootstrap.min.js</code>).</p>
 
     <div class="bs-callout bs-callout-danger">
       <h4>Do not attempt to include both.</h4>
@@ -100,7 +100,7 @@
     </div>
 
     <h3 id="js-data-attrs">Data attributes</h3>
-    <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap&#8217;s first-class API and should be your first consideration when using a plugin.</p>
+    <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap's first-class API and should be your first consideration when using a plugin.</p>
 
     <p>That said, in some situations it may be desirable to turn this functionality off. Therefore, we also provide the ability to disable the data attribute API by unbinding all events on the document namespaced with <code>data-api</code>. This looks like this:
 <div>
@@ -108,7 +108,7 @@
 </div>
 
 
-    <p>Alternatively, to target a specific plugin, just include the plugin&#8217;s name as a namespace along with the data-api namespace like this:</p>
+    <p>Alternatively, to target a specific plugin, just include the plugin's name as a namespace along with the data-api namespace like this:</p>
 <div>
   <pre><code class='js'>$(document).off(&#39;.alert.data-api&#39;)</code></pre>
 </div>
@@ -129,7 +129,7 @@ $(&quot;#myModal&quot;).modal(&#39;show&#39;)                // initializes and 
 </div>
 
 
-    <p>Each plugin also exposes its raw constructor on a <code>Constructor</code> property: <code>$.fn.popover.Constructor</code>. If you&#8217;d like to get a particular plugin instance, retrieve it directly from an element: <code>$('[rel=popover]').data('popover')</code>.</p>
+    <p>Each plugin also exposes its raw constructor on a <code>Constructor</code> property: <code>$.fn.popover.Constructor</code>. If you'd like to get a particular plugin instance, retrieve it directly from an element: <code>$('[rel=popover]').data('popover')</code>.</p>
 
     <h3 id="js-noconflict">No conflict</h3>
     <p>Sometimes it is necessary to use Bootstrap plugins with other UI frameworks. In these circumstances, namespace collisions can occasionally occur. If this happens, you may call <code>.noConflict</code> on the plugin you wish to revert the value of.</p>
@@ -140,7 +140,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
 
 
     <h3 id="js-events">Events</h3>
-    <p>Bootstrap provides custom events for most plugin&#8217;s unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. <code>show</code>) is triggered at the start of an event, and its past participle form (ex. <code>shown</code>) is trigger on the completion of an action.</p>
+    <p>Bootstrap provides custom events for most plugin's unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. <code>show</code>) is triggered at the start of an event, and its past participle form (ex. <code>shown</code>) is trigger on the completion of an action.</p>
     <p>As of 3.0.0, all Bootstrap events are namespaced.</p>
     <p>All infinitive events provide <code>preventDefault</code> functionality. This provides the ability to stop the execution of an action before it starts.</p>
 <div>
@@ -165,9 +165,9 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
       <h1 id="transitions">Transitions <small>transition.js</small></h1>
     </div>
     <h3>About transitions</h3>
-    <p>For simple transition effects, include <code>transition.js</code> once alongside the other JS files. If you&#8217;re using the compiled (or minified) <code>bootstrap.js</code>, there is no need to include this&mdash;it&#8217;s already there.</p>
-    <h3>What&#8217;s inside</h3>
-    <p>Transition.js is a basic helper for <code>transitionEnd</code> events as well as a CSS transition emulator. It&#8217;s used by the other plugins to check for CSS transition support and to catch hanging transitions.</p>
+    <p>For simple transition effects, include <code>transition.js</code> once alongside the other JS files. If you're using the compiled (or minified) <code>bootstrap.js</code>, there is no need to include this&mdash;it's already there.</p>
+    <h3>What's inside</h3>
+    <p>Transition.js is a basic helper for <code>transitionEnd</code> events as well as a CSS transition emulator. It's used by the other plugins to check for CSS transition support and to catch hanging transitions.</p>
   </div>
 
 
@@ -302,7 +302,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
         Be sure to add <code>role="dialog"</code> to your primary modal div. In the example above, <code>div#myModal</code>.<br>
         Also, the <code>aria-labelledby</code> attribute references your modal title. In this example, <code>h4#myModalLabel</code>.<br>
         Finally, <code>aria-hidden="true"</code> tells assistive technologies to skip DOM elements.<br>
-        Additionally, you may give a description of your modal dialog. Use the <code>aria-describedby</code> attribute in the modal&#8217;s primary <code>&lt;div&gt;</code> to point to this description (this is not shown in the above example).
+        Additionally, you may give a description of your modal dialog. Use the <code>aria-describedby</code> attribute in the modal's primary <code>&lt;div&gt;</code> to point to this description (this is not shown in the above example).
       </p>
     </div>
 
@@ -339,7 +339,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
            <td>backdrop</td>
            <td>boolean</td>
            <td>true</td>
-           <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn&#8217;t close the modal on click.</td>
+           <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
          </tr>
          <tr>
            <td>keyboard</td>
@@ -357,7 +357,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
            <td>remote</td>
            <td>path</td>
            <td>false</td>
-           <td><p>If a remote URL is provided, content will be loaded via jQuery&#8217;s <code>load</code> method and injected into the root of the modal element. If you&#8217;re using the data api, you may alternatively use the <code>href</code> attribute to specify the remote source. An example of this is shown below:</p>
+           <td><p>If a remote URL is provided, content will be loaded via jQuery's <code>load</code> method and injected into the root of the modal element. If you're using the data api, you may alternatively use the <code>href</code> attribute to specify the remote source. An example of this is shown below:</p>
 <div>
   <pre><code class='html'>&lt;a data-toggle=&quot;modal&quot; href=&quot;remote.html&quot; data-target=&quot;#modal&quot;&gt;Click me&lt;/a&gt;</code></pre>
 </div>
@@ -378,21 +378,21 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
 </div>
 
 
-    <h4>.modal(&#8216;toggle&#8217;)</h4>
+    <h4>.modal('toggle')</h4>
     <p>Manually toggles a modal.</p>
     <div>
   <pre><code class='js'>$(&#39;#myModal&#39;).modal(&#39;toggle&#39;)</code></pre>
 </div>
 
 
-    <h4>.modal(&#8216;show&#8217;)</h4>
+    <h4>.modal('show')</h4>
     <p>Manually opens a modal.</p>
     <div>
   <pre><code class='js'>$(&#39;#myModal&#39;).modal(&#39;show&#39;)</code></pre>
 </div>
 
 
-    <h4>.modal(&#8216;hide&#8217;)</h4>
+    <h4>.modal('hide')</h4>
     <p>Manually hides a modal.</p>
     <div>
   <pre><code class='js'>$(&#39;#myModal&#39;).modal(&#39;hide&#39;)</code></pre>
@@ -400,7 +400,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
 
 
     <h3>Events</h3>
-    <p>Bootstrap&#8217;s modal class exposes a few events for hooking into modal functionality.</p>
+    <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -575,7 +575,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
     <p><em>None</em></p>
 
     <h3>Methods</h3>
-    <h4>$().dropdown(&#8216;toggle&#8217;)</h4>
+    <h4>$().dropdown('toggle')</h4>
     <p>Toggles the dropdown menu of a given navbar or tabbed navigation.</p>
 
     <h3>Events</h3>
@@ -654,16 +654,16 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
       </nav>
       <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
         <h4 id="fat">@fat</h4>
-        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney&#8217;s photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven&#8217;t heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
         <h4 id="mdo">@mdo</h4>
-        <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney&#8217;s vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney&#8217;s quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+        <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
         <h4 id="one">one</h4>
         <p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
         <h4 id="two">two</h4>
-        <p>In incididunt echo park, officia deserunt mcsweeney&#8217;s proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven&#8217;t heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+        <p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
         <h4 id="three">three</h4>
-        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney&#8217;s photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven&#8217;t heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
-        <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven&#8217;t heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+        <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
         </p>
       </div>
     </div><!-- /example -->
@@ -693,8 +693,8 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
     </div>
 
     <h3>Methods</h3>
-    <h4>.scrollspy(&#8216;refresh&#8217;)</h4>
-    <p>When using scrollspy in conjunction with adding or removing of elements from the DOM, you&#8217;ll need to call the refresh method like so:</p>
+    <h4>.scrollspy('refresh')</h4>
+    <p>When using scrollspy in conjunction with adding or removing of elements from the DOM, you'll need to call the refresh method like so:</p>
 <div>
   <pre><code class='js'>$(&#39;[data-spy=&quot;scroll&quot;]&#39;).each(function () {
   var $spy = $(this).scrollspy(&#39;refresh&#39;)
@@ -776,13 +776,13 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
       </ul>
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade in active" id="home">
-          <p>Raw denim you probably haven&#8217;t heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
         </div>
         <div class="tab-pane fade" id="profile">
-          <p>Food truck fixie locavore, accusamus mcsweeney&#8217;s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+          <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
         </div>
         <div class="tab-pane fade" id="dropdown1">
-          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney&#8217;s organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven&#8217;t heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
         </div>
         <div class="tab-pane fade" id="dropdown2">
           <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
@@ -892,10 +892,10 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
     </div>
 
     <h2 id="tooltips-examples">Examples</h2>
-    <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated version, which don&#8217;t rely on images, use CSS3 for animations, and data-attributes for local title storage.</p>
+    <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated version, which don't rely on images, use CSS3 for animations, and data-attributes for local title storage.</p>
     <p>Hover over the links below to see tooltips:</p>
     <div class="bs-example tooltip-demo">
-      <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="#" data-toggle="tooltip" title="Default tooltip">you probably</a> haven&#8217;t heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney&#8217;s fixie sustainable quinoa 8-bit american apparel <a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney&#8217;s cleanse vegan chambray. A really ironic artisan <a href="#" data-toggle="tooltip" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" data-toggle="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+      <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="#" data-toggle="tooltip" title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" data-toggle="tooltip" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" data-toggle="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
       </p>
     </div><!-- /example -->
 
@@ -911,7 +911,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 
     <div class="bs-callout bs-callout-info">
       <h4>Tooltips in button groups and input groups require special setting</h4>
-      <p>When using tooltips on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you&#8217;ll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the tooltip is triggered).</p>
+      <p>When using tooltips on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the tooltip is triggered).</p>
     </div>
 
 
@@ -945,13 +945,13 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
            <td>html</td>
            <td>boolean</td>
            <td>false</td>
-           <td>Insert HTML into the tooltip. If false, jQuery&#8217;s <code>text</code> method will be used to insert content into the DOM. Use text if you&#8217;re worried about XSS attacks.</td>
+           <td>Insert HTML into the tooltip. If false, jQuery's <code>text</code> method will be used to insert content into the DOM. Use text if you're worried about XSS attacks.</td>
          </tr>
          <tr>
            <td>placement</td>
            <td>string | function</td>
-           <td>&#8216;top&#8217;</td>
-           <td>how to position the tooltip - top | bottom | left | right | auto. <br> When &#8220;auto&#8221; is specified, it will dynamically reorient the tooltip. For example, if placement is &#8220;auto left&#8221;, the tooltip will display to the left when possible, otherwise it will display right.</td>
+           <td>'top'</td>
+           <td>how to position the tooltip - top | bottom | left | right | auto. <br> When "auto" is specified, it will dynamically reorient the tooltip. For example, if placement is "auto left", the tooltip will display to the left when possible, otherwise it will display right.</td>
          </tr>
          <tr>
            <td>selector</td>
@@ -962,13 +962,13 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
          <tr>
            <td>title</td>
            <td>string | function</td>
-           <td>&#8221;</td>
-           <td>default title value if <code>title</code> attribute isn&#8217;t present</td>
+           <td>''</td>
+           <td>default title value if <code>title</code> attribute isn't present</td>
          </tr>
          <tr>
            <td>trigger</td>
            <td>string</td>
-           <td>&#8216;hover focus&#8217;</td>
+           <td>'hover focus'</td>
            <td>how tooltip is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space.</td>
          </tr>
          <tr>
@@ -1008,29 +1008,29 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
     <h4>$().tooltip(options)</h4>
     <p>Attaches a tooltip handler to an element collection.</p>
 
-    <h4>.tooltip(&#8216;show&#8217;)</h4>
-    <p>Reveals an element&#8217;s tooltip.</p>
+    <h4>.tooltip('show')</h4>
+    <p>Reveals an element's tooltip.</p>
     <div>
   <pre><code class='js'>$(&#39;#element&#39;).tooltip(&#39;show&#39;)</code></pre>
 </div>
 
 
-    <h4>.tooltip(&#8216;hide&#8217;)</h4>
-    <p>Hides an element&#8217;s tooltip.</p>
+    <h4>.tooltip('hide')</h4>
+    <p>Hides an element's tooltip.</p>
     <div>
   <pre><code class='js'>$(&#39;#element&#39;).tooltip(&#39;hide&#39;)</code></pre>
 </div>
 
 
-    <h4>.tooltip(&#8216;toggle&#8217;)</h4>
-    <p>Toggles an element&#8217;s tooltip.</p>
+    <h4>.tooltip('toggle')</h4>
+    <p>Toggles an element's tooltip.</p>
     <div>
   <pre><code class='js'>$(&#39;#element&#39;).tooltip(&#39;toggle&#39;)</code></pre>
 </div>
 
 
-    <h4>.tooltip(&#8216;destroy&#8217;)</h4>
-    <p>Hides and destroys an element&#8217;s tooltip.</p>
+    <h4>.tooltip('destroy')</h4>
+    <p>Hides and destroys an element's tooltip.</p>
     <div>
   <pre><code class='js'>$(&#39;#element&#39;).tooltip(&#39;destroy&#39;)</code></pre>
 </div>
@@ -1089,7 +1089,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
     </div>
     <div class="bs-callout bs-callout-info">
       <h4>Popovers in button groups and input groups require special setting</h4>
-      <p>When using popovers on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you&#8217;ll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the popover is triggered).</p>
+      <p>When using popovers on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the popover is triggered).</p>
     </div>
 
     <h3>Static popover</h3>
@@ -1184,13 +1184,13 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
             <td>html</td>
             <td>boolean</td>
             <td>false</td>
-            <td>Insert HTML into the popover. If false, jQuery&#8217;s <code>text</code> method will be used to insert content into the DOM. Use text if you&#8217;re worried about XSS attacks.</td>
+            <td>Insert HTML into the popover. If false, jQuery's <code>text</code> method will be used to insert content into the DOM. Use text if you're worried about XSS attacks.</td>
           </tr>
           <tr>
             <td>placement</td>
             <td>string | function</td>
-            <td>&#8216;right&#8217;</td>
-            <td>how to position the popover - top | bottom | left | right | auto.<br> When &#8220;auto&#8221; is specified, it will dynamically reorient the popover. For example, if placement is &#8220;auto left&#8221;, the tooltip will display to the left when possible, otherwise it will display right.</td>
+            <td>'right'</td>
+            <td>how to position the popover - top | bottom | left | right | auto.<br> When "auto" is specified, it will dynamically reorient the popover. For example, if placement is "auto left", the tooltip will display to the left when possible, otherwise it will display right.</td>
           </tr>
           <tr>
             <td>selector</td>
@@ -1201,20 +1201,20 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
           <tr>
             <td>trigger</td>
             <td>string</td>
-            <td>&#8216;click&#8217;</td>
+            <td>'click'</td>
             <td>how popover is triggered - click | hover | focus | manual</td>
           </tr>
           <tr>
             <td>title</td>
             <td>string | function</td>
-            <td>&#8221;</td>
-            <td>default title value if <code>title</code> attribute isn&#8217;t present</td>
+            <td>''</td>
+            <td>default title value if <code>title</code> attribute isn't present</td>
           </tr>
           <tr>
             <td>content</td>
             <td>string | function</td>
-            <td>&#8221;</td>
-            <td>default content value if <code>data-content</code> attribute isn&#8217;t present</td>
+            <td>''</td>
+            <td>default content value if <code>data-content</code> attribute isn't present</td>
           </tr>
           <tr>
             <td>delay</td>
@@ -1249,29 +1249,29 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
     <h4>$().popover(options)</h4>
     <p>Initializes popovers for an element collection.</p>
 
-    <h4>.popover(&#8216;show&#8217;)</h4>
+    <h4>.popover('show')</h4>
     <p>Reveals an elements popover.</p>
     <div>
   <pre><code class='js'>$(&#39;#element&#39;).popover(&#39;show&#39;)</code></pre>
 </div>
 
 
-    <h4>.popover(&#8216;hide&#8217;)</h4>
+    <h4>.popover('hide')</h4>
     <p>Hides an elements popover.</p>
     <div>
   <pre><code class='js'>$(&#39;#element&#39;).popover(&#39;hide&#39;)</code></pre>
 </div>
 
 
-    <h4>.popover(&#8216;toggle&#8217;)</h4>
+    <h4>.popover('toggle')</h4>
     <p>Toggles an elements popover.</p>
     <div>
   <pre><code class='js'>$(&#39;#element&#39;).popover(&#39;toggle&#39;)</code></pre>
 </div>
 
 
-    <h4>.popover(&#8216;destroy&#8217;)</h4>
-    <p>Hides and destroys an element&#8217;s popover.</p>
+    <h4>.popover('destroy')</h4>
+    <p>Hides and destroys an element's popover.</p>
     <div>
   <pre><code class='js'>$(&#39;#element&#39;).popover(&#39;destroy&#39;)</code></pre>
 </div>
@@ -1326,7 +1326,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
     <div class="bs-example">
       <div class="alert alert-warning fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Holy guacamole!</strong> Best check yo self, you&#8217;re not looking too good.
+        <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
       </div>
     </div><!-- /example -->
 
@@ -1361,7 +1361,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
     <h4>$().alert()</h4>
     <p>Wraps all alerts with close functionality. To have your alerts animate out when closed, make sure they have the <code>.fade</code> and <code>.in</code> class already applied to them.</p>
 
-    <h4>.alert(&#8216;close&#8217;)</h4>
+    <h4>.alert('close')</h4>
     <p>Closes an alert.</p>
     <div>
   <pre><code class='js'>$(&quot;.alert&quot;).alert(&#39;close&#39;)</code></pre>
@@ -1370,7 +1370,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 
 
     <h3>Events</h3>
-    <p>Bootstrap&#8217;s alert class exposes a few events for hooking into alert functionality.</p>
+    <p>Bootstrap's alert class exposes a few events for hooking into alert functionality.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -1511,7 +1511,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 
     <h3>Methods</h3>
 
-    <h4>$().button(&#8216;toggle&#8217;)</h4>
+    <h4>$().button('toggle')</h4>
     <p>Toggles push state. Gives the button the appearance that it has been activated.</p>
     <div class="bs-callout bs-callout-info">
       <h4>Auto toggling</h4>
@@ -1522,7 +1522,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 </div>
 
 
-    <h4>$().button(&#8216;loading&#8217;)</h4>
+    <h4>$().button('loading')</h4>
     <p>Sets button state to loading - disables button and swaps text to loading text. Loading text should be defined on the button element using the data attribute <code>data-loading-text</code>.
     </p>
 <div>
@@ -1535,7 +1535,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
       <p><a href="https://github.com/twbs/bootstrap/issues/793">Firefox persists the disabled state across page loads</a>. A workaround for this is to use <code>autocomplete="off"</code>.</p>
     </div>
 
-    <h4>$().button(&#8216;reset&#8217;)</h4>
+    <h4>$().button('reset')</h4>
     <p>Resets button state - swaps text to original text.</p>
 
     <h4>$().button(string)</h4>
@@ -1581,7 +1581,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
           </div>
           <div id="collapseOne" class="panel-collapse collapse in">
             <div class="panel-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#8217;t heard of them accusamus labore sustainable VHS.
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
             </div>
           </div>
         </div>
@@ -1595,7 +1595,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
           </div>
           <div id="collapseTwo" class="panel-collapse collapse">
             <div class="panel-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#8217;t heard of them accusamus labore sustainable VHS.
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
             </div>
           </div>
         </div>
@@ -1609,7 +1609,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
           </div>
           <div id="collapseThree" class="panel-collapse collapse">
             <div class="panel-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#8217;t heard of them accusamus labore sustainable VHS.
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
             </div>
           </div>
         </div>
@@ -1677,7 +1677,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
     <h2 id="collapse-usage">Usage</h2>
 
     <h3>Via data attributes</h3>
-    <p>Just add <code>data-toggle="collapse"</code> and a <code>data-target</code> to element to automatically assign control of a collapsible element. The <code>data-target</code> attribute accepts a CSS selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you&#8217;d like it to default open, add the additional class <code>in</code>.</p>
+    <p>Just add <code>data-toggle="collapse"</code> and a <code>data-target</code> to element to automatically assign control of a collapsible element. The <code>data-target</code> attribute accepts a CSS selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you'd like it to default open, add the additional class <code>in</code>.</p>
     <p>To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.</p>
 
     <h3>Via JavaScript</h3>
@@ -1727,17 +1727,17 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 </div>
 
 
-    <h4>.collapse(&#8216;toggle&#8217;)</h4>
+    <h4>.collapse('toggle')</h4>
     <p>Toggles a collapsible element to shown or hidden.</p>
 
-    <h4>.collapse(&#8216;show&#8217;)</h4>
+    <h4>.collapse('show')</h4>
     <p>Shows a collapsible element.</p>
 
-    <h4>.collapse(&#8216;hide&#8217;)</h4>
+    <h4>.collapse('hide')</h4>
     <p>Hides a collapsible element.</p>
 
     <h3>Events</h3>
-    <p>Bootstrap&#8217;s collapse class exposes a few events for hooking into collapse functionality.</p>
+    <p>Bootstrap's collapse class exposes a few events for hooking into collapse functionality.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -1938,7 +1938,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
          <tr>
            <td>pause</td>
            <td>string</td>
-           <td>&#8220;hover&#8221;</td>
+           <td>"hover"</td>
            <td>Pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave.</td>
          </tr>
          <tr>
@@ -1962,24 +1962,24 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 </div>
 
 
-    <h4>.carousel(&#8216;cycle&#8217;)</h4>
+    <h4>.carousel('cycle')</h4>
     <p>Cycles through the carousel items from left to right.</p>
 
-    <h4>.carousel(&#8216;pause&#8217;)</h4>
+    <h4>.carousel('pause')</h4>
     <p>Stops the carousel from cycling through items.</p>
 
 
     <h4>.carousel(number)</h4>
     <p>Cycles the carousel to a particular frame (0 based, similar to an array).</p>
 
-    <h4>.carousel(&#8216;prev&#8217;)</h4>
+    <h4>.carousel('prev')</h4>
     <p>Cycles to the previous item.</p>
 
-    <h4>.carousel(&#8216;next&#8217;)</h4>
+    <h4>.carousel('next')</h4>
     <p>Cycles to the next item.</p>
 
     <h3>Events</h3>
-    <p>Bootstrap&#8217;s carousel class exposes two events for hooking into carousel functionality.</p>
+    <p>Bootstrap's carousel class exposes two events for hooking into carousel functionality.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -2036,7 +2036,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
       <h4>Requires independent styling ;)</h4>
       <p>
         Affix toggles between three states/classes: <code>affix</code>, <code>affix-top</code>, and <code>affix-bottom</code>. You must provide the styles for these classes yourself (independent of this plugin).
-        The <code>affix-top</code> class should be in the regular flow of the document. The <code>affix</code> class should be fixed to the page. And <code>affix-bottom</code> should be positioned absolute. Note, <code>affix-bottom</code> is special in that the plugin will place the element with JS relative to the <code>offset: { bottom: number }</code> option you&#8217;ve provided.
+        The <code>affix-top</code> class should be in the regular flow of the document. The <code>affix</code> class should be fixed to the page. And <code>affix-bottom</code> should be positioned absolute. Note, <code>affix-bottom</code> is special in that the plugin will place the element with JS relative to the <code>offset: { bottom: number }</code> option you've provided.
       </p>
     </div>
 
@@ -2085,7 +2085,7 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
       </div>
     <footer role="contentinfo"><div class="container">
     <p class="text-muted credits">
-  Copyright &copy; 2014 - Your Name<br>
+  Copyright &copy; 2014 - ZwEin<br>
   <small>
       <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
       <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
@@ -2104,7 +2104,24 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 
 
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
 
 
 

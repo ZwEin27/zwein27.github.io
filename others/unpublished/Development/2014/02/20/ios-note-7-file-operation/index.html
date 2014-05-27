@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="cn"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>iOS 开发笔记 7 - 文件操作 - lzteng</title>
+  <meta name="author" content="ZwEin">
+
+  <meta name="description" content="iOS文件操作笔记，包括对沙盒机制的讨论和基本的文件操作方法">
+  <meta name="keywords" content="iOS File Operation 文件操作 沙盒">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-7-file-operation">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
+
+  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+<link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  
+
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">lzteng</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Blog</a></li>
+                <li><a href="/blog/archives">Archives</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:lzteng.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-20T10:13:32+08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        iOS 开发笔记 7 - 文件操作
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><h2 id="id-877938b7671a57861deb0e4a3afed8fe">1 沙盒机制</h2>
+
+<p>IOS中的沙盒机制（SandBox）是一种安全体系，它规定了应用程序只能在为该应用创建的文件夹内读取文件，不可以访问其他地方的内容。所有的非代码文件都保存在这个地方，比如图片、声音、属性列表和文本文件等。</p>
+
+<p>1.每个应用程序都在自己的沙盒内</p>
+
+<p>2.不能随意跨越自己的沙盒去访问别的应用程序沙盒的内容</p>
+
+<p>3.应用程序向外请求或接收数据都需要经过权限认证</p>
+
+<!-- more -->
+
+
+<p>查看模拟器的沙盒文件夹在Mac电脑上的存储位置，首先，这个文件夹是被隐藏的，所以要先将这些文件显示出来，打开命令行：</p>
+
+<pre><code>//显示Mac隐藏文件的命令：
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+//隐藏Mac隐藏文件的命令：
+defaults write com.apple.finder AppleShowAllFiles -bool false
+</code></pre>
+
+<p>然后重新启动Finder，点击屏幕左上角苹果标志——强制退出——选择Finder然后点击重新启动，这个时候在重新打开Finder就可以看到被隐藏的文件了。</p>
+
+<p>还有一种比较简单的办法就是直接点击Finder图标右键——前往文件夹——输入/Users/your username/Library/Application Support/iPhone Simulator/ ,然后确认就可以了。your username是你本机的用户名</p>
+
+<p>然后按下图进入相应的文件夹，就可以到模拟器的沙盒文件目录了.</p>
+
+<p>接着进入一个模拟器版本, 然后可以看到Applications下面存放的就是模拟器中所装的开发的应用程序，随便进入一个后可以看到，一个沙盒中包含了四个部分，如图所示:</p>
+
+<p><img src="/images/blog/14-2-20_AM10_23-9.png" alt="image" /></p>
+
+<h3 id="id-f00e4545b0f87e8128c7ca5ef2e05c9f">1.1 沙盒中的目录操作</h3>
+
+<h4 id="id-2e2ea26acbde081aeb7bf8216eeeffaa">1.1.1 获取沙盒中的目录</h4>
+
+<pre><code>//获取根目录
+NSString *homePath = NSHomeDirectory();
+NSLog(@"Home目录：%@",homePath);
+
+//获取Documents文件夹目录,第一个参数是说明获取Doucments文件夹目录，第二个参数说明是在当前应用沙盒中获取，所有应用沙盒目录组成一个数组结构的数据存放
+NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+NSString *documentsPath = [docPath objectAtIndex:0];
+NSLog(@"Documents目录：%@",documentsPath);
+
+//获取Cache目录
+NSArray *cacPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+NSString *cachePath = [cacPath objectAtIndex:0];
+NSLog(@"Cache目录：%@",cachePath);
+
+//Library目录
+NSArray *libsPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+NSString *libPath = [libsPath objectAtIndex:0];
+NSLog(@"Library目录：%@",libPath);
+
+//temp目录
+NSString *tempPath = NSTemporaryDirectory();
+NSLog(@"temp目录：%@",tempPath);
+</code></pre>
+
+<p>输出结果：</p>
+
+<pre><code>2012-08-03 11:10:24.325 SandBoxTest[12549:f803] Home目录：/Users/Ryan/Library/Application Support/iPhone Simulator/5.1/Applications/A6B99E5A-E2C7-46E9-867A-4E7619F0DA45
+
+2012-08-03 11:10:24.325 SandBoxTest[12549:f803] Documents目录：/Users/Ryan/Library/Application Support/iPhone Simulator/5.1/Applications/A6B99E5A-E2C7-46E9-867A-4E7619F0DA45/Documents
+
+2012-08-03 11:10:24.326 SandBoxTest[12549:f803] Cache目录：/Users/Ryan/Library/Application Support/iPhone Simulator/5.1/Applications/A6B99E5A-E2C7-46E9-867A-4E7619F0DA45/Library/Caches
+
+2012-08-03 11:10:24.326 SandBoxTest[12549:f803] Library目录：/Users/Ryan/Library/Application Support/iPhone Simulator/5.1/Applications/A6B99E5A-E2C7-46E9-867A-4E7619F0DA45/Library
+
+2012-08-03 11:10:24.326 SandBoxTest[12549:f803] temp目录：/var/folders/7z/1wj5h8zx7b59c02pxmpynd500000gn/T/
+</code></pre>
+
+<p>真机测试：</p>
+
+<pre><code>2012-06-17 14:25:47.059 IosSandbox[4281:f803] /var/mobile/Applications/3B8EC78A-5EEE-4C2F-B0CB-4C3F02B996D2
+</code></pre>
+
+<p>可见，真机上的目录是/var/mobile/Applications/这个目录下的，和模拟器不一样。这个是Home目录，其他的子目录和模拟器一样。</p>
+
+<h4 id="id-64a72d0ade89a2f243290fae64ac2675">1.1.2 在Documents里创建目录</h4>
+
+<pre><code> NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
+NSString *documentsDirectory = [paths objectAtIndex:0];  
+NSLog(@"documentsDirectory%@",documentsDirectory);  
+NSFileManager *fileManager = [NSFileManager defaultManager];  
+NSString *testDirectory = [documentsDirectory stringByAppendingPathComponent:@"test"];  
+// 创建目录
+[fileManager createDirectoryAtPath:testDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+</code></pre>
+
+<h4 id="id-eea15ee9fd9150de22b37eff867c18c1">1.1.3 在test目录下创建文件</h4>
+
+<p>接着上面的代码 testPath 要用stringByAppendingPathComponent拼接上你要生成的文件名，比如test00.txt。这样才能在test下写入文件。</p>
+
+<p>testDirectory是上面代码生成的路径哦，不要忘了。</p>
+
+<p>往test文件夹里写入三个文件，test00.txt ,test22.txt,text.33.txt。内容都是写入内容，write String。</p>
+
+<p>实现代码如下：</p>
+
+<pre><code>    NSString *testPath = [testDirectory stringByAppendingPathComponent:@"test00.txt"];  
+NSString *testPath2 = [testDirectory stringByAppendingPathComponent:@"test22.txt"];  
+NSString *testPath3 = [testDirectory stringByAppendingPathComponent:@"test33.txt"];  
+
+
+NSString *string = @"写入内容，write String";
+[fileManager createFileAtPath:testPath contents:[string  dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+[fileManager createFileAtPath:testPath2 contents:[string  dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+[fileManager createFileAtPath:testPath3 contents:[string  dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+</code></pre>
+
+<h4 id="id-25515a41da4b7a9078b0cf72a3e1e2ce">1.1.4 获取目录中的所有文件名</h4>
+
+<p>两种方法获取：subpathsOfDirectoryAtPath 和 subpathsAtPath</p>
+
+<pre><code>NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
+NSString *documentsDirectory = [paths objectAtIndex:0];  
+NSLog(@"documentsDirectory%@",documentsDirectory);  
+NSFileManager *fileManage = [NSFileManager defaultManager];  
+NSString *myDirectory = [documentsDirectory stringByAppendingPathComponent:@"test"];  
+NSArray *file = [fileManage subpathsOfDirectoryAtPath: myDirectory error:nil]; 
+NSLog(@"%@",file);  
+NSArray *files = [fileManage subpathsAtPath: myDirectory ]; 
+NSLog(@"%@",files);
+</code></pre>
+
+<p>获取上面刚才test文件夹里的文件名</p>
+
+<p>打印结果：</p>
+
+<pre><code>2012-06-17 23:23:19.684 IosSandbox[947:f803] fileList:(
+    ".DS_Store",
+    "test00.txt",
+    "test22.txt",
+    "test33.txt"
+)
+2012-06-17 23:23:19.686 IosSandbox[947:f803] fileLit(
+    ".DS_Store",
+    "test00.txt",
+    "test22.txt",
+    "test33.txt"
+)
+</code></pre>
+
+<p>两个方法都可以，隐藏的文件也打印出来了。</p>
+
+<h4 id="id-dce86a2336dec994bf439458df7d60a9">1.1.5 使用 FileManager 操作当前目录</h4>
+
+<pre><code>//创建文件管理器
+NSFileManager *fileManager = [NSFileManager defaultManager];
+
+NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+NSString *documentsDirectory = [paths objectAtIndex:0];
+
+//更改到待操作的目录下
+[fileManager changeCurrentDirectoryPath:[documentsDirectory stringByExpandingTildeInPath]];
+
+//创建文件fileName文件名称，contents文件的内容，如果开始没有内容可以设置为nil，attributes文件的属性，初始为nil
+
+NSString * fileName = @"testFileNSFileManager.txt";
+
+NSArray *array = [[NSArray alloc] initWithObjects:@"hello world",@"hello world1", @"hello world2",nil];
+
+[fileManager createFileAtPath:fileName contents:array attributes:nil];
+
+//删除文件    
+[fileManager removeItemAtPath:fileName error:nil];
+</code></pre>
+
+<h3 id="id-5177ae1dc63f7b01e6d79fec14dfe03a">1.2 沙盒中数据读写</h3>
+
+<h4 id="id-e548fc5acfdd2fc668c1421254ba566f">1.2.1 向目录里面创建文件</h4>
+
+<pre><code>NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+NSString *documentsPath = [docPath objectAtIndex:0];
+//写入文件
+if (!documentsPath) {
+    NSLog(@"目录未找到");
+}else {
+    NSString *filePaht = [documentsPath stringByAppendingPathComponent:@"test.txt"];
+    NSArray *array = [NSArray arrayWithObjects:@"Title",@"Contents", nil];
+    [array writeToFile:filePaht atomically:YES];
+}
+</code></pre>
+
+<h4 id="id-5c5e29c6afced3edfe17930a1f2c983f">1.2.2 读取沙盒中文件的内容</h4>
+
+<pre><code>//读取文件
+NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+NSString *documentsPath = [docPath objectAtIndex:0];
+NSString *readPath = [documentsPath stringByAppendingPathComponent:@"test.txt"];
+NSArray *fileContent = [[NSArrayalloc] initWithContentsOfFile:readPath];
+NSLog(@"文件内容：%@",fileContent);
+</code></pre>
+
+<p>输出结果如下：</p>
+
+<pre><code>2012-08-03 11:26:53.594 SandBoxTest[12642:f803] 文件内容：(
+    Title,
+    Contents
+)
+</code></pre>
+
+<h4 id="id-1def4d6d027debd574c0aa5c3e3304e4">1.2.3 混合数据的读写</h4>
+
+<p>用NSMutableData创建混合数据，然后写到文件里。并按数据的类型把数据读出来</p>
+
+<h5 id="id-a71f09d429ef562bd7bb9415ff34b798">1.2.3.1 写入数据：</h5>
+
+<pre><code>NSString * fileName = @"testFileNSFileManager.txt";
+NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+NSString *documentsDirectory = [paths objectAtIndex:0];
+//获取文件路径
+NSString *path = [documentsDirectory stringByAppendingPathComponent:fileName];
+//待写入的数据
+NSString *temp = @"nihao 世界";
+int dataInt = 1234;
+float dataFloat = 3.14f;
+//创建数据缓冲
+NSMutableData *writer = [[NSMutableData alloc] init];
+//将字符串添加到缓冲中
+[writer appendData:[temp dataUsingEncoding:NSUTF8StringEncoding]];   
+//将其他数据添加到缓冲中
+[writer appendBytes:&amp;dataInt length:sizeof(dataInt)];
+[writer appendBytes:&amp;dataFloat length:sizeof(dataFloat)];  
+//将缓冲的数据写入到文件中
+[writer writeToFile:path atomically:YES];
+</code></pre>
+
+<h5 id="id-1f8a7a5b75471c9fb3822e2adca40981">1.2.3.2 读取写入的数据：</h5>
+
+<pre><code> //读取数据：
+int intData;
+float floatData = 0.0;
+NSString *stringData;
+
+NSData *reader = [NSData dataWithContentsOfFile:path];
+stringData = [[NSString alloc] initWithData:[reader subdataWithRange:NSMakeRange(0, [temp length])]
+                               encoding:NSUTF8StringEncoding];
+[reader getBytes:&amp;intData range:NSMakeRange([temp length], sizeof(intData))];
+[reader getBytes:&amp;floatData range:NSMakeRange([temp length] + sizeof(intData), sizeof(floatData))];
+NSLog(@"stringData:%@ intData:%d floatData:%f", stringData, intData, floatData);
+</code></pre>
+
+<blockquote><p>参考</p>
+
+<p><a href="http://blog.csdn.net/ryantang03/article/details/7830996">Ryan&rsquo;s zone</a></p>
+
+<p>iOS学习之iOS沙盒(sandbox)机制和文件操作  <a href="http://blog.csdn.net/totogo2010/article/details/7669837">(一)</a>  <a href="http://blog.csdn.net/totogo2010/article/details/7670417">(二)</a>  <a href="http://blog.csdn.net/totogo2010/article/details/7671144">(三)</a></p></blockquote>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-20T10:13:32+08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-7-file-operation/" data-via="zwein27" data-counturl="http://lzteng.com/others/unpublished/Development/2014/02/20/ios-note-7-file-operation/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+        
+        
+      </footer>
+    </article>
+    
+  </div>
+</div>
+
+        </div>
+      </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - ZwEin<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
+  </small>
+  <a href="#" id="back">Back to Top</a>
+</p>
+
+<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+</nav>
+
+</div>
+</footer>
+    <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+    </div>
+  </body>
+</html>

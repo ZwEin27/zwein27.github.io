@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://ZwEin27.github.io/sitemap.xml 
+Sitemap: http://lzteng.com/sitemap.xml 
