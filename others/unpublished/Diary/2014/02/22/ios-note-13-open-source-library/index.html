@@ -7,37 +7,100 @@
   <title>iOS 开发笔记 13 - 开源库 - lzteng</title>
   <meta name="author" content="ZwEin">
 
-  <meta name="description" content="iOS下的开源库收集笔记">
-  <meta name="keywords" content="iOS Open Source 开源 代码库">
+  
+  <meta name="description" content=" iOS下的开源库收集笔记 ">
+  
+    <meta name="keywords" content="iOS Open Source 开源 代码库">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- sina open platform -->
+  <meta property="wb:webmaster" content="df940a3dbf57e160" />
+  <html xmlns:wb="http://open.weibo.com/wb">
+
+  <!-- baidu -->
+  <meta name="baidu-site-verification" content="mqpzxukah8" />
+
+
   
   <link rel="canonical" href="http://lzteng.com/others/unpublished/Diary/2014/02/22/ios-note-13-open-source-library">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
 
-  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+  <link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+
+
 <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
-
+<!-- custom -->
 <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/custom.css" rel="stylesheet" type="text/css">
+<!-- <link href="/javascripts/libs/prettify/prettify.css" rel="stylesheet" type="text/css" media="all"> --><link href="/javascripts/libs/prettify/desert.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link rel="stylesheet" href="/javascripts/libs/highlight/styles/monokai_sublime.css"> -->
+<!-- add font-awesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+
+<!-- wunii -->
+<meta name="wumiiVerification" content="11f148a3-3375-42a6-bcf9-f1658ee6036a" />
+
+
+
+  
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  <script src="/javascripts/custom.js"></script>
+  
+
+
+  <script type="text/javascript">
+        $(document).ready(function () {
+         jQuery("#topbarloading").animate({ /* NavBar 顶部载入条 */
+                width: "100%"
+            },
+            {
+                queue: false,
+                duration: 5000
+            });
+          
+        })
+  </script>
+  
   
 
 </head>
 
   <body   >
+
+    <!--[if lt IE 9]>
+     <script type="text/javascript">
+
+      var browser=navigator.appName;
+      var b_version=navigator.appVersion;
+      var version=parseFloat(b_version);
+    
+      document.getElementById('browser-warning').style.display='block';
+      
+        alert("为保证浏览效果，建议使用Firefox或者Chrome等非IE内核的浏览器！");
+      
+  </script>
+  <![endif]-->
+
+
+
+<a name="gotop"></a><!-- 回到顶部 -->
+
     <div id="wrap">
       <header role="banner">
         
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,11 +111,29 @@
             <a class="navbar-brand" href="/">lzteng</a>
         </div>
 
-        <div class="navbar-collapse collapse">
+        <div  class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Blog</a></li>
-                <li><a href="/blog/archives">Archives</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/blog/archives">Archive</a></li>
+                <li><a href="/blog/categories">Categories</a></li>
+                <li><a href="/blog/tags">Tags</a></li>
+                <li><a href="/blog/about">About</a></li>
+
+               
+
+
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -73,52 +154,91 @@
             
         </div>
     </div>
+
+
+    <div id="topbarloading"></div>
+    
 </nav>
+
+
+
 
 
       </header>
       <div id="main" class="container">
         <div id="content">
           <div class="row">
-  <div class="page-content col-md-9">
+        
+            <div class="page-content col-md-9">
+
     <article class="hentry" role="article">
       
+
+        
+            
   <header class="page-header">
     
-      <p class="meta text-muted text-uppercase">
-        
 
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-22T20:30:41+08:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2014</time>
-        
-      </p>
-    
     
     <h1 class="entry-title">
         iOS 开发笔记 13 - 开源库
         
     </h1>
     
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="#comments"
+             data-thread-key="/Diary/2014/02/22/ios-note-13-open-source-library/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Diary/2014/02/22/ios-note-13-open-source-library/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-02-22T20:30:41+08:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
   </header>
 
 
-<div class="entry-content clearfix"><h2 id="id-436367b06614c1bec6efcd0971a16ef2">1 项目管理</h2>
 
-<h3 id="id-d7f73e91b92930bbfeca7873aab26fd2">1.1 项目依赖库管理工具 &ndash; CocoaPods</h3>
+
+  <div class="entry-content clearfix"><h2 id="id-f72cb27ce454c74265a9387cf411ee64">1 1 项目管理</h2>
+
+<h3 id="id-b342417173d9c1f9ac9102a2c2d7c845">1.1 1.1 项目依赖库管理工具 &ndash; CocoaPods</h3>
 
 <p><a href="http://cocoapods.org/">CocoaPods</a>，是一个项目依赖库的管理工具，使用它能够方便的在IOS下对第三方依赖进行部署和更新。</p>
 
-<h4 id="id-3d8543547885ddb05a27cee65cb6d149">1.1.1 CocoaPods 的安装</h4>
+<h4 id="id-cd7f691e42f975343e75cb485d233003">1.1.1 1.1.1 CocoaPods 的安装</h4>
 
 <p>安装CocoaPods需要确保本地有Ruby环境，MAC系统本身就有自带Ruby环境，控制台输入命令可以查看Ruby版本</p>
 
@@ -146,9 +266,9 @@ $ gem sources -a http://ruby.taobao.org/
 <pre><code>sudo gem install cocoapods
 </code></pre>
 
-<h4 id="id-f68fc5dc887dd197d47d3025a3e1f3d4">1.1.2 CocoaPods的使用</h4>
+<h4 id="id-4e6be6a94bd561f775c7ebc7475a6451">1.1.2 1.1.2 CocoaPods的使用</h4>
 
-<h5 id="id-aa9c13cf9dcaed0efc8ddf1a4671685b">1.1.2.1 查找想要的第三方源是否存在</h5>
+<h5 id="id-80c04b59f69cd5b34ce0906c4fdf8af5">1.1.2.1 1.1.2.1 查找想要的第三方源是否存在</h5>
 
 <p>以JSONKit为例，终端输入</p>
 
@@ -167,7 +287,7 @@ pod setup
 
 <p>等待一段时间，直到终端出现<code>Setup completed (read-only access)</code></p>
 
-<h5 id="id-2a1fc4e2d979975ecb0bbe0a74328377">1.1.2.2 配置Podfile</h5>
+<h5 id="id-56cf0588e67edcd529e3bf18999d2efd">1.1.2.2 1.1.2.2 配置Podfile</h5>
 
 <p>终端进入想要使用CocoaPods管理依赖库的项目的目录，注意是要和.xcodeproj在同一路径下</p>
 
@@ -186,13 +306,13 @@ pod 'JSONKit',       '~&gt; 1.5pre'
 
 <p>打开.xcworkspace文件后就会看到CocoaPods自动为你下载了依赖库</p>
 
-<h5 id="id-c5506153139c74419d57c84e9ef81680">1.1.2.3 依赖库配置</h5>
+<h5 id="id-4acb5d578b65bd9ac0062f54192e3e60">1.1.2.3 1.1.2.3 依赖库配置</h5>
 
 <p>如果想要更新或者添加依赖库，操作与添加类似，主要是使用<code>pod search 依赖库名称</code>和修改<code>Podfile</code>文件，然后使用<code>pod update</code>进行更新</p>
 
-<h2 id="id-5bdf821d3b4a420c13151fc18c9c3e5d">2 UI 库</h2>
+<h2 id="id-0ff89a4eabf5388b96dbe09731899ed1">2 2 UI 库</h2>
 
-<h3 id="id-16309d3db7cff66c0293a4c80a10f609">2.1 Sliding Menu</h3>
+<h3 id="id-6b5128f9cd654b3d5a2d8c4232a4a44a">2.1 2.1 Sliding Menu</h3>
 
 <ul>
 <li><a href="https://github.com/John-Lluch/SWRevealViewController">SWRevealViewController</a></li>
@@ -202,7 +322,7 @@ pod 'JSONKit',       '~&gt; 1.5pre'
 </ul>
 
 
-<h3 id="id-e05719b0b6ce33dc9a1bfbc3a6dda8ac">2.2 Flat UI</h3>
+<h3 id="id-4ae4bfc3fb13836a5dfc4f14ab3804e6">2.2 2.2 Flat UI</h3>
 
 <ul>
 <li><a href="https://github.com/Grouper/FlatUIKit">FlatUIKit</a>: 可参考 <a href="http://designmodo.github.io/Flat-UI/">Flat-UI</a></li>
@@ -217,36 +337,36 @@ pod 'JSONKit',       '~&gt; 1.5pre'
 </ul>
 
 
-<h4 id="id-2eb24604d7109031e29f38355124270e">2.2.1 SWRevealViewController</h4>
+<h4 id="id-4bb7e67f1304c8652cddfa3718dfdeee">2.2.1 2.2.1 SWRevealViewController</h4>
 
 <p>教程：<a href="http://www.appcoda.com/ios-programming-sidebar-navigation-menu/">How To Add a Slide-out Sidebar Menu in Your Apps</a></p>
 
 <p>项目地址：<a href="https://github.com/John-Lluch/SWRevealViewController">SWRevealViewController</a></p>
 
-<h3 id="id-34e2d1989a1dbf75cd631596133ee5ee">2.3 Video</h3>
+<h3 id="id-8501fbbb17775c3153036f193c1b8633">2.3 2.3 Video</h3>
 
 <p><a href="https://github.com/rFlex/SCAudioVideoRecorder">SCAudioVideoRecorder</a></p>
 
-<h3 id="id-be53a0541a6d36f6ecb879fa2c584b08">2.4 Image</h3>
+<h3 id="id-8d61329a5ebe07d9f0f87655d4459e64">2.4 2.4 Image</h3>
 
-<h4 id="id-21b2334b878edbcec07123506cdf4299">2.4.1 Face Identification</h4>
+<h4 id="id-02d03ede1faa7a595181e20bb279d9c1">2.4.1 2.4.1 Face Identification</h4>
 
 <ul>
 <li><a href="https://github.com/croath/UIImageView-BetterFace">UIImageView-BetterFace</a>： a UIImageView category to let the picture-cutting with faces showing better</li>
 </ul>
 
 
-<h4 id="id-eab0bc79550cf62d779a969bfc7d8239">2.4.2 Avatar Making</h4>
+<h4 id="id-2fb42d207e0ea4e916097b05ccd3d7b6">2.4.2 2.4.2 Avatar Making</h4>
 
 <p><a href="https://github.com/arturgrigor/AGMedallionView">AGMedallionView</a></p>
 
-<h4 id="id-bfef287d15dd0e47a05a2c0e5f12c204">2.4.3 Image Filter</h4>
+<h4 id="id-8483ef8b5fd60c3a6fc09bf60af5b689">2.4.3 2.4.3 Image Filter</h4>
 
 <p><a href="https://github.com/gobackspaces/DLCImagePickerController"> DLCImagePickerController</a>： 会用到<a href="https://github.com/BradLarson/GPUImage">GPUImage</a></p>
 
-<h3 id="id-b61541208db7fa7dba42c85224405911">2.5 Menu</h3>
+<h3 id="id-c67142c28a47b219f9dbf453e13e6056">2.5 2.5 Menu</h3>
 
-<h4 id="id-d9eb13ad3d0dc79003e8770ac3f369b8">2.5.1 Alert Menu</h4>
+<h4 id="id-e45cb3f32244c80b00630f645d39c99f">2.5.1 2.5.1 Alert Menu</h4>
 
 <ul>
 <li><a href="https://github.com/rnystrom/RNGridMenu">RNGridMenu</a>：支持点击按钮或者长按界面弹出Menu菜单，并且背景模糊化处理</li>
@@ -254,19 +374,19 @@ pod 'JSONKit',       '~&gt; 1.5pre'
 </ul>
 
 
-<h4 id="id-50b87662d436058e6b60884752613abb">2.5.2 DropDown Menu</h4>
+<h4 id="id-254430331c57b5c722b0694528535afe">2.5.2 2.5.2 DropDown Menu</h4>
 
 <p><a href="https://github.com/vicpenap/VPPDropDown">VPPDropDown</a></p>
 
-<h3 id="id-ef05c8098cdb2b34e39c80515fc037bd">2.6 Toolbar</h3>
+<h3 id="id-c8051dd6b4dc690c80be6fcae4ca961c">2.6 2.6 Toolbar</h3>
 
 <p><a href="https://github.com/andresbrun/ABFullScrollViewController">ABFullScrollViewController</a>: 为TableView等与滚动条相关的界面提供给的Toolbar，支持根据滚动的状态进行隐藏和显示</p>
 
-<h3 id="id-24b9b8c0634a40138e76b2fb86894698">2.7 Interactive</h3>
+<h3 id="id-027ba19920ea256a8069e12b76f9855f">2.7 2.7 Interactive</h3>
 
 <p><a href="https://github.com/PeteC/InteractiveViewControllerTransitions">InteractiveViewControllerTransitions</a>: 交互界面，有两个View，点击第一个的图片会进入第二个显示详细信息，第一个View的图片会动态显示到第二个</p>
 
-<h3 id="id-361f98ece0d1c0efcc6373e0c0668f0a">2.8 Share View</h3>
+<h3 id="id-caea1ee90a1820dfa2a1880927a1d567">2.8 2.8 Share View</h3>
 
 <p><a href="https://github.com/romaonthego/REComposeViewController">REComposeViewController</a>: 状态信息发布视图,地步弹出式，提供三种社交网络的风格选择。</p>
 
@@ -276,9 +396,9 @@ pod 'JSONKit',       '~&gt; 1.5pre'
 
 <p><a href="https://github.com/doubleencore/DETweetComposeViewController">DETweetComposeViewController</a>: 类似Twitter的状态发布</p>
 
-<h2 id="id-8151a1f86ee9c7494b6b5f9ee6dada2b">3 Camera 摄像头类库</h2>
+<h2 id="id-4a276f8db0b8b5415f8cfa85e5a568a2">3 3 Camera 摄像头类库</h2>
 
-<h3 id="id-7a16a51cade02fdbeeee2107a1548a09">3.1 ImagePicker</h3>
+<h3 id="id-4641ddba6c99ab0a17bebf6d195efee9">3.1 3.1 ImagePicker</h3>
 
 <p><a href="https://github.com/danielebogo/DBCamera">DBCamera</a></p>
 
@@ -288,77 +408,227 @@ pod 'JSONKit',       '~&gt; 1.5pre'
 
 <p><a href="https://github.com/donobono/DoImagePickerController">DoImagePickerController</a>:从图片库中选择图片，支持多选和单选</p>
 
-<h3 id="id-ee78041dc92d6b87ad7be5336051fca2">3.2 滤镜相机Camera</h3>
+<h3 id="id-f0d09acd8d40ff8212c6200f7c271661">3.2 3.2 滤镜相机Camera</h3>
 
-<h3 id="id-34e2d1989a1dbf75cd631596133ee5ee">3.3 Video</h3>
+<h3 id="id-1cb8127593b6039c4c2c779415f455fa">3.3 3.3 Video</h3>
 
 <p><a href="https://github.com/piemonte/PBJVision">PBJVision</a>:类似vine的工具，支持触摸录像，残影。</p>
 
-<h2 id="id-b82a9a13f4651e9abcbde90cd24ce2cb">4 Mark</h2>
+<h2 id="id-b1f3e5dec98a58bb2ef8493dd35f6c65">4 4 Mark</h2>
 
 <p><a href="https://github.com/calebd/SimpleAuth">https://github.com/calebd/SimpleAuth</a>
 <a href="https://github.com/aporat/SocialAccounts">https://github.com/aporat/SocialAccounts</a></p>
 </div>
 
 
+ 
+
+         
+
+      <!-- footer -->
       <footer>
-        <p class="meta text-muted">
-          
-  
+        <!-- 尾部版权信息也可在/plugin/post_footer_filter.rb添加-->
+        <!-- <p class='post-footer'>
+        &nbsp;
+          版权所有 ©ZwEin | 转载请注明出处：<a href=''></a><br/>
+        &nbsp;
+        </p>  -->
 
-<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
-
-          
-
-
-
+     
 
 
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-22T20:30:41+08:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2014</time>
-        </p>
         
           <div class="sharing">
+	<!-- 
+	<a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/others/unpublished/Diary/2014/02/22/ios-note-13-open-source-library/" data-via="zwein27" data-counturl="http://lzteng.com/others/unpublished/Diary/2014/02/22/ios-note-13-open-source-library/" >Tweet</a>
+	
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/others/unpublished/Diary/2014/02/22/ios-note-13-open-source-library/" data-via="zwein27" data-counturl="http://lzteng.com/others/unpublished/Diary/2014/02/22/ios-note-13-open-source-library/" >Tweet</a>
+	<div class="g-plusone" data-size="medium"></div>
+	
   
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
+	<div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+	 -->
 
+ <!--  
+	<div class="bdsharebuttonbox">
+		<a href="#" class="bds_more" data-cmd="more"></a>
+		<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+		<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+		<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	</div>
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","renren","weixin","copy"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+	 -->
+
+	<!-- bshare -->
+	<div class="bshare-custom">
+	   <a title="分享到" href="http://www.bshare.cn/share" id="bshare-shareto" class="bshare-more"></a>
+
+	   <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	   <a title="分享到人人网" class="bshare-renren"></a>
+	   <a title="分享到豆瓣" class="bshare-douban"></a>
+	   <a title="分享到QQ空间" class="bshare-qzone"></a>
+	   <a title="分享到微信" class="bshare-weixin"></a>
+	   <a title="分享到有道笔记" class="bshare-youdaonote"></a>
+	   <a title="分享到Evernote" class="bshare-evernote"></a>
+	   <a title="分享到Facebook" class="bshare-facebook"></a>
+	   <a title="分享到Gmail" class="bshare-gmail"></a>
+	   <a title="分享到Google+" class="bshare-gplus"></a>
+	   <a title="分享到Twitter" class="bshare-twitter"></a>
+	   <!-- 在这里添加更多平台 -->
+
+	   <a title="更多平台" id="bshare-more-icon" class="bshare-more"></a>
+	   <span class="BSHARE_COUNT bshare-share-count">--</span>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=<你的UUID>&style=-1"></script>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC2.js"></script>
+
+</div>
         
         
       </footer>
     </article>
+
+    <!-- wumii -->
+    <script type="text/javascript" id="wumiiRelatedItems"></script>
+
+    <!-- disqus comments -->
+    
+
+    <!-- duoshuo comments -->
+    
+      <section>
+        <div id="comments" aria-live="polite"> <!-- Duoshuo Comment BEGIN -->
+	  <div data-thread-key="/Diary/2014/02/22/ios-note-13-open-source-library/" class="ds-thread"> </div>
+<!-- Duoshuo Comment END -->
+</div>
+      </section>
+      
     
   </div>
+
+
+  <!-- sidebar -->
+  
+  <aside class="sidebar">
+    
+      <section>
+
+	<div class="panel-heading">
+	  <!-- <h3 class="panel-title">About Me</h3> -->
+	</div> 
+	<div class="panel-body">
+	 
+	 <p>
+	 	<wb:like></wb:like>
+	 </p>
+	</div>
+</section>
+
+
+<section>
+
+		<div class="panel-heading">
+			<h3 class="panel-title">Post Info</h3>
+		</div>
+		<div class="panel-body">
+		<p>
+			Author: ZwEin
+		</p>
+
+		<p>Date: <span class="date" style="display:incline">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+February 22, 2014 (Sat)</span>
+		</p>
+
+		<p>
+
+			<!-- add tags for aside bar -->
+      <div class="article_tag">
+        <i class="fa fa-bookmark"></i>
+        
+        
+            
+        
+        
+      </div>
+
+
+		</p>
+		</div>
+
+
+
+	
+
+</section>
+<section>
+	<div class="panel-heading">
+	  <h3 class="panel-title">Catalog</h3>
+	</div>
+	<div class="panel-body">
+	 <p>
+	 <ol style="margin-left: -1.7em;"><li style="list-style:inherit;"><a href="id-436367b06614c1bec6efcd0971a16ef2">1 项目管理</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="id-d7f73e91b92930bbfeca7873aab26fd2">1.1 项目依赖库管理工具 &ndash; CocoaPods</a></li></ul></li><li style="list-style:inherit;"><a href="id-5bdf821d3b4a420c13151fc18c9c3e5d">2 UI 库</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="id-16309d3db7cff66c0293a4c80a10f609">2.1 Sliding Menu</a></li> <li style="list-style:inherit;"><a href="id-e05719b0b6ce33dc9a1bfbc3a6dda8ac">2.2 Flat UI</a></li> <li style="list-style:inherit;"><a href="id-34e2d1989a1dbf75cd631596133ee5ee">2.3 Video</a></li> <li style="list-style:inherit;"><a href="id-be53a0541a6d36f6ecb879fa2c584b08">2.4 Image</a></li> <li style="list-style:inherit;"><a href="id-b61541208db7fa7dba42c85224405911">2.5 Menu</a></li> <li style="list-style:inherit;"><a href="id-ef05c8098cdb2b34e39c80515fc037bd">2.6 Toolbar</a></li> <li style="list-style:inherit;"><a href="id-24b9b8c0634a40138e76b2fb86894698">2.7 Interactive</a></li> <li style="list-style:inherit;"><a href="id-361f98ece0d1c0efcc6373e0c0668f0a">2.8 Share View</a></li></ul></li><li style="list-style:inherit;"><a href="id-8151a1f86ee9c7494b6b5f9ee6dada2b">3 Camera 摄像头类库</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="id-7a16a51cade02fdbeeee2107a1548a09">3.1 ImagePicker</a></li> <li style="list-style:inherit;"><a href="id-ee78041dc92d6b87ad7be5336051fca2">3.2 滤镜相机Camera</a></li> <li style="list-style:inherit;"><a href="id-34e2d1989a1dbf75cd631596133ee5ee">3.3 Video</a></li></ul></li><li style="list-style:inherit;"><a href="id-b82a9a13f4651e9abcbde90cd24ce2cb">4 Mark</a></li></ol>
+	 </p>
+	</div>
+</section>
+
+
+
+    
+  </aside>
+  
+
+
+ 
+        
+
+
+
 </div>
 
         </div>
       </div>
-    <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - ZwEin<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
-  </small>
-  <a href="#" id="back">Back to Top</a>
-</p>
+    <footer role="contentinfo"><div id="footer-wrapper">
+	<div class="container">
+	    
 
-<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-</nav>
 
+
+<!-- <nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation"> 
+</nav> -->
+
+<div class="copyright">
+
+  <p class="text-muted credits">
+    
+    <small>
+        <span class="credit">Copyright &copy; 2014 - ZwEin </span>,  
+        <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+        <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>,
+        <span class="credit"> all rights reserved</span>.
+    </small>
+    <!-- <a href="#" id="back">Back to Top</a> -->
+    
+      <!-- 统计 -->
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000263842'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000263842%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+  </p>
+
+</div>
+	</div>
 </div>
 </footer>
     <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
@@ -403,5 +673,123 @@ pod 'JSONKit',       '~&gt; 1.5pre'
 
 
     </div>
+
+
+    
+
+
+  
+<!-- custom js code 
+  <script type="text/javascript" src="/javascripts/libs/prettify/prettify.js"></script>
+
+  <script type="text/javascript"> 
+    $(document).ready(function(){
+    $('pre').addClass('prettyprint linenums') 
+    })
+  </script>
+  <script type="text/javascript"> 
+    $(function() {window.prettyPrint && prettyPrint();});
+    $(function() {$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');});
+  </script>
+-->
+<!--
+<script src="/javascripts/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+-->
+<!-- duoshuo -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lzteng"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+<script>
+//导航栏添加active
+$(function(){
+  function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+      return str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  var url = window.location.pathname;  
+  var activePage = stripTrailingSlash(url);
+
+  $('.nav li a').each(function(){  
+    var currentPage = stripTrailingSlash($(this).attr('href'));
+
+    if (activePage == currentPage) {
+      $(this).parent().addClass('active'); 
+    } 
+  });
+});
+</script>
+
+
+<!-- wumii -->
+    <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = "iOS 开发笔记 13 - 开源库"; //请用代码生成文章标题
+    var wumiiTags = "iOS"; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiCategories = [iOS]; //请用代码生成文章分类，分类名放在 JSONArray 中，如: ["分类1", "分类2"]
+    var wumiiSitePrefix = "http://zwein27.github.io/";
+    var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+  <a href="http://www.wumii.com/widget/relatedItems" style="border:0;">
+      <img src="http://static.wumii.cn/images/pixel.png" alt="无觅关联推荐，快速提升流量" style="border:0;padding:0;margin:0;" />
+  </a>
+
+
+
+<!-- 回到顶部特效 -->
+
+
+
+<div class="go">
+  <a title="goTop" class="top" href="#gotop"></a>
+  <a title="Connect me" class="feedback" href="mailto:zwein27@gmail.com" target="_blank"></a>
+  <a title="goBottom" class="bottom" href="#gobottom"></a>
+</div>
+
+
+<!-- prettify代码高亮 -->
+  <script src="/javascripts/libs/prettify/prettify.js"></script>
+  <script>
+      /*需要在调用prettify.js的prettyPrint方法之前添加标签*/
+        $(function() {  
+          $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+        });
+        $(function() { 
+            window.prettyPrint && prettyPrint();
+        });
+  </script>
+
+
+<!-- 为markdown的超链接加上target="_blank" -->
+<script type="text/javascript">
+  function addBlankTargetForLinks () {
+    $('a[href^="http"]').each(function(){
+        $(this).attr('target', '_blank');
+    });
+  }
+
+  $(document).bind('DOMNodeInserted', function(event) {
+    addBlankTargetForLinks();
+  });
+</script>
+
+<!-- 新浪开发平台关注按钮 -->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+
+<a name="gobottom"></a><!-- 回到底部 -->
   </body>
 </html>

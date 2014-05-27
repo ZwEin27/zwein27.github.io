@@ -7,37 +7,100 @@
   <title>联想V470黑苹果 去除白名单 & 驱动 & 功能配置 - lzteng</title>
   <meta name="author" content="ZwEin">
 
-  <meta name="description" content="将联想V470笔记本黑苹果化的一些配置记录，包括去除白名单">
-  <meta name="keywords" content="V470 Whitelist 白名单 驱动 配置 硬件ID 黑苹果">
+  
+  <meta name="description" content=" 将联想V470笔记本黑苹果化的一些配置记录，包括去除白名单 ">
+  
+    <meta name="keywords" content="V470 Whitelist 白名单 驱动 配置 硬件ID 黑苹果">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- sina open platform -->
+  <meta property="wb:webmaster" content="df940a3dbf57e160" />
+  <html xmlns:wb="http://open.weibo.com/wb">
+
+  <!-- baidu -->
+  <meta name="baidu-site-verification" content="mqpzxukah8" />
+
+
   
   <link rel="canonical" href="http://lzteng.com/Technology/2014/02/16/v470-whitelist">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
 
-  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+  <link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+
+
 <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
-
+<!-- custom -->
 <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/custom.css" rel="stylesheet" type="text/css">
+<!-- <link href="/javascripts/libs/prettify/prettify.css" rel="stylesheet" type="text/css" media="all"> --><link href="/javascripts/libs/prettify/desert.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link rel="stylesheet" href="/javascripts/libs/highlight/styles/monokai_sublime.css"> -->
+<!-- add font-awesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+
+<!-- wunii -->
+<meta name="wumiiVerification" content="11f148a3-3375-42a6-bcf9-f1658ee6036a" />
+
+
+
+  
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  <script src="/javascripts/custom.js"></script>
+  
+
+
+  <script type="text/javascript">
+        $(document).ready(function () {
+         jQuery("#topbarloading").animate({ /* NavBar 顶部载入条 */
+                width: "100%"
+            },
+            {
+                queue: false,
+                duration: 5000
+            });
+          
+        })
+  </script>
+  
   
 
 </head>
 
   <body   >
+
+    <!--[if lt IE 9]>
+     <script type="text/javascript">
+
+      var browser=navigator.appName;
+      var b_version=navigator.appVersion;
+      var version=parseFloat(b_version);
+    
+      document.getElementById('browser-warning').style.display='block';
+      
+        alert("为保证浏览效果，建议使用Firefox或者Chrome等非IE内核的浏览器！");
+      
+  </script>
+  <![endif]-->
+
+
+
+<a name="gotop"></a><!-- 回到顶部 -->
+
     <div id="wrap">
       <header role="banner">
         
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,11 +111,29 @@
             <a class="navbar-brand" href="/">lzteng</a>
         </div>
 
-        <div class="navbar-collapse collapse">
+        <div  class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Blog</a></li>
-                <li><a href="/blog/archives">Archives</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/blog/archives">Archive</a></li>
+                <li><a href="/blog/categories">Categories</a></li>
+                <li><a href="/blog/tags">Tags</a></li>
+                <li><a href="/blog/about">About</a></li>
+
+               
+
+
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -73,46 +154,85 @@
             
         </div>
     </div>
+
+
+    <div id="topbarloading"></div>
+    
 </nav>
+
+
+
 
 
       </header>
       <div id="main" class="container">
         <div id="content">
           <div class="row">
-  <div class="page-content col-md-9">
+        
+            <div class="page-content col-md-9">
+
     <article class="hentry" role="article">
       
+
+        
+            
   <header class="page-header">
     
-      <p class="meta text-muted text-uppercase">
-        
 
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-16T22:22:07+08:00" pubdate data-updated="true">Feb 16<span>th</span>, 2014</time>
-        
-      </p>
-    
     
     <h1 class="entry-title">
         联想V470黑苹果 去除白名单 & 驱动 & 功能配置
         
     </h1>
     
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="#comments"
+             data-thread-key="/Technology/2014/02/16/v470-whitelist/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Technology/2014/02/16/v470-whitelist/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-02-16T22:22:07+08:00" pubdate data-updated="true">Feb 16<span>th</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
   </header>
 
 
-<div class="entry-content clearfix"><pre><code>******设备信息******
+
+
+  <div class="entry-content clearfix"><pre><code>******设备信息******
 系统版本 : OS X 10.9.1 (13B42)
 处理器名称 : Intel Core i5
 内存 : 8 GB
@@ -126,7 +246,7 @@
 <!-- more -->
 
 
-<h2>去除白名单</h2>
+<h2 id="id-762986a568847339089bba7d6f83e447">1 去除白名单</h2>
 
 <ol>
 <li>下载工具文件<a href="http://pan.baidu.com/s/1kTnyTP9">Lenovo_V470_43CN43WW_NWL</a></li>
@@ -142,19 +262,19 @@
 <p>网卡选择<code>BCM94322HM8L</code>，通吃MAC OS X 10.6-10.9, 直接免驱。
 刷BIOS过程不需要硬件ID，解压完文件直接输入命令，等待操作完成即可。</p>
 
-<h2>V470黑苹果驱动配置</h2>
+<h2 id="id-758649feb4db03b29f13890c1287af20">2 V470黑苹果驱动配置</h2>
 
-<h3>声卡</h3>
+<h3 id="id-f70512a475cf03f70dfa62e76a257eb3">2.1 声卡</h3>
 
 <p><a href="http://pan.baidu.com/s/1c0xM7kc">ALC272声卡驱动文件</a>
 在黑苹果环境下直接打开安装即可</p>
 
-<h3>亮度调节</h3>
+<h3 id="id-28810bee7ddb234e106efa222d597300">2.2 亮度调节</h3>
 
 <p>节约时间，没有去弄调整亮度的小太阳，而是使用第三方工具<a href="http://pan.baidu.com/s/1dD9pNTv">shades</a>
 安装完成后，可以在系统<code>偏好设置</code>中进行设置，桌面顶部会有快捷操作图标，能够进行亮度调节。设置成开机启动后，能够自动调节亮度为上一次关机时的状态。</p>
 
-<h3>睡眠后的系统故障</h3>
+<h3 id="id-bbae44e2a6ae387177f900b447f6b7d0">2.3 睡眠后的系统故障</h3>
 
 <p>黑苹果长时间不动，会自动进入睡眠状态，唤醒之后发现鼠标挂了，=。=，表现是鼠标可移动，但是左右键均失灵。</p>
 
@@ -162,9 +282,9 @@
 系统“偏好设置”->“安全性与隐私”->配置成如下图所示即可。
 <img src="/images/blog/Snip20140216_4.png" alt="排除睡眠后的系统故障" /></p>
 
-<h2>黑苹果系统配置</h2>
+<h2 id="id-fd36039d59d0a67cfa9689990764fc8b">3 黑苹果系统配置</h2>
 
-<h3>终端运行Sublime Text</h3>
+<h3 id="id-a49f52a22196f6808aa4290109021de6">3.1 终端运行Sublime Text</h3>
 
 <p>有两种方法</p>
 
@@ -197,7 +317,7 @@
 
 <p>推荐使用alias，方便配置，并且不需要添加额外的文件</p>
 
-<h3>Finder里显示隐藏文件</h3>
+<h3 id="id-5f6336956bc9b6e66b3e40640a95acdd">3.2 Finder里显示隐藏文件</h3>
 
 <p>设置Finder里显示隐藏文件</p>
 
@@ -209,11 +329,11 @@
 <pre><code>defaults write com.apple.finder AppleShowAllFiles -bool false
 </code></pre>
 
-<h3>使黑苹果对NTFS文件具有读写权限</h3>
+<h3 id="id-7bb5d3d9306ef19320d60b40b1156310">3.3 使黑苹果对NTFS文件具有读写权限</h3>
 
 <p>原本黑苹果下只能够查看NTFS文件系统中的文件，通过安装<a href="http://dl.vmall.com/c0witnfz2p">Paragon NTFS</a>这个应用，能够让你正常访问并操作NTFS系统下的文件。</p>
 
-<h3>查看MAC是64位还是32位</h3>
+<h3 id="id-a3be8525450d624e65e87c86cdd9acc4">3.4 查看MAC是64位还是32位</h3>
 
 <ul>
 <li>方法一</li>
@@ -250,9 +370,9 @@
 
 <p><img src="http://img.my.csdn.net/uploads/201304/08/1365377947_2498.png" alt="方法3" /></p>
 
-<h2>Mac 应用程序</h2>
+<h2 id="id-5493c0936850acaa9f80209fb47682ab">4 Mac 应用程序</h2>
 
-<h3>Mac下文件清理工具</h3>
+<h3 id="id-1d25033fa9c06d7a9d6daa8538739adb">4.1 Mac下文件清理工具</h3>
 
 <p>在Mac下，可以使用<a href="http://dl.vmall.com/c03sn0hxaz">CleanMyMac2</a>来清理一些垃圾文件。</p>
 
@@ -266,41 +386,69 @@
 </div>
 
 
+ 
+
+         
+
+      <!-- footer -->
       <footer>
-        <p class="meta text-muted">
-          
-  
+        <!-- 尾部版权信息也可在/plugin/post_footer_filter.rb添加-->
+        <!-- <p class='post-footer'>
+        &nbsp;
+          版权所有 ©ZwEin | 转载请注明出处：<a href=''></a><br/>
+        &nbsp;
+        </p>  -->
 
-<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
-
-          
-
-
-
+     
 
 
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-16T22:22:07+08:00" pubdate data-updated="true">Feb 16<span>th</span>, 2014</time>
-        </p>
         
           <div class="sharing">
+	<!-- 
+	<a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/Technology/2014/02/16/v470-whitelist/" data-via="zwein27" data-counturl="http://lzteng.com/Technology/2014/02/16/v470-whitelist/" >Tweet</a>
+	
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/Technology/2014/02/16/v470-whitelist/" data-via="zwein27" data-counturl="http://lzteng.com/Technology/2014/02/16/v470-whitelist/" >Tweet</a>
+	<div class="g-plusone" data-size="medium"></div>
+	
   
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
+	<div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+	 -->
 
+ <!--  
+	<div class="bdsharebuttonbox">
+		<a href="#" class="bds_more" data-cmd="more"></a>
+		<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+		<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+		<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	</div>
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","renren","weixin","copy"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+	 -->
+
+	<!-- bshare -->
+	<div class="bshare-custom">
+	   <a title="分享到" href="http://www.bshare.cn/share" id="bshare-shareto" class="bshare-more"></a>
+
+	   <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	   <a title="分享到人人网" class="bshare-renren"></a>
+	   <a title="分享到豆瓣" class="bshare-douban"></a>
+	   <a title="分享到QQ空间" class="bshare-qzone"></a>
+	   <a title="分享到微信" class="bshare-weixin"></a>
+	   <a title="分享到有道笔记" class="bshare-youdaonote"></a>
+	   <a title="分享到Evernote" class="bshare-evernote"></a>
+	   <a title="分享到Facebook" class="bshare-facebook"></a>
+	   <a title="分享到Gmail" class="bshare-gmail"></a>
+	   <a title="分享到Google+" class="bshare-gplus"></a>
+	   <a title="分享到Twitter" class="bshare-twitter"></a>
+	   <!-- 在这里添加更多平台 -->
+
+	   <a title="更多平台" id="bshare-more-icon" class="bshare-more"></a>
+	   <span class="BSHARE_COUNT bshare-share-count">--</span>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=<你的UUID>&style=-1"></script>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC2.js"></script>
+
+</div>
         
         
           <ul class="meta text-muted pager">
@@ -314,25 +462,150 @@
         
       </footer>
     </article>
+
+    <!-- wumii -->
+    <script type="text/javascript" id="wumiiRelatedItems"></script>
+
+    <!-- disqus comments -->
+    
+
+    <!-- duoshuo comments -->
+    
+      <section>
+        <div id="comments" aria-live="polite"> <!-- Duoshuo Comment BEGIN -->
+	  <div data-thread-key="/Technology/2014/02/16/v470-whitelist/" class="ds-thread"> </div>
+<!-- Duoshuo Comment END -->
+</div>
+      </section>
+      
     
   </div>
+
+
+  <!-- sidebar -->
+  
+  <aside class="sidebar">
+    
+      <section>
+
+	<div class="panel-heading">
+	  <!-- <h3 class="panel-title">About Me</h3> -->
+	</div> 
+	<div class="panel-body">
+	 
+	 <p>
+	 	<wb:like></wb:like>
+	 </p>
+	</div>
+</section>
+
+
+<section>
+
+		<div class="panel-heading">
+			<h3 class="panel-title">Post Info</h3>
+		</div>
+		<div class="panel-body">
+		<p>
+			Author: ZwEin
+		</p>
+
+		<p>Date: <span class="date" style="display:incline">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+February 16, 2014 (Sun)</span>
+		</p>
+
+		<p>
+
+			<!-- add tags for aside bar -->
+      <div class="article_tag">
+        <i class="fa fa-bookmark"></i>
+        
+        
+             
+              <a href="http://lzteng.com/blog/tags/index.html#DIY-ref">DIY </a>
+              
+            
+        
+        
+      </div>
+
+
+		</p>
+		</div>
+
+
+
+	
+
+</section>
+<section>
+	<div class="panel-heading">
+	  <h3 class="panel-title">Catalog</h3>
+	</div>
+	<div class="panel-body">
+	 <p>
+	 <ol style="margin-left: -1.7em;"><li style="list-style:inherit;"><a href="#id-762986a568847339089bba7d6f83e447">去除白名单</a></li><li style="list-style:inherit;"><a href="#id-758649feb4db03b29f13890c1287af20">V470黑苹果驱动配置</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="#id-f70512a475cf03f70dfa62e76a257eb3">声卡</a></li> <li style="list-style:inherit;"><a href="#id-28810bee7ddb234e106efa222d597300">亮度调节</a></li> <li style="list-style:inherit;"><a href="#id-bbae44e2a6ae387177f900b447f6b7d0">睡眠后的系统故障</a></li></ul></li><li style="list-style:inherit;"><a href="#id-fd36039d59d0a67cfa9689990764fc8b">黑苹果系统配置</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="#id-a49f52a22196f6808aa4290109021de6">终端运行Sublime Text</a></li> <li style="list-style:inherit;"><a href="#id-5f6336956bc9b6e66b3e40640a95acdd">Finder里显示隐藏文件</a></li> <li style="list-style:inherit;"><a href="#id-7bb5d3d9306ef19320d60b40b1156310">使黑苹果对NTFS文件具有读写权限</a></li> <li style="list-style:inherit;"><a href="#id-a3be8525450d624e65e87c86cdd9acc4">查看MAC是64位还是32位</a></li></ul></li><li style="list-style:inherit;"><a href="#id-5493c0936850acaa9f80209fb47682ab">Mac 应用程序</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="#id-1d25033fa9c06d7a9d6daa8538739adb">Mac下文件清理工具</a></li></ul></li></ol>
+	 </p>
+	</div>
+</section>
+
+
+
+    
+  </aside>
+  
+
+
+ 
+        
+
+
+
 </div>
 
         </div>
       </div>
-    <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - ZwEin<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
-  </small>
-  <a href="#" id="back">Back to Top</a>
-</p>
+    <footer role="contentinfo"><div id="footer-wrapper">
+	<div class="container">
+	    
 
-<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-</nav>
 
+
+<!-- <nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation"> 
+</nav> -->
+
+<div class="copyright">
+
+  <p class="text-muted credits">
+    
+    <small>
+        <span class="credit">Copyright &copy; 2014 - ZwEin </span>,  
+        <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+        <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>,
+        <span class="credit"> all rights reserved</span>.
+    </small>
+    <!-- <a href="#" id="back">Back to Top</a> -->
+    
+      <!-- 统计 -->
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000263842'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000263842%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+  </p>
+
+</div>
+	</div>
 </div>
 </footer>
     <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
@@ -377,5 +650,123 @@
 
 
     </div>
+
+
+    
+
+
+  
+<!-- custom js code 
+  <script type="text/javascript" src="/javascripts/libs/prettify/prettify.js"></script>
+
+  <script type="text/javascript"> 
+    $(document).ready(function(){
+    $('pre').addClass('prettyprint linenums') 
+    })
+  </script>
+  <script type="text/javascript"> 
+    $(function() {window.prettyPrint && prettyPrint();});
+    $(function() {$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');});
+  </script>
+-->
+<!--
+<script src="/javascripts/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+-->
+<!-- duoshuo -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lzteng"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+<script>
+//导航栏添加active
+$(function(){
+  function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+      return str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  var url = window.location.pathname;  
+  var activePage = stripTrailingSlash(url);
+
+  $('.nav li a').each(function(){  
+    var currentPage = stripTrailingSlash($(this).attr('href'));
+
+    if (activePage == currentPage) {
+      $(this).parent().addClass('active'); 
+    } 
+  });
+});
+</script>
+
+
+<!-- wumii -->
+    <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = "联想V470黑苹果 去除白名单 & 驱动 & 功能配置"; //请用代码生成文章标题
+    var wumiiTags = "DIY"; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiCategories = [DIY]; //请用代码生成文章分类，分类名放在 JSONArray 中，如: ["分类1", "分类2"]
+    var wumiiSitePrefix = "http://zwein27.github.io/";
+    var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+  <a href="http://www.wumii.com/widget/relatedItems" style="border:0;">
+      <img src="http://static.wumii.cn/images/pixel.png" alt="无觅关联推荐，快速提升流量" style="border:0;padding:0;margin:0;" />
+  </a>
+
+
+
+<!-- 回到顶部特效 -->
+
+
+
+<div class="go">
+  <a title="goTop" class="top" href="#gotop"></a>
+  <a title="Connect me" class="feedback" href="mailto:zwein27@gmail.com" target="_blank"></a>
+  <a title="goBottom" class="bottom" href="#gobottom"></a>
+</div>
+
+
+<!-- prettify代码高亮 -->
+  <script src="/javascripts/libs/prettify/prettify.js"></script>
+  <script>
+      /*需要在调用prettify.js的prettyPrint方法之前添加标签*/
+        $(function() {  
+          $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+        });
+        $(function() { 
+            window.prettyPrint && prettyPrint();
+        });
+  </script>
+
+
+<!-- 为markdown的超链接加上target="_blank" -->
+<script type="text/javascript">
+  function addBlankTargetForLinks () {
+    $('a[href^="http"]').each(function(){
+        $(this).attr('target', '_blank');
+    });
+  }
+
+  $(document).bind('DOMNodeInserted', function(event) {
+    addBlankTargetForLinks();
+  });
+</script>
+
+<!-- 新浪开发平台关注按钮 -->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+
+<a name="gobottom"></a><!-- 回到底部 -->
   </body>
 </html>

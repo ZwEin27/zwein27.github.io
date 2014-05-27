@@ -8,36 +8,99 @@
   <meta name="author" content="ZwEin">
 
   
-  <meta name="keywords" content="Parse">
+  <meta name="description" content=" ZwEin's blog ">
+  
+    <meta name="keywords" content="Parse">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- sina open platform -->
+  <meta property="wb:webmaster" content="df940a3dbf57e160" />
+  <html xmlns:wb="http://open.weibo.com/wb">
+
+  <!-- baidu -->
+  <meta name="baidu-site-verification" content="mqpzxukah8" />
+
+
   
   <link rel="canonical" href="http://lzteng.com/Diary/2014/02/26/baas-note">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
 
-  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+  <link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+
+
 <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
-
+<!-- custom -->
 <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/custom.css" rel="stylesheet" type="text/css">
+<!-- <link href="/javascripts/libs/prettify/prettify.css" rel="stylesheet" type="text/css" media="all"> --><link href="/javascripts/libs/prettify/desert.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link rel="stylesheet" href="/javascripts/libs/highlight/styles/monokai_sublime.css"> -->
+<!-- add font-awesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+
+<!-- wunii -->
+<meta name="wumiiVerification" content="11f148a3-3375-42a6-bcf9-f1658ee6036a" />
+
+
+
+  
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  <script src="/javascripts/custom.js"></script>
+  
+
+
+  <script type="text/javascript">
+        $(document).ready(function () {
+         jQuery("#topbarloading").animate({ /* NavBar 顶部载入条 */
+                width: "100%"
+            },
+            {
+                queue: false,
+                duration: 5000
+            });
+          
+        })
+  </script>
+  
   
 
 </head>
 
   <body   >
+
+    <!--[if lt IE 9]>
+     <script type="text/javascript">
+
+      var browser=navigator.appName;
+      var b_version=navigator.appVersion;
+      var version=parseFloat(b_version);
+    
+      document.getElementById('browser-warning').style.display='block';
+      
+        alert("为保证浏览效果，建议使用Firefox或者Chrome等非IE内核的浏览器！");
+      
+  </script>
+  <![endif]-->
+
+
+
+<a name="gotop"></a><!-- 回到顶部 -->
+
     <div id="wrap">
       <header role="banner">
         
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,11 +111,29 @@
             <a class="navbar-brand" href="/">lzteng</a>
         </div>
 
-        <div class="navbar-collapse collapse">
+        <div  class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Blog</a></li>
-                <li><a href="/blog/archives">Archives</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/blog/archives">Archive</a></li>
+                <li><a href="/blog/categories">Categories</a></li>
+                <li><a href="/blog/tags">Tags</a></li>
+                <li><a href="/blog/about">About</a></li>
+
+               
+
+
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -73,46 +154,85 @@
             
         </div>
     </div>
+
+
+    <div id="topbarloading"></div>
+    
 </nav>
+
+
+
 
 
       </header>
       <div id="main" class="container">
         <div id="content">
           <div class="row">
-  <div class="page-content col-md-9">
+        
+            <div class="page-content col-md-9">
+
     <article class="hentry" role="article">
       
+
+        
+            
   <header class="page-header">
     
-      <p class="meta text-muted text-uppercase">
-        
 
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-26T22:22:03+08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
-        
-      </p>
-    
     
     <h1 class="entry-title">
         BaaS 笔记
         
     </h1>
     
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="#comments"
+             data-thread-key="/Diary/2014/02/26/baas-note/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Diary/2014/02/26/baas-note/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-02-26T22:22:03+08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
   </header>
 
 
-<div class="entry-content clearfix"><h2>什么是BaaS</h2>
+
+
+  <div class="entry-content clearfix"><h2 id="id-3601b257ecfaf8e1014d59557a4a1cfc">1 什么是BaaS</h2>
 
 <p>BaaS, 后端即服务，是Backend as a Service的缩写</p>
 
@@ -121,9 +241,9 @@
 <!-- more -->
 
 
-<h2>国外的BaaS</h2>
+<h2 id="id-319cd8d559b3c9003ce37f03eec2b316">2 国外的BaaS</h2>
 
-<h3>StackMob</h3>
+<h3 id="id-7375454fc840c16d9d312269c017d922">2.1 StackMob</h3>
 
 <p><a href="https://www.stackmob.com/product/">StackMob</a>是一家提供移动应用后端服务的公司，成立于2010年1月，有人把StackMob称为移动版的Heroku。StackMob的创始人之一Ty Amell，2004年从西北大学获得MIS专业的学士学位。2007-2009年间，他在知名的音乐分享网站imeem担任工程经理，负责移动和前端产品，经历了从0到120万用户的全过程。他意识到，如果能够建立一个平台，帮助许许多多移动开发者提供后端云服务，便能够大大简化他们的工作。</p>
 
@@ -131,7 +251,7 @@
 
 <p>StackMob按照功能收费，可以再<a href="https://marketplace.stackmob.com/">Marketplace</a>看到所有提供的功能，并有标注收费还是免费。</p>
 
-<h3>Parse</h3>
+<h3 id="id-c9ad95228aa735bdda1aebf38da022af">2.2 Parse</h3>
 
 <p><a href="https://www.parse.com/products">Parse</a>是由YC孵化出来的，专为移动应用提供后台服务的云计算平台，为开发者包办繁琐的后台服务，让开发者只需专注于具体的开发工作。它提供任意数据保存，照片或其它文件存储，发送推送通知，创建用户帐号，使用地理位置数据以及添加Facebook/Twitter帐号登录等服务。</p>
 
@@ -152,7 +272,7 @@
 <a href="http://17startup.com/startuplist/view/752">http://17startup.com/startuplist/view/752</a>
 <a href="http://blog.csdn.net/kavensu/article/details/17767239">http://blog.csdn.net/kavensu/article/details/17767239</a></p>
 
-<h3>其他</h3>
+<h3 id="id-0d98c74797e49d00bcc4c17c9d557a2b">2.3 其他</h3>
 
 <ul>
 <li><a href="http://www.kinvey.com/">Kinvey</a></li>
@@ -161,13 +281,13 @@
 </ul>
 
 
-<h2>国内的BaaS</h2>
+<h2 id="id-2d3131646466f1d995136d9c4dafb81d">3 国内的BaaS</h2>
 
-<h3>Bmob</h3>
+<h3 id="id-804bcfb7d7a1a5fd5278972f7bf3a9c4">3.1 Bmob</h3>
 
 <p><a href="http://www.bmob.cn/">Bmob</a>是国内第一家专注于移动应用云存储的平台，是基于PaaS模式的云计算平台。开发者可以使用Bmob设计存储框架、获取应用密钥、下载SDK并嵌入应用程序、调用相应API，应用发布后查看存储的统计分析数据，整个流程能够快速实现，并且Bmob的云服务是免费的。</p>
 
-<h3>AVOS Cloud</h3>
+<h3 id="id-00be708e8fa753fe61211e7c0411f834">3.2 AVOS Cloud</h3>
 
 <p>基本上是模仿Parse设计的，界面设计的很不错，并且官方称坚持每周更新。官方讨论群活跃，一般一问问题都会有专门的人员给予简答，赞一个。不过或许是因为工作量和进度规划问题，AVOS的官方版本中还存在一些问题，比如官方指南中就有各种排版问题和文字错误，并且内容大多是从Parse上翻译的，有些看不明白的地方，到时可以去Parse上参考一下。</p>
 
@@ -177,7 +297,7 @@
 
 <p>目前AVOS还在不断完善，相信会越来越好，加入更多本地化元素，支持国产</p>
 
-<h3>其他</h3>
+<h3 id="id-0d98c74797e49d00bcc4c17c9d557a2b">3.3 其他</h3>
 
 <p><a href="http://amtbaas.com/">Amtbaas.com</a></p>
 
@@ -195,41 +315,69 @@
 </div>
 
 
+ 
+
+         
+
+      <!-- footer -->
       <footer>
-        <p class="meta text-muted">
-          
-  
+        <!-- 尾部版权信息也可在/plugin/post_footer_filter.rb添加-->
+        <!-- <p class='post-footer'>
+        &nbsp;
+          版权所有 ©ZwEin | 转载请注明出处：<a href=''></a><br/>
+        &nbsp;
+        </p>  -->
 
-<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
-
-          
-
-
-
+     
 
 
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-26T22:22:03+08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
-        </p>
         
           <div class="sharing">
+	<!-- 
+	<a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/Diary/2014/02/26/baas-note/" data-via="zwein27" data-counturl="http://lzteng.com/Diary/2014/02/26/baas-note/" >Tweet</a>
+	
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/Diary/2014/02/26/baas-note/" data-via="zwein27" data-counturl="http://lzteng.com/Diary/2014/02/26/baas-note/" >Tweet</a>
+	<div class="g-plusone" data-size="medium"></div>
+	
   
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
+	<div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+	 -->
 
+ <!--  
+	<div class="bdsharebuttonbox">
+		<a href="#" class="bds_more" data-cmd="more"></a>
+		<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+		<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+		<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	</div>
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","renren","weixin","copy"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+	 -->
+
+	<!-- bshare -->
+	<div class="bshare-custom">
+	   <a title="分享到" href="http://www.bshare.cn/share" id="bshare-shareto" class="bshare-more"></a>
+
+	   <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	   <a title="分享到人人网" class="bshare-renren"></a>
+	   <a title="分享到豆瓣" class="bshare-douban"></a>
+	   <a title="分享到QQ空间" class="bshare-qzone"></a>
+	   <a title="分享到微信" class="bshare-weixin"></a>
+	   <a title="分享到有道笔记" class="bshare-youdaonote"></a>
+	   <a title="分享到Evernote" class="bshare-evernote"></a>
+	   <a title="分享到Facebook" class="bshare-facebook"></a>
+	   <a title="分享到Gmail" class="bshare-gmail"></a>
+	   <a title="分享到Google+" class="bshare-gplus"></a>
+	   <a title="分享到Twitter" class="bshare-twitter"></a>
+	   <!-- 在这里添加更多平台 -->
+
+	   <a title="更多平台" id="bshare-more-icon" class="bshare-more"></a>
+	   <span class="BSHARE_COUNT bshare-share-count">--</span>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=<你的UUID>&style=-1"></script>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC2.js"></script>
+
+</div>
         
         
           <ul class="meta text-muted pager">
@@ -243,25 +391,150 @@
         
       </footer>
     </article>
+
+    <!-- wumii -->
+    <script type="text/javascript" id="wumiiRelatedItems"></script>
+
+    <!-- disqus comments -->
+    
+
+    <!-- duoshuo comments -->
+    
+      <section>
+        <div id="comments" aria-live="polite"> <!-- Duoshuo Comment BEGIN -->
+	  <div data-thread-key="/Diary/2014/02/26/baas-note/" class="ds-thread"> </div>
+<!-- Duoshuo Comment END -->
+</div>
+      </section>
+      
     
   </div>
+
+
+  <!-- sidebar -->
+  
+  <aside class="sidebar">
+    
+      <section>
+
+	<div class="panel-heading">
+	  <!-- <h3 class="panel-title">About Me</h3> -->
+	</div> 
+	<div class="panel-body">
+	 
+	 <p>
+	 	<wb:like></wb:like>
+	 </p>
+	</div>
+</section>
+
+
+<section>
+
+		<div class="panel-heading">
+			<h3 class="panel-title">Post Info</h3>
+		</div>
+		<div class="panel-body">
+		<p>
+			Author: ZwEin
+		</p>
+
+		<p>Date: <span class="date" style="display:incline">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+February 26, 2014 (Wed)</span>
+		</p>
+
+		<p>
+
+			<!-- add tags for aside bar -->
+      <div class="article_tag">
+        <i class="fa fa-bookmark"></i>
+        
+        
+             
+              <a href="http://lzteng.com/blog/tags/index.html#BaaS-ref">BaaS </a>
+              
+            
+        
+        
+      </div>
+
+
+		</p>
+		</div>
+
+
+
+	
+
+</section>
+<section>
+	<div class="panel-heading">
+	  <h3 class="panel-title">Catalog</h3>
+	</div>
+	<div class="panel-body">
+	 <p>
+	 <ol style="margin-left: -1.7em;"><li style="list-style:inherit;"><a href="#id-3601b257ecfaf8e1014d59557a4a1cfc">什么是BaaS</a></li><li style="list-style:inherit;"><a href="#id-319cd8d559b3c9003ce37f03eec2b316">国外的BaaS</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="#id-7375454fc840c16d9d312269c017d922">StackMob</a></li> <li style="list-style:inherit;"><a href="#id-c9ad95228aa735bdda1aebf38da022af">Parse</a></li> <li style="list-style:inherit;"><a href="#id-0d98c74797e49d00bcc4c17c9d557a2b">其他</a></li></ul></li><li style="list-style:inherit;"><a href="#id-2d3131646466f1d995136d9c4dafb81d">国内的BaaS</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="#id-804bcfb7d7a1a5fd5278972f7bf3a9c4">Bmob</a></li> <li style="list-style:inherit;"><a href="#id-00be708e8fa753fe61211e7c0411f834">AVOS Cloud</a></li> <li style="list-style:inherit;"><a href="#id-0d98c74797e49d00bcc4c17c9d557a2b">其他</a></li></ul></li></ol>
+	 </p>
+	</div>
+</section>
+
+
+
+    
+  </aside>
+  
+
+
+ 
+        
+
+
+
 </div>
 
         </div>
       </div>
-    <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - ZwEin<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
-  </small>
-  <a href="#" id="back">Back to Top</a>
-</p>
+    <footer role="contentinfo"><div id="footer-wrapper">
+	<div class="container">
+	    
 
-<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-</nav>
 
+
+<!-- <nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation"> 
+</nav> -->
+
+<div class="copyright">
+
+  <p class="text-muted credits">
+    
+    <small>
+        <span class="credit">Copyright &copy; 2014 - ZwEin </span>,  
+        <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+        <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>,
+        <span class="credit"> all rights reserved</span>.
+    </small>
+    <!-- <a href="#" id="back">Back to Top</a> -->
+    
+      <!-- 统计 -->
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000263842'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000263842%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+  </p>
+
+</div>
+	</div>
 </div>
 </footer>
     <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
@@ -306,5 +579,123 @@
 
 
     </div>
+
+
+    
+
+
+  
+<!-- custom js code 
+  <script type="text/javascript" src="/javascripts/libs/prettify/prettify.js"></script>
+
+  <script type="text/javascript"> 
+    $(document).ready(function(){
+    $('pre').addClass('prettyprint linenums') 
+    })
+  </script>
+  <script type="text/javascript"> 
+    $(function() {window.prettyPrint && prettyPrint();});
+    $(function() {$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');});
+  </script>
+-->
+<!--
+<script src="/javascripts/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+-->
+<!-- duoshuo -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lzteng"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+<script>
+//导航栏添加active
+$(function(){
+  function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+      return str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  var url = window.location.pathname;  
+  var activePage = stripTrailingSlash(url);
+
+  $('.nav li a').each(function(){  
+    var currentPage = stripTrailingSlash($(this).attr('href'));
+
+    if (activePage == currentPage) {
+      $(this).parent().addClass('active'); 
+    } 
+  });
+});
+</script>
+
+
+<!-- wumii -->
+    <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = "BaaS 笔记"; //请用代码生成文章标题
+    var wumiiTags = "BaaS"; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiCategories = [BaaS]; //请用代码生成文章分类，分类名放在 JSONArray 中，如: ["分类1", "分类2"]
+    var wumiiSitePrefix = "http://zwein27.github.io/";
+    var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+  <a href="http://www.wumii.com/widget/relatedItems" style="border:0;">
+      <img src="http://static.wumii.cn/images/pixel.png" alt="无觅关联推荐，快速提升流量" style="border:0;padding:0;margin:0;" />
+  </a>
+
+
+
+<!-- 回到顶部特效 -->
+
+
+
+<div class="go">
+  <a title="goTop" class="top" href="#gotop"></a>
+  <a title="Connect me" class="feedback" href="mailto:zwein27@gmail.com" target="_blank"></a>
+  <a title="goBottom" class="bottom" href="#gobottom"></a>
+</div>
+
+
+<!-- prettify代码高亮 -->
+  <script src="/javascripts/libs/prettify/prettify.js"></script>
+  <script>
+      /*需要在调用prettify.js的prettyPrint方法之前添加标签*/
+        $(function() {  
+          $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+        });
+        $(function() { 
+            window.prettyPrint && prettyPrint();
+        });
+  </script>
+
+
+<!-- 为markdown的超链接加上target="_blank" -->
+<script type="text/javascript">
+  function addBlankTargetForLinks () {
+    $('a[href^="http"]').each(function(){
+        $(this).attr('target', '_blank');
+    });
+  }
+
+  $(document).bind('DOMNodeInserted', function(event) {
+    addBlankTargetForLinks();
+  });
+</script>
+
+<!-- 新浪开发平台关注按钮 -->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+
+<a name="gobottom"></a><!-- 回到底部 -->
   </body>
 </html>

@@ -8,6 +8,9 @@
   <meta name="author" content="ZwEin">
 
   
+  <meta name="description" content=" ZwEin's blog ">
+  
+    <meta name="keywords" content="zwein blog space avalon program java android linux ios c">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -15,29 +18,89 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- sina open platform -->
+  <meta property="wb:webmaster" content="df940a3dbf57e160" />
+  <html xmlns:wb="http://open.weibo.com/wb">
+
+  <!-- baidu -->
+  <meta name="baidu-site-verification" content="mqpzxukah8" />
+
+
   
   <link rel="canonical" href="http://lzteng.com/javascripts/libs/bootstrap-3.0.0/javascript.html">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
 
-  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+  <link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+
+
 <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
-
+<!-- custom -->
 <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/custom.css" rel="stylesheet" type="text/css">
+<!-- <link href="/javascripts/libs/prettify/prettify.css" rel="stylesheet" type="text/css" media="all"> --><link href="/javascripts/libs/prettify/desert.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link rel="stylesheet" href="/javascripts/libs/highlight/styles/monokai_sublime.css"> -->
+<!-- add font-awesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+
+<!-- wunii -->
+<meta name="wumiiVerification" content="11f148a3-3375-42a6-bcf9-f1658ee6036a" />
+
+
+
+  
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  <script src="/javascripts/custom.js"></script>
+  
+
+
+  <script type="text/javascript">
+        $(document).ready(function () {
+         jQuery("#topbarloading").animate({ /* NavBar 顶部载入条 */
+                width: "100%"
+            },
+            {
+                queue: false,
+                duration: 5000
+            });
+          
+        })
+  </script>
+  
   
 
 </head>
 
   <body   >
+
+    <!--[if lt IE 9]>
+     <script type="text/javascript">
+
+      var browser=navigator.appName;
+      var b_version=navigator.appVersion;
+      var version=parseFloat(b_version);
+    
+      document.getElementById('browser-warning').style.display='block';
+      
+        alert("为保证浏览效果，建议使用Firefox或者Chrome等非IE内核的浏览器！");
+      
+  </script>
+  <![endif]-->
+
+
+
+<a name="gotop"></a><!-- 回到顶部 -->
+
     <div id="wrap">
       <header role="banner">
         
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,11 +111,29 @@
             <a class="navbar-brand" href="/">lzteng</a>
         </div>
 
-        <div class="navbar-collapse collapse">
+        <div  class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Blog</a></li>
-                <li><a href="/blog/archives">Archives</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/blog/archives">Archive</a></li>
+                <li><a href="/blog/categories">Categories</a></li>
+                <li><a href="/blog/tags">Tags</a></li>
+                <li><a href="/blog/about">About</a></li>
+
+               
+
+
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -73,7 +154,14 @@
             
         </div>
     </div>
+
+
+    <div id="topbarloading"></div>
+    
 </nav>
+
+
+
 
 
       </header>
@@ -2083,19 +2171,34 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 
         </div>
       </div>
-    <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - ZwEin<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
-  </small>
-  <a href="#" id="back">Back to Top</a>
-</p>
+    <footer role="contentinfo"><div id="footer-wrapper">
+	<div class="container">
+	    
 
-<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-</nav>
 
+
+<!-- <nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation"> 
+</nav> -->
+
+<div class="copyright">
+
+  <p class="text-muted credits">
+    
+    <small>
+        <span class="credit">Copyright &copy; 2014 - ZwEin </span>,  
+        <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+        <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>,
+        <span class="credit"> all rights reserved</span>.
+    </small>
+    <!-- <a href="#" id="back">Back to Top</a> -->
+    
+      <!-- 统计 -->
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000263842'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000263842%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+  </p>
+
+</div>
+	</div>
 </div>
 </footer>
     <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
@@ -2140,5 +2243,123 @@ $(&#39;#myTab li:eq(2) a&#39;).tab(&#39;show&#39;) // Select third tab (0-indexe
 
 
     </div>
+
+
+    
+
+
+  
+<!-- custom js code 
+  <script type="text/javascript" src="/javascripts/libs/prettify/prettify.js"></script>
+
+  <script type="text/javascript"> 
+    $(document).ready(function(){
+    $('pre').addClass('prettyprint linenums') 
+    })
+  </script>
+  <script type="text/javascript"> 
+    $(function() {window.prettyPrint && prettyPrint();});
+    $(function() {$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');});
+  </script>
+-->
+<!--
+<script src="/javascripts/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+-->
+<!-- duoshuo -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lzteng"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+<script>
+//导航栏添加active
+$(function(){
+  function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+      return str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  var url = window.location.pathname;  
+  var activePage = stripTrailingSlash(url);
+
+  $('.nav li a').each(function(){  
+    var currentPage = stripTrailingSlash($(this).attr('href'));
+
+    if (activePage == currentPage) {
+      $(this).parent().addClass('active'); 
+    } 
+  });
+});
+</script>
+
+
+<!-- wumii -->
+    <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = "JavaScript"; //请用代码生成文章标题
+    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiCategories = []; //请用代码生成文章分类，分类名放在 JSONArray 中，如: ["分类1", "分类2"]
+    var wumiiSitePrefix = "http://zwein27.github.io/";
+    var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+  <a href="http://www.wumii.com/widget/relatedItems" style="border:0;">
+      <img src="http://static.wumii.cn/images/pixel.png" alt="无觅关联推荐，快速提升流量" style="border:0;padding:0;margin:0;" />
+  </a>
+
+
+
+<!-- 回到顶部特效 -->
+
+
+
+<div class="go">
+  <a title="goTop" class="top" href="#gotop"></a>
+  <a title="Connect me" class="feedback" href="mailto:zwein27@gmail.com" target="_blank"></a>
+  <a title="goBottom" class="bottom" href="#gobottom"></a>
+</div>
+
+
+<!-- prettify代码高亮 -->
+  <script src="/javascripts/libs/prettify/prettify.js"></script>
+  <script>
+      /*需要在调用prettify.js的prettyPrint方法之前添加标签*/
+        $(function() {  
+          $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+        });
+        $(function() { 
+            window.prettyPrint && prettyPrint();
+        });
+  </script>
+
+
+<!-- 为markdown的超链接加上target="_blank" -->
+<script type="text/javascript">
+  function addBlankTargetForLinks () {
+    $('a[href^="http"]').each(function(){
+        $(this).attr('target', '_blank');
+    });
+  }
+
+  $(document).bind('DOMNodeInserted', function(event) {
+    addBlankTargetForLinks();
+  });
+</script>
+
+<!-- 新浪开发平台关注按钮 -->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+
+<a name="gobottom"></a><!-- 回到底部 -->
   </body>
 </html>

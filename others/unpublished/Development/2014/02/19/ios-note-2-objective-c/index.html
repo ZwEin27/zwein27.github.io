@@ -7,37 +7,100 @@
   <title>iOS 开发笔记 2 - Objective-C - lzteng</title>
   <meta name="author" content="ZwEin">
 
-  <meta name="description" content="iOS开发， Objective-C 学习笔记">
-  <meta name="keywords" content="Objective-C iOS Note 开发 ios">
+  
+  <meta name="description" content=" iOS开发， Objective-C 学习笔记 ">
+  
+    <meta name="keywords" content="Objective-C iOS Note 开发 ios">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- sina open platform -->
+  <meta property="wb:webmaster" content="df940a3dbf57e160" />
+  <html xmlns:wb="http://open.weibo.com/wb">
+
+  <!-- baidu -->
+  <meta name="baidu-site-verification" content="mqpzxukah8" />
+
+
   
   <link rel="canonical" href="http://lzteng.com/others/unpublished/Development/2014/02/19/ios-note-2-objective-c">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="lzteng" type="application/atom+xml">
 
-  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+  <link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.3/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+
+
 <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
-
+<!-- custom -->
 <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/custom.css" rel="stylesheet" type="text/css">
+<!-- <link href="/javascripts/libs/prettify/prettify.css" rel="stylesheet" type="text/css" media="all"> --><link href="/javascripts/libs/prettify/desert.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link rel="stylesheet" href="/javascripts/libs/highlight/styles/monokai_sublime.css"> -->
+<!-- add font-awesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+
+<!-- wunii -->
+<meta name="wumiiVerification" content="11f148a3-3375-42a6-bcf9-f1658ee6036a" />
+
+
+
+  
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  <script src="/javascripts/custom.js"></script>
+  
+
+
+  <script type="text/javascript">
+        $(document).ready(function () {
+         jQuery("#topbarloading").animate({ /* NavBar 顶部载入条 */
+                width: "100%"
+            },
+            {
+                queue: false,
+                duration: 5000
+            });
+          
+        })
+  </script>
+  
   
 
 </head>
 
   <body   >
+
+    <!--[if lt IE 9]>
+     <script type="text/javascript">
+
+      var browser=navigator.appName;
+      var b_version=navigator.appVersion;
+      var version=parseFloat(b_version);
+    
+      document.getElementById('browser-warning').style.display='block';
+      
+        alert("为保证浏览效果，建议使用Firefox或者Chrome等非IE内核的浏览器！");
+      
+  </script>
+  <![endif]-->
+
+
+
+<a name="gotop"></a><!-- 回到顶部 -->
+
     <div id="wrap">
       <header role="banner">
         
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,11 +111,29 @@
             <a class="navbar-brand" href="/">lzteng</a>
         </div>
 
-        <div class="navbar-collapse collapse">
+        <div  class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Blog</a></li>
-                <li><a href="/blog/archives">Archives</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/blog/archives">Archive</a></li>
+                <li><a href="/blog/categories">Categories</a></li>
+                <li><a href="/blog/tags">Tags</a></li>
+                <li><a href="/blog/about">About</a></li>
+
+               
+
+
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -73,48 +154,87 @@
             
         </div>
     </div>
+
+
+    <div id="topbarloading"></div>
+    
 </nav>
+
+
+
 
 
       </header>
       <div id="main" class="container">
         <div id="content">
           <div class="row">
-  <div class="page-content col-md-9">
+        
+            <div class="page-content col-md-9">
+
     <article class="hentry" role="article">
       
+
+        
+            
   <header class="page-header">
     
-      <p class="meta text-muted text-uppercase">
-        
 
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-19T21:45:53+08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
-        
-      </p>
-    
     
     <h1 class="entry-title">
         iOS 开发笔记 2 - Objective-C
         
     </h1>
     
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="#comments"
+             data-thread-key="/Development/2014/02/19/ios-note-2-objective-c/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Development/2014/02/19/ios-note-2-objective-c/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-02-19T21:45:53+08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
   </header>
 
 
-<div class="entry-content clearfix"><h2 id="id-18faed2e6bc8fc3e653fba29c61b5a12">1 Objective-C 基础</h2>
 
-<h3 id="id-94b98439e4ebfbb5e01e2867e9d24a56">1.1 什么是Objective-C</h3>
+
+  <div class="entry-content clearfix"><h2 id="id-36418482c1415ef054c995a2aaf75950">1 1 Objective-C 基础</h2>
+
+<h3 id="id-3aefc984db30aaff525d16649e7a8fc1">1.1 1.1 什么是Objective-C</h3>
 
 <p>Objective-C 是一门基于C的面向对象语言，是C语言的一个超集，同时具有C语言的特征。</p>
 
@@ -123,7 +243,7 @@
 <!-- more -->
 
 
-<h4 id="id-d923526d022fdf69acd4c83011a6541a">1.1.1 id 类型</h4>
+<h4 id="id-a307a2ef3e5f54130878e0201b98e415">1.1.1 1.1.1 id 类型</h4>
 
 <p>Objective-C有一种比较特殊的数据类型是id。你可以把它理解为“随便”。</p>
 
@@ -132,7 +252,7 @@
 <!-- more -->
 
 
-<h4 id="id-e38a31b1c9b0dade1aa062035c8f3aea">1.1.2 NSArray数组</h4>
+<h4 id="id-a45f24b98f8c90e24da9bf4847a6de2c">1.1.2 1.1.2 NSArray数组</h4>
 
 <p>比如一个数组NSArray，这种数组里面可以保存各种不同的对象，比如这个数组里：</p>
 
@@ -146,13 +266,13 @@
 
 <p>这是一个由4个东西组成的数组，这个数组包括一个浮点数，两个字符串和一个图片。</p>
 
-<h4 id="id-5ed346de6904267d88b45d2424bce4c7">1.1.3 BOOL，YES，NO</h4>
+<h4 id="id-1e5a946f1ab99a2e343e3eb0494bb20a">1.1.3 1.1.3 BOOL，YES，NO</h4>
 
 <p>可以认为YES表示C#或者Java里的true，NO表示false。</p>
 
 <p>而实际上YES是1，NO是0，BOOL本身就是个char。</p>
 
-<h4 id="id-1dc6790a0e9a921bffbaa11997061867">1.1.4 IBOutlet、IBAction</h4>
+<h4 id="id-2db24708a830f561833b649d35a38ae0">1.1.4 1.1.4 IBOutlet、IBAction</h4>
 
 <p>这两个东西其实在语法中没有太大的作用。</p>
 
@@ -162,11 +282,11 @@
 
 <p>而这两个东西实际上和void是一样的。</p>
 
-<h4 id="id-852438d026c018c4307b916406f98c62">1.1.5 nil</h4>
+<h4 id="id-d4ead33d435a922efd1759f4007a68c6">1.1.5 1.1.5 nil</h4>
 
 <p>在Objective-C里代表NULL（空），表示空指针。</p>
 
-<h4 id="id-fd848e4528395f7fecc06d112197f487">1.1.6 字符串中的@”字符串”和”字符串”</h4>
+<h4 id="id-fc4327e9c8108ae255649783d923aa00">1.1.6 1.1.6 字符串中的@”字符串”和”字符串”</h4>
 
 <p>”字符串”是C的字符串，@”"是把C的字符串转成NSString的一个简写.</p>
 
@@ -176,11 +296,11 @@
 
 <p><strong>另外,@”"这个转换是不支持中文的.例如NSLog(@”字符串”); 是一定输出不了中文的.</strong></p>
 
-<h4 id="id-c93e0cff8da6ecba9a001e0bc4590fe0">1.1.7 strong和weak关键字</h4>
+<h4 id="id-f1f2fa9d5e079558332f58ededec1258">1.1.7 1.1.7 strong和weak关键字</h4>
 
 <p>strong和weak关键字是IOS 5中新增的</p>
 
-<h5 id="id-6f7f9432d35dea629c8384dab312259a">1.1.7.1 strong</h5>
+<h5 id="id-62b84c84909f403769861680531b7ffc">1.1.7.1 1.1.7.1 strong</h5>
 
 <p>用来修饰强引用的属性</p>
 
@@ -192,7 +312,7 @@
 <pre><code>@property (retain) SomeClass * aObject; 和 @property (copy) SomeClass * aObject; 
 </code></pre>
 
-<h5 id="id-7ecc19e1a0be36ba2c6f05d06b5d3058">1.1.7.2 weak</h5>
+<h5 id="id-9da257c139086b63edd7f8f5d5b14d3a">1.1.7.2 1.1.7.2 weak</h5>
 
 <p>用来修饰弱引用的属性；</p>
 
@@ -204,7 +324,7 @@
 <pre><code>@property (assign) SomeClass * aObject; 
 </code></pre>
 
-<h5 id="id-0d98c74797e49d00bcc4c17c9d557a2b">1.1.7.3 其他</h5>
+<h5 id="id-2c06a930c8b2a8acd66c69698d14fe91">1.1.7.3 1.1.7.3 其他</h5>
 
 <p><strong>weak, </strong>strong 用来修饰变量，此外还有 <strong>unsafe_unretained, </strong>autoreleasing 都是用来修饰变量的。</p>
 
@@ -214,9 +334,9 @@ __unsafe_unretained 声明一个弱应用，但是不会自动nil化，也就是
 __autoreleasing 用来修饰一个函数的参数，这个参数会在函数返回的时候被自动释放。
 </code></pre>
 
-<h3 id="id-3719e5907f66d11481d78502f6b72160">1.2 Objective-C 的类和对象</h3>
+<h3 id="id-7b07decd4b808d4e53d6b92b4d62a556">1.2 1.2 Objective-C 的类和对象</h3>
 
-<h4 id="id-5f62d8bb47315d06fccde0ae2c2973d7">1.2.1 相关文件及其关系</h4>
+<h4 id="id-cb86af1253cb69d0a373e7728142a9fb">1.2.1 1.2.1 相关文件及其关系</h4>
 
 <ul>
 <li>.h 文件</li>
@@ -250,7 +370,7 @@ __autoreleasing 用来修饰一个函数的参数，这个参数会在函数返�
 
 <p>如果您要导入框架的大部分或所有头文件，请导入框架的包罗头文件 (umbrella header file)，它具有与框架相同的名称。</p>
 
-<h4 id="id-4ca90bd3f246f9cdf3208722f5cf2b95">1.2.2 类的定义、实现、初始化</h4>
+<h4 id="id-479478d006cf781b11ea01ee33e83825">1.2.2 1.2.2 类的定义、实现、初始化</h4>
 
 <pre>
     //声明类接口，继承NSObject对象（该对象是OC中所有类的顶级父类，所有类都继承于它）
@@ -296,7 +416,7 @@ __autoreleasing 用来修饰一个函数的参数，这个参数会在函数返�
 className = className.init();
 </code></pre>
 
-<h4 id="id-205db73f8e092d486afae305eb1deea2">1.2.3 类中的方法</h4>
+<h4 id="id-c83f8ea372ff42de90fe2360dfb78619">1.2.3 1.2.3 类中的方法</h4>
 
 <ul>
 <li>方法的基本形式</li>
@@ -336,21 +456,21 @@ className = className.init();
 myKids.setKids (“张大力”, “张二力”, “张小力”);
 </code></pre>
 
-<h4 id="id-24d67862f87f439db7ca957aecb77cce">1.2.4 属性</h4>
+<h4 id="id-0c2d5350761fb8a24294773c18f9eea1">1.2.4 1.2.4 属性</h4>
 
-<h5 id="id-e068960887f37cd308160196eaed19f6">1.2.4.1 支持点表示法</h5>
+<h5 id="id-04dd1f188ee9eece11650aa1b0766396">1.2.4.1 1.2.4.1 支持点表示法</h5>
 
 <pre><code>myTableViewCell.textLabel.text = @"hello" 等价于 [[myTableViewCell textLabel] setText:@"hello"];
 </code></pre>
 
-<h5 id="id-2461da90df1a67352a17db33a9e8dd68">1.2.4.2 使用属性生成器 property</h5>
+<h5 id="id-90da639c4754ad9af31a7c95dd8d183a">1.2.4.2 1.2.4.2 使用属性生成器 property</h5>
 
 <pre><code>在h文件中声明： @property int year
 在m文件中合成生成器：@synthesize year
 使用 obj.year = 1999 相当于调用了 [obj setYear:1999];
 </code></pre>
 
-<h5 id="id-2fc4352a78e99eee6cc53985b5a2080c">1.2.4.3 自定义取值方法和赋值方法（getter and setter）</h5>
+<h5 id="id-f04c0edea53afb861ac4fdb276d24f32">1.2.4.3 1.2.4.3 自定义取值方法和赋值方法（getter and setter）</h5>
 
 <pre><code> -（int）year
  {
@@ -368,7 +488,7 @@ myKids.setKids (“张大力”, “张二力”, “张小力”);
  }
 </code></pre>
 
-<h5 id="id-9c28fcf96ecea7f7a35a161bace68dde">1.2.4.4 自定义Setter和Getter方法的名称</h5>
+<h5 id="id-bafb7ff75d5e9b6933ed97ee5c6bbda0">1.2.4.4 1.2.4.4 自定义Setter和Getter方法的名称</h5>
 
 <pre><code> @property(getter = isExist,setter = setExist:) BOOL exist;
  @synthesize exist;
@@ -376,7 +496,7 @@ myKids.setKids (“张大力”, “张二力”, “张小力”);
 
 <p>使用过程中既可以使用新定义的方法名，也可以使用以前的方法（点表示法）</p>
 
-<h5 id="id-87f16b42d3edd329636fe736e04a137d">1.2.4.5 属性的特性 readwrite readonly assign retain copy nonatomic</h5>
+<h5 id="id-ad1b881ebcfe0a113e3e5a6ea6a8de1d">1.2.4.5 1.2.4.5 属性的特性 readwrite readonly assign retain copy nonatomic</h5>
 
 <ul>
 <li>assign：默认行为，使用@property int year就使用了assign行为，就是给实例变量赋了一个值</li>
@@ -388,9 +508,9 @@ myKids.setKids (“张大力”, “张二力”, “张小力”);
 </ul>
 
 
-<h3 id="id-a36bf05feb682c8a168a4e99accdeb07">1.3 Foundation 框架</h3>
+<h3 id="id-21d5afd430c58a57c06fc4e9be7158b5">1.3 1.3 Foundation 框架</h3>
 
-<h4 id="id-41c4379d8569fd1358976441ec237cfa">1.3.1 简称对应内容</h4>
+<h4 id="id-688e96fbeb9cc05d76cc0842e9501202">1.3.1 1.3.1 简称对应内容</h4>
 
 <ul>
 <li>CF 代表Core Foundation (Cocoa)</li>
@@ -402,9 +522,9 @@ myKids.setKids (“张大力”, “张二力”, “张小力”);
 
 <p>（欢迎补充）</p>
 
-<h4 id="id-6405ce72832bd1b0cf8006fdbbc6fef6">1.3.2 输出函数 NSlog 和CFShow</h4>
+<h4 id="id-ad8e528e680ee6087c5c7c421b1382ed">1.3.2 1.3.2 输出函数 NSlog 和CFShow</h4>
 
-<h5 id="id-1e32a2bb7683abbeacb8ca259d26170c">1.3.2.1 NSlog</h5>
+<h5 id="id-eda0200eabaa18e53d5965a04578b9e8">1.3.2.1 1.3.2.1 NSlog</h5>
 
 <p>格式化占位符</p>
 
@@ -452,7 +572,7 @@ NSLog( @”%@”, i );
 int i = 12345;
 NSLog( @”%d”, i );</p>
 
-<h5 id="id-73e409a5b5b3d6e6a03b6d45c4cdbb41">1.3.2.2 CFShow</h5>
+<h5 id="id-20e16db6a9050014c2666ef61cb493db">1.3.2.2 1.3.2.2 CFShow</h5>
 
 <p>CFShow发送description给它显示的对象</p>
 
@@ -460,7 +580,7 @@ NSLog( @”%d”, i );</p>
 
 <p>CFShow不需要格式字符串，它只能用于对象<code>CFShow(obj);</code></p>
 
-<h4 id="id-9a90d6c7914e2cf4e2bccc6258d4b943">1.3.3 NSString (字符串类)</h4>
+<h4 id="id-a6302e6713cc65e80b9a7ce6a5a35241">1.3.3 1.3.3 NSString (字符串类)</h4>
 
 <p>按格式生成</p>
 
@@ -515,7 +635,7 @@ NSArray *array = [myString componentSeparatedByString:@" "];
 [s doubleValue];
 </code></pre>
 
-<h4 id="id-21eb26a8c316fb92e26d3023e1ced8c8">1.3.4 日期和时间 NSDate</h4>
+<h4 id="id-d5a76446aa70508c3993fdd13ee732c0">1.3.4 1.3.4 日期和时间 NSDate</h4>
 
 <pre><code>NSDate *date = [NSDate date]
 </code></pre>
@@ -532,16 +652,16 @@ formatter.dateFormater = @"MM/dd/YY HH:mm:ss";
 NSString *timestamp = [formatter stringFromDate:[NSDate date]];
 </code></pre>
 
-<h4 id="id-508b37f195b91f7d901273d4cd2d87f0">1.3.5 集合</h4>
+<h4 id="id-d1cb1dff402f04de099ff0af659d6ed5">1.3.5 1.3.5 集合</h4>
 
-<h5 id="id-3e9483348e6099908c1c1f64ffe3a7eb">1.3.5.1 数组 NSArray</h5>
+<h5 id="id-a7e03d397790d4d5f95ce373847b7f4c">1.3.5.1 1.3.5.1 数组 NSArray</h5>
 
 <pre><code>NSArray *array = [NSArray arrayWithObjects:@"one",@"two",nil];
 [array count];
 [array objectAtIndex:0];
 </code></pre>
 
-<h5 id="id-32cc7189a0d093170e84bee49b2c10e7">1.3.5.2 字典 NSDictionary</h5>
+<h5 id="id-42556eef43cf67c56f05a441dd9b0318">1.3.5.2 1.3.5.2 字典 NSDictionary</h5>
 
 <pre><code>NSMutableDictionary *dict =  [NSMutableDictionary dictionary];
 [dict setObject:@“A” forKey:@"a"];
@@ -553,12 +673,12 @@ NSString *timestamp = [formatter stringFromDate:[NSDate date]];
 索引：[dict allKeys];
 </code></pre>
 
-<h5 id="id-e6b391a8d2c4d45902a23a8b6585703d">1.3.5.3 URL</h5>
+<h5 id="id-6ff3c37e486ff5ae4b5db431e03e5900">1.3.5.3 1.3.5.3 URL</h5>
 
 <pre><code>NSURL *url = [NSURL URLWithString : urlPath];
 </code></pre>
 
-<h5 id="id-55a7143b5380cf970a1bcba887929c6e">1.3.5.4 NSData</h5>
+<h5 id="id-7387b4efbce856675fc4df2e639b4056">1.3.5.4 1.3.5.4 NSData</h5>
 
 <p>类似于缓存类</p>
 
@@ -567,18 +687,18 @@ NSMutableData  （可变缓存类）
 appendData，追加新信息
 </code></pre>
 
-<h5 id="id-7992497d3cd1946a0457f4e38d067784">1.3.5.5 文件管理 NSFileManager</h5>
+<h5 id="id-9e4ef53a2ebfda487ee19e3b4d29539a">1.3.5.5 1.3.5.5 文件管理 NSFileManager</h5>
 
 <pre><code>NSFileManager *fm  = [NSFileManager defaultManager];
 </code></pre>
 
-<h3 id="id-a670acdc322b32031865f03323b1600e">1.4 内存管理</h3>
+<h3 id="id-4a98d7faf3b0d89767d6214bb8368c14">1.4 1.4 内存管理</h3>
 
 <p>在IOS5.0以后Apple增加了ARC机制（Automatic Reference Counting）</p>
 
 <p>在OC中，每个对象都有一个保留计数，创建时每个对象都有一个初始值为1的保留计数，释放时，保留计数都为0</p>
 
-<h4 id="id-3978e79817dadced78692e21d622838b">1.4.1 创建自动释放的对象</h4>
+<h4 id="id-09a518534e263d3d6a327795dc7c83d6">1.4.1 1.4.1 创建自动释放的对象</h4>
 
 <p>要求以一个方法创建对象时，以自动释放的形式返回该对象是一个很好的编程实践</p>
 
@@ -589,18 +709,18 @@ appendData，追加新信息
 }
 </code></pre>
 
-<h4 id="id-41ea1984104ade0b2959a7eec4bcbd6e">1.4.2 创建已保留属性</h4>
+<h4 id="id-0ab887ce06adac4aac3a4aef5acbbed6">1.4.2 1.4.2 创建已保留属性</h4>
 
 <pre><code>@property （retain）NSArray *colors；
 </code></pre>
 
 <p>synthesize创建后，自动保留该对象，如果该对象被重新赋值，前面的值将被自动释放</p>
 
-<h4 id="id-059497d81cdc49d516b42894cb24a795">1.4.3 创建对象的其他方式</h4>
+<h4 id="id-660d2a5dc36035b8a430a76bcfc99fbd">1.4.3 1.4.3 创建对象的其他方式</h4>
 
 <p>一般规则：通过alloc、new、create、copy的任意方法构建一个对象，就必须承担释放该对象的责任，和类方法不同，带这些字样的方法一般不会返回自动释放的对象</p>
 
-<h4 id="id-1c1b5980d9c1a296dddb5bc6e237a613">1.4.4 释放对象</h4>
+<h4 id="id-58c972ea282b340597c7a5b016e55887">1.4.4 1.4.4 释放对象</h4>
 
 <p>释放属性：<code>self.year = nil；</code></p>
 
@@ -618,64 +738,214 @@ appendData，追加新信息
 </div>
 
 
+ 
+
+         
+
+      <!-- footer -->
       <footer>
-        <p class="meta text-muted">
-          
-  
+        <!-- 尾部版权信息也可在/plugin/post_footer_filter.rb添加-->
+        <!-- <p class='post-footer'>
+        &nbsp;
+          版权所有 ©ZwEin | 转载请注明出处：<a href=''></a><br/>
+        &nbsp;
+        </p>  -->
 
-<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">ZwEin</span></span>
-
-          
-
-
-
+     
 
 
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-19T21:45:53+08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
-        </p>
         
           <div class="sharing">
+	<!-- 
+	<a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/others/unpublished/Development/2014/02/19/ios-note-2-objective-c/" data-via="zwein27" data-counturl="http://lzteng.com/others/unpublished/Development/2014/02/19/ios-note-2-objective-c/" >Tweet</a>
+	
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lzteng.com/others/unpublished/Development/2014/02/19/ios-note-2-objective-c/" data-via="zwein27" data-counturl="http://lzteng.com/others/unpublished/Development/2014/02/19/ios-note-2-objective-c/" >Tweet</a>
+	<div class="g-plusone" data-size="medium"></div>
+	
   
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
+	<div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+	 -->
 
+ <!--  
+	<div class="bdsharebuttonbox">
+		<a href="#" class="bds_more" data-cmd="more"></a>
+		<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+		<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+		<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	</div>
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","renren","weixin","copy"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+	 -->
+
+	<!-- bshare -->
+	<div class="bshare-custom">
+	   <a title="分享到" href="http://www.bshare.cn/share" id="bshare-shareto" class="bshare-more"></a>
+
+	   <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+	   <a title="分享到人人网" class="bshare-renren"></a>
+	   <a title="分享到豆瓣" class="bshare-douban"></a>
+	   <a title="分享到QQ空间" class="bshare-qzone"></a>
+	   <a title="分享到微信" class="bshare-weixin"></a>
+	   <a title="分享到有道笔记" class="bshare-youdaonote"></a>
+	   <a title="分享到Evernote" class="bshare-evernote"></a>
+	   <a title="分享到Facebook" class="bshare-facebook"></a>
+	   <a title="分享到Gmail" class="bshare-gmail"></a>
+	   <a title="分享到Google+" class="bshare-gplus"></a>
+	   <a title="分享到Twitter" class="bshare-twitter"></a>
+	   <!-- 在这里添加更多平台 -->
+
+	   <a title="更多平台" id="bshare-more-icon" class="bshare-more"></a>
+	   <span class="BSHARE_COUNT bshare-share-count">--</span>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=<你的UUID>&style=-1"></script>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC2.js"></script>
+
+</div>
         
         
       </footer>
     </article>
+
+    <!-- wumii -->
+    <script type="text/javascript" id="wumiiRelatedItems"></script>
+
+    <!-- disqus comments -->
+    
+
+    <!-- duoshuo comments -->
+    
+      <section>
+        <div id="comments" aria-live="polite"> <!-- Duoshuo Comment BEGIN -->
+	  <div data-thread-key="/Development/2014/02/19/ios-note-2-objective-c/" class="ds-thread"> </div>
+<!-- Duoshuo Comment END -->
+</div>
+      </section>
+      
     
   </div>
+
+
+  <!-- sidebar -->
+  
+  <aside class="sidebar">
+    
+      <section>
+
+	<div class="panel-heading">
+	  <!-- <h3 class="panel-title">About Me</h3> -->
+	</div> 
+	<div class="panel-body">
+	 
+	 <p>
+	 	<wb:like></wb:like>
+	 </p>
+	</div>
+</section>
+
+
+<section>
+
+		<div class="panel-heading">
+			<h3 class="panel-title">Post Info</h3>
+		</div>
+		<div class="panel-body">
+		<p>
+			Author: ZwEin
+		</p>
+
+		<p>Date: <span class="date" style="display:incline">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+February 19, 2014 (Wed)</span>
+		</p>
+
+		<p>
+
+			<!-- add tags for aside bar -->
+      <div class="article_tag">
+        <i class="fa fa-bookmark"></i>
+        
+        
+            
+        
+        
+      </div>
+
+
+		</p>
+		</div>
+
+
+
+	
+
+</section>
+<section>
+	<div class="panel-heading">
+	  <h3 class="panel-title">Catalog</h3>
+	</div>
+	<div class="panel-body">
+	 <p>
+	 <ol style="margin-left: -1.7em;"><li style="list-style:inherit;"><a href="id-18faed2e6bc8fc3e653fba29c61b5a12">1 Objective-C 基础</a><ul style="margin-left: -1.5em;"><li style="list-style:inherit;"><a href="id-94b98439e4ebfbb5e01e2867e9d24a56">1.1 什么是Objective-C</a></li> <li style="list-style:inherit;"><a href="id-3719e5907f66d11481d78502f6b72160">1.2 Objective-C 的类和对象</a></li> <li style="list-style:inherit;"><a href="id-a36bf05feb682c8a168a4e99accdeb07">1.3 Foundation 框架</a></li> <li style="list-style:inherit;"><a href="id-a670acdc322b32031865f03323b1600e">1.4 内存管理</a></li></ul></li></ol>
+	 </p>
+	</div>
+</section>
+
+
+
+    
+  </aside>
+  
+
+
+ 
+        
+
+
+
 </div>
 
         </div>
       </div>
-    <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - ZwEin<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>.
-  </small>
-  <a href="#" id="back">Back to Top</a>
-</p>
+    <footer role="contentinfo"><div id="footer-wrapper">
+	<div class="container">
+	    
 
-<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-</nav>
 
+
+<!-- <nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation"> 
+</nav> -->
+
+<div class="copyright">
+
+  <p class="text-muted credits">
+    
+    <small>
+        <span class="credit">Copyright &copy; 2014 - ZwEin </span>,  
+        <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+        <span class="credit">customized with <a href="https://github.com/mjhea0/octoplate">Octoplate</a></span>,
+        <span class="credit"> all rights reserved</span>.
+    </small>
+    <!-- <a href="#" id="back">Back to Top</a> -->
+    
+      <!-- 统计 -->
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000263842'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000263842%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+  </p>
+
+</div>
+	</div>
 </div>
 </footer>
     <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
@@ -720,5 +990,123 @@ appendData，追加新信息
 
 
     </div>
+
+
+    
+
+
+  
+<!-- custom js code 
+  <script type="text/javascript" src="/javascripts/libs/prettify/prettify.js"></script>
+
+  <script type="text/javascript"> 
+    $(document).ready(function(){
+    $('pre').addClass('prettyprint linenums') 
+    })
+  </script>
+  <script type="text/javascript"> 
+    $(function() {window.prettyPrint && prettyPrint();});
+    $(function() {$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');});
+  </script>
+-->
+<!--
+<script src="/javascripts/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+-->
+<!-- duoshuo -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lzteng"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+<script>
+//导航栏添加active
+$(function(){
+  function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+      return str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  var url = window.location.pathname;  
+  var activePage = stripTrailingSlash(url);
+
+  $('.nav li a').each(function(){  
+    var currentPage = stripTrailingSlash($(this).attr('href'));
+
+    if (activePage == currentPage) {
+      $(this).parent().addClass('active'); 
+    } 
+  });
+});
+</script>
+
+
+<!-- wumii -->
+    <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = "iOS 开发笔记 2 - Objective-C"; //请用代码生成文章标题
+    var wumiiTags = "iOS"; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiCategories = [iOS]; //请用代码生成文章分类，分类名放在 JSONArray 中，如: ["分类1", "分类2"]
+    var wumiiSitePrefix = "http://zwein27.github.io/";
+    var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+  <a href="http://www.wumii.com/widget/relatedItems" style="border:0;">
+      <img src="http://static.wumii.cn/images/pixel.png" alt="无觅关联推荐，快速提升流量" style="border:0;padding:0;margin:0;" />
+  </a>
+
+
+
+<!-- 回到顶部特效 -->
+
+
+
+<div class="go">
+  <a title="goTop" class="top" href="#gotop"></a>
+  <a title="Connect me" class="feedback" href="mailto:zwein27@gmail.com" target="_blank"></a>
+  <a title="goBottom" class="bottom" href="#gobottom"></a>
+</div>
+
+
+<!-- prettify代码高亮 -->
+  <script src="/javascripts/libs/prettify/prettify.js"></script>
+  <script>
+      /*需要在调用prettify.js的prettyPrint方法之前添加标签*/
+        $(function() {  
+          $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+        });
+        $(function() { 
+            window.prettyPrint && prettyPrint();
+        });
+  </script>
+
+
+<!-- 为markdown的超链接加上target="_blank" -->
+<script type="text/javascript">
+  function addBlankTargetForLinks () {
+    $('a[href^="http"]').each(function(){
+        $(this).attr('target', '_blank');
+    });
+  }
+
+  $(document).bind('DOMNodeInserted', function(event) {
+    addBlankTargetForLinks();
+  });
+</script>
+
+<!-- 新浪开发平台关注按钮 -->
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+
+<a name="gobottom"></a><!-- 回到底部 -->
   </body>
 </html>
