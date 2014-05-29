@@ -1,7 +1,7 @@
 ---
 layout: post
 url: /Technology/2014/02/22/octopress-settings/index.html
-title: "Octopress Settings"
+title: "Octopress 配置"
 date: 2014-02-22 10:56:34 +0800
 permalink: /Technology/2014/02/22/octopress-settings/
 comments: true
@@ -104,7 +104,7 @@ Alfred是MAC下一款优秀的快速启动工具，使用它能够配置工作�
 	year=$(date +%Y);
 	month=$(date +%m);
 	image_name="$(date +%y%m%d%H%M%S).png";
-	octopress_path="/Users/zwein/Blog/zwein27.github.io";
+	octopress_path="/Users/zwein/Blog/zwein27.github.io";   #这里修改为自己的Octopress项目地址
 	imagePath="${octopress_path}/source/images/blog/${year}/${month}/";
 	
 	# 根据年月放置文件夹
@@ -122,12 +122,15 @@ Alfred是MAC下一款优秀的快速启动工具，使用它能够配置工作�
 	open -a /Applications/Preview.app "${imagePath}${image_name}";
 	
 	# 输出图片在Blog中的位置到剪贴板
-	echo "/images/blog/${year}/${month}/${image_name}" | pbcopy;
+	echo "![image](/images/blog/${year}/${month}/${image_name})" | pbcopy;
+	
+然后建立连接后就完成了截图的配置。
 
+![image](/images/blog/2014/05/140528102245.png
+)
 
-这样就完成了截图的配置。
 
 输入设置的快捷键，	可以进行截图，通过按下Space切换截图形式，按下Escape选择是否取消当前截图。
 
-截完的图片的保存位置可以再Script脚本中配置，截图完成后打开Preview进行预览和简单的配置。
+截完的图片的保存位置可以在Script脚本中配置，截图完成后打开Preview进行预览和简单的配置。
 

@@ -142,8 +142,8 @@ task :new_post, :title, :category do |t, args|
     post.puts "---"
   end
   #system 'open ./source/_posts'
-  system "sleep 2; open /Users/zwein/Blog/zwein27.github.io/#{source_dir}/#{posts_dir}"
-  system "sleep 2; open -a  /Applications/Mou.app /Users/zwein/Blog/zwein27.github.io/#{filename}"
+  #system "sleep 2; open /Users/zwein/Blog/zwein27.github.io/#{source_dir}/#{posts_dir}"
+  #system "sleep 2; open -a  /Applications/Mou.app /Users/zwein/Blog/zwein27.github.io/#{filename}"
 
 end
 
