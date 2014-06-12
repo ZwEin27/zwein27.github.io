@@ -178,6 +178,426 @@
     
 
     
+      <h1 class="entry-title"><a href="/Diary/2014/06/02/git-note-troubleshooting/">Git 笔记 问题解决篇</a></h1>
+    
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="/Diary/2014/06/02/git-note-troubleshooting/#comments"
+             data-thread-key="/Diary/2014/06/02/git-note-troubleshooting/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Diary/2014/06/02/git-note-troubleshooting/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-06-02T12:51:31+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
+  </header>
+
+
+
+
+
+  <div class="entry-content clearfix"><h2>Git 概念问题</h2>
+
+<h3>合并(Merge)和衍合(Rebase)的区别</h3>
+
+<ul>
+<li>merge会产生一个新的节点，而rebase不会</li>
+<li>使用<code>git pull</code>时，默认是采用merge方式合并分支</li>
+<li>使用<code>git pull</code>时，添加<code>--rebase</code>参数，使用衍合方式合并分支</li>
+</ul>
+
+
+<h2>Git 常见问题</h2>
+
+<p class='post-footer'>版权所有 ©ZwEin | 转载请注明出处：<a href='http://lzteng.com/Diary/2014/06/02/git-note-troubleshooting/'>http://lzteng.com/Diary/2014/06/02/git-note-troubleshooting/</a></p>
+
+</div>
+
+  
+
+  
+
+
+
+ 
+</article>
+			  
+		      
+			  	<article class="post">
+  <header class="page-header">
+    
+
+    
+      <h1 class="entry-title"><a href="/Diary/2014/06/02/git-note-branch/">Git 笔记 - 分支篇</a></h1>
+    
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="/Diary/2014/06/02/git-note-branch/#comments"
+             data-thread-key="/Diary/2014/06/02/git-note-branch/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Diary/2014/06/02/git-note-branch/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-06-02T11:03:08+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
+  </header>
+
+
+
+
+
+  <div class="entry-content clearfix"><p class='post-footer'>版权所有 ©ZwEin | 转载请注明出处：<a href='http://lzteng.com/Diary/2014/06/02/git-note-branch/'>http://lzteng.com/Diary/2014/06/02/git-note-branch/</a></p>
+
+</div>
+
+  
+
+  
+
+
+
+ 
+</article>
+			  
+		      
+			  	<article class="post">
+  <header class="page-header">
+    
+
+    
+      <h1 class="entry-title"><a href="/Diary/2014/06/02/git-note-command/">Git 笔记 - 命令篇</a></h1>
+    
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="/Diary/2014/06/02/git-note-command/#comments"
+             data-thread-key="/Diary/2014/06/02/git-note-command/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Diary/2014/06/02/git-note-command/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-06-02T10:58:48+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
+  </header>
+
+
+
+
+
+  <div class="entry-content clearfix"><h2>参考引用(Command Reference)</h2>
+
+<ul>
+<li><a href="http://git-scm.com/docs"><strong>Official Reference</strong></a></li>
+<li><a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf"><strong>GitHub Cheat Sheet (PDF)</strong></a></li>
+<li><a href="http://ndpsoftware.com/git-cheatsheet.html"><strong>Visual Git Cheat Sheet</strong></a></li>
+<li><a href="http://gitref.org/zh/basic/"><strong>Git 参考手册</strong></a></li>
+</ul>
+
+
+<h2>功能分类(Feature )</h2>
+
+<h3>常用命令(Regular Command)</h3>
+
+<h3>配置工具(Configure Tooling)</h3>
+
+<h3>本地仓库(Local Repository)</h3>
+
+<pre><code># 创建一个新的本地仓库
+$ git init [project-name]
+
+# 下载一个项目及其整个历史版本
+$ git clone [url]
+</code></pre>
+
+<h3>处理文件的改变</h3>
+
+<pre><code># 列出所有新的或者修改的文件，用以查看当前Git仓库的状态
+$ git status
+
+# 比较当前正修改未暂存的文件和处于暂存空间的该文件的不同
+$ git diff
+
+# 添加文件到暂存空间
+$ git add [file]
+
+# 比较处于暂存空间的文件和最新一次提交的该文件快照的不同
+$ git diff --staged
+
+# 将文件从暂存空间取出，但不在本地删除该文件
+$ git reset [file]
+
+# 提交修改，创建一个新的快照
+$ git commit -m "[descriptive message]"
+
+# 撤销所有[commit]后所有的提交内容，并在本地保留本次改变的记录
+$ git reset [commit]
+
+# 取消所有历史记录和改变信息，会到特定的commit快照
+$ git reset --hard [commit]
+</code></pre>
+
+<h3>文件处理</h3>
+
+<pre><code># 1)从当前目录删除该文件 2)在暂存空间中记录本次删除操作
+$ git rm [file]
+
+# 从版本库中删除文件，但不在本地删除该文件
+$ git rm --cached [file]
+
+# 修改文件名称
+$ git mv [file-original] [file-renamed]
+</code></pre>
+
+<h3>远程仓库(Remote Repository)</h3>
+
+<h3>分支(Branch)</h3>
+
+<pre><code># 列出在当前项目中的所有本地分支
+$ git branch
+
+# 创建一个新的分支
+$ git branch [branch-name]
+
+# 创建一个新的分支, 并切换到该分支
+$ git branch -b [branch-name]
+
+# 1)切换到特定分支  2)更新工作目录
+$ git checkout [branch-name]
+
+# 合并特定分支到当前分支
+$ git merge [branch]
+
+# 删除特定分支
+$ git branch -d [branch-name]
+</code></pre>
+
+<h3>标签(Tag)</h3>
+
+<h3>子模块(Submodule)</h3>
+
+<p class='post-footer'>版权所有 ©ZwEin | 转载请注明出处：<a href='http://lzteng.com/Diary/2014/06/02/git-note-command/'>http://lzteng.com/Diary/2014/06/02/git-note-command/</a></p>
+
+</div>
+
+  
+
+  
+
+
+
+ 
+</article>
+			  
+		      
+			  	<article class="post">
+  <header class="page-header">
+    
+
+    
+      <h1 class="entry-title"><a href="/Technology/2014/05/28/git-note-basic/">Git 笔记 - 基础篇</a></h1>
+    
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="/Technology/2014/05/28/git-note-basic/#comments"
+             data-thread-key="/Technology/2014/05/28/git-note-basic/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Technology/2014/05/28/git-note-basic/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-05-28T09:49:44+08:00" pubdate data-updated="true">May 28<span>th</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
+  </header>
+
+
+
+
+
+  <div class="entry-content clearfix"><h2>Git 简介</h2>
+
+<h3>参考书籍</h3>
+
+<ul>
+<li><strong><a href="http://git-scm.com/book">Pro Git</a></strong> &ndash;  <a href="http://git-scm.com/book/zh">在线中文版</a></li>
+<li><strong><a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html">Git Magic</a></strong></li>
+</ul>
+
+
+<h3>关于版本控制</h3>
+
+<p><code>版本控制系统</code> (Version Control System, VCS)是一个能够多次记录一个或多个文件改变的系统，帮助使用者在之后回溯到特地的版本。它具有以下优点：</p>
+
+<ul>
+<li>将文件返回到之前的状态</li>
+<li>将整个项目返回之前的状态</li>
+<li>查看哪个用户的修改导致项目报错，或在什么时候提出了问题等</li>
+<li>通常意味着你能够找回失去的文件</li>
+</ul>
+
+
+</div>
+
+  
+
+  
+    <footer>
+      <a class="more-link" rel="full-article" href="/Technology/2014/05/28/git-note-basic/">More &rarr;</a>
+    
+      <!-- add tags after post -->
+      <div class="article_tag">
+        <i class="fa fa-bookmark"></i>
+        
+        
+             
+              <a href="http://lzteng.com/blog/tags/index.html#Note-ref">Note </a>
+              
+             
+              <a href="http://lzteng.com/blog/tags/index.html#Git-ref">Git </a>
+              
+            
+        
+        
+      </div>
+    </footer>
+  
+
+
+
+ 
+</article>
+			  
+		      
+			  	<article class="post">
+  <header class="page-header">
+    
+
+    
       <h1 class="entry-title"><a href="/Diary/2014/02/27/parse-note/">Parse Note</a></h1>
     
 
@@ -386,7 +806,7 @@
     
 
     
-      <h1 class="entry-title"><a href="/Technology/2014/02/22/octopress-settings/">Octopress Settings</a></h1>
+      <h1 class="entry-title"><a href="/Technology/2014/02/22/octopress-settings/">Octopress 配置</a></h1>
     
 
 
@@ -757,109 +1177,6 @@
               
              
               <a href="http://lzteng.com/blog/tags/index.html#WebDev-ref">WebDev </a>
-              
-            
-        
-        
-      </div>
-    </footer>
-  
-
-
-
- 
-</article>
-			  
-		      
-			  	<article class="post">
-  <header class="page-header">
-    
-
-    
-      <h1 class="entry-title"><a href="/Technology/2014/02/04/octopress-beautification/">Octopress 主题美化</a></h1>
-    
-
-
-    
-      <div class="meta text-muted text-uppercase">
-        <div class="seperator"></div>
-        
-        
-
-        <!-- disqus comments -->
-        
-
-        <!-- duoshuo comments -->
-         
-          <a class="comments" href="/Technology/2014/02/04/octopress-beautification/#comments"
-             data-thread-key="/Technology/2014/02/04/octopress-beautification/">
-             <i class="fa fa-comment">
-                <span class="ds-thread-count" data-thread-key="/Technology/2014/02/04/octopress-beautification/"></span>
-             </i>
-            </a>
-            
-        <div class="date">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-<time datetime="2014-02-04T16:05:34+08:00" pubdate data-updated="true">Feb 4<span>th</span>, 2014</time>
-        </div>
-           
-
-         
-      </div>
-    
-    
-  </header>
-
-
-
-
-
-  <div class="entry-content clearfix"><p>关于Octopress Theme自定义的一些内容</p>
-
-<h2>定制 Octopress Theme</h2>
-
-<p>Octopress本身就有很多第三方的<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">Theme</a>, 试用了一些，感觉都挺不错的。最后选用了<a href="https://github.com/mjhea0/octoplate">Octoplate</a>, 这款主题是基于 Twitter Bootstrap 3 定制的，支持的Theme更多，也感觉更容易自定义。</p>
-
-<p>添加 <code>Octoplate</code> 的方式也很简单：</p>
-
-<pre>
-$ cd octopress
-$ git clone git://github.com/mjhea0/octoplate.git .themes/octoplate
-$ rake install['octoplate']
-$ rake generate && rake preview
-$ rake deploy
-</pre>
-
-
-<p>新添加的Theme被放到octopress根目录下的<code>.theme</code>文件夹，执行<code>rake install</code>,能够将主题包中的内容加载到octopress根目录下，并提换已有文件。</p>
-
-</div>
-
-  
-
-  
-    <footer>
-      <a class="more-link" rel="full-article" href="/Technology/2014/02/04/octopress-beautification/">More &rarr;</a>
-    
-      <!-- add tags after post -->
-      <div class="article_tag">
-        <i class="fa fa-bookmark"></i>
-        
-        
-             
-              <a href="http://lzteng.com/blog/tags/index.html#Octopress-ref">Octopress </a>
               
             
         

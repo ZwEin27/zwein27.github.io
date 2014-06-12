@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | lzteng]]></title>
   <link href="http://lzteng.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://lzteng.com/"/>
-  <updated>2014-05-27T22:34:04+08:00</updated>
+  <updated>2014-06-02T21:09:47+08:00</updated>
   <id>http://lzteng.com/</id>
   <author>
     <name><![CDATA[ZwEin]]></name>
@@ -12,6 +12,630 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git 笔记 问题解决篇]]></title>
+    <link href="http://lzteng.com/Diary/2014/06/02/git-note-troubleshooting/"/>
+    <updated>2014-06-02T12:51:31+08:00</updated>
+    <id>http://lzteng.com/Diary/2014/06/02/git-note-troubleshooting</id>
+    <content type="html"><![CDATA[<h2>Git 概念问题</h2>
+
+<h3>合并(Merge)和衍合(Rebase)的区别</h3>
+
+<ul>
+<li>merge会产生一个新的节点，而rebase不会</li>
+<li>使用<code>git pull</code>时，默认是采用merge方式合并分支</li>
+<li>使用<code>git pull</code>时，添加<code>--rebase</code>参数，使用衍合方式合并分支</li>
+</ul>
+
+
+<h2>Git 常见问题</h2>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git 笔记 - 分支篇]]></title>
+    <link href="http://lzteng.com/Diary/2014/06/02/git-note-branch/"/>
+    <updated>2014-06-02T11:03:08+08:00</updated>
+    <id>http://lzteng.com/Diary/2014/06/02/git-note-branch</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git 笔记 - 命令篇]]></title>
+    <link href="http://lzteng.com/Diary/2014/06/02/git-note-command/"/>
+    <updated>2014-06-02T10:58:48+08:00</updated>
+    <id>http://lzteng.com/Diary/2014/06/02/git-note-command</id>
+    <content type="html"><![CDATA[<h2>参考引用(Command Reference)</h2>
+
+<ul>
+<li><a href="http://git-scm.com/docs"><strong>Official Reference</strong></a></li>
+<li><a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf"><strong>GitHub Cheat Sheet (PDF)</strong></a></li>
+<li><a href="http://ndpsoftware.com/git-cheatsheet.html"><strong>Visual Git Cheat Sheet</strong></a></li>
+<li><a href="http://gitref.org/zh/basic/"><strong>Git 参考手册</strong></a></li>
+</ul>
+
+
+<h2>功能分类(Feature )</h2>
+
+<h3>常用命令(Regular Command)</h3>
+
+<h3>配置工具(Configure Tooling)</h3>
+
+<h3>本地仓库(Local Repository)</h3>
+
+<pre><code># 创建一个新的本地仓库
+$ git init [project-name]
+
+# 下载一个项目及其整个历史版本
+$ git clone [url]
+</code></pre>
+
+<h3>处理文件的改变</h3>
+
+<pre><code># 列出所有新的或者修改的文件，用以查看当前Git仓库的状态
+$ git status
+
+# 比较当前正修改未暂存的文件和处于暂存空间的该文件的不同
+$ git diff
+
+# 添加文件到暂存空间
+$ git add [file]
+
+# 比较处于暂存空间的文件和最新一次提交的该文件快照的不同
+$ git diff --staged
+
+# 将文件从暂存空间取出，但不在本地删除该文件
+$ git reset [file]
+
+# 提交修改，创建一个新的快照
+$ git commit -m "[descriptive message]"
+
+# 撤销所有[commit]后所有的提交内容，并在本地保留本次改变的记录
+$ git reset [commit]
+
+# 取消所有历史记录和改变信息，会到特定的commit快照
+$ git reset --hard [commit]
+</code></pre>
+
+<h3>文件处理</h3>
+
+<pre><code># 1)从当前目录删除该文件 2)在暂存空间中记录本次删除操作
+$ git rm [file]
+
+# 从版本库中删除文件，但不在本地删除该文件
+$ git rm --cached [file]
+
+# 修改文件名称
+$ git mv [file-original] [file-renamed]
+</code></pre>
+
+<h3>远程仓库(Remote Repository)</h3>
+
+<h3>分支(Branch)</h3>
+
+<pre><code># 列出在当前项目中的所有本地分支
+$ git branch
+
+# 创建一个新的分支
+$ git branch [branch-name]
+
+# 创建一个新的分支, 并切换到该分支
+$ git branch -b [branch-name]
+
+# 1)切换到特定分支  2)更新工作目录
+$ git checkout [branch-name]
+
+# 合并特定分支到当前分支
+$ git merge [branch]
+
+# 删除特定分支
+$ git branch -d [branch-name]
+</code></pre>
+
+<h3>标签(Tag)</h3>
+
+<h3>子模块(Submodule)</h3>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git 笔记 - 基础篇 ]]></title>
+    <link href="http://lzteng.com/Technology/2014/05/28/git-note-basic/"/>
+    <updated>2014-05-28T09:49:44+08:00</updated>
+    <id>http://lzteng.com/Technology/2014/05/28/git-note-basic</id>
+    <content type="html"><![CDATA[<h2>Git 简介</h2>
+
+<h3>参考书籍</h3>
+
+<ul>
+<li><strong><a href="http://git-scm.com/book">Pro Git</a></strong> &ndash;  <a href="http://git-scm.com/book/zh">在线中文版</a></li>
+<li><strong><a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html">Git Magic</a></strong></li>
+</ul>
+
+
+<h3>关于版本控制</h3>
+
+<p><code>版本控制系统</code> (Version Control System, VCS)是一个能够多次记录一个或多个文件改变的系统，帮助使用者在之后回溯到特地的版本。它具有以下优点：</p>
+
+<ul>
+<li>将文件返回到之前的状态</li>
+<li>将整个项目返回之前的状态</li>
+<li>查看哪个用户的修改导致项目报错，或在什么时候提出了问题等</li>
+<li>通常意味着你能够找回失去的文件</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3>版本控制系统的类型</h3>
+
+<h4>本地版本控制系统 (Local Version Control Systems)</h4>
+
+<p>在以往的方式中，指手动的复制文件到另外一个目录中，或者再聪明点的方法，让该目录使用以时间标记来区分不同时间保存的文件版本。</p>
+
+<p>为了解决手动复制文件带来的问题，程序员通过开发简单的数据库来记录所有文件的改变，如下图所示。</p>
+
+<p><img src="/images/blog/2014/05/140528102131.png" alt="image" /></p>
+
+<p><strong>优点：</strong></p>
+
+<ul>
+<li>本地存储操作方便</li>
+<li>不需要复杂的配置</li>
+</ul>
+
+
+<p><strong>缺点：</strong></p>
+
+<ul>
+<li>不利于使用<strong>不同系统</strong>的开发者相互协作开发</li>
+<li>本地存储中由于硬盘故障带来的<strong>数据容易丢失</strong></li>
+</ul>
+
+
+<h4>集中版本控制系统 (Centralized Version Control Systems)</h4>
+
+<p>指具有一个单一的服务器包含所有版本的文件，支持多客户端从该中心取出最新文件或者提交更新。很长时间以来，这已经成为版本控制的标准做法。</p>
+
+<p><img src="/images/blog/2014/05/140528104049.png" alt="image" /></p>
+
+<p><strong>优点：</strong></p>
+
+<ul>
+<li>能够知道项目上的其他用户在做什么</li>
+<li>管理员能够很好的<strong>分配权限</strong></li>
+<li>比本地版本控制系统<strong>更容易管理</strong></li>
+</ul>
+
+
+<p><strong>缺点：</strong></p>
+
+<ul>
+<li><strong>单点故障</strong>。在服务器故障期间，任何人都不能协作开发或者保存文件。</li>
+<li>服务器的<strong>硬盘故障</strong>，将导致未备份的数据丢失</li>
+<li>将整个项目的内容保存在单一位置，会面临丢失所有数据的风险</li>
+</ul>
+
+
+<h4>分布式版本控制系统 (Distributed Version Control Systems)</h4>
+
+<p>客户端并不只是检出文件最新的快照，而是整个资源库的镜像。</p>
+
+<p><img src="/images/blog/2014/05/140528105624.png" alt="image" /></p>
+
+<p><strong>优点：</strong></p>
+
+<ul>
+<li>当服务器挂掉时，还可以进行本地提交，并在之后同步存储到服务器</li>
+<li>每一个本地镜像都是所有数据的完整备份</li>
+<li>可以指定和若干不同的远端代码仓库进行交互</li>
+<li>可以在同一个项目中，分别和不同工作小组的人相互协作</li>
+</ul>
+
+
+<p><strong>缺点：</strong></p>
+
+<ul>
+<li>(待补充&hellip;)</li>
+</ul>
+
+
+<h2>Git 基础</h2>
+
+<p>了解什么是Git及其工作原理，对将来的使用是很有帮助的。即使接口相似，Git在存储信息的方式上和其他系统是不同的，理解这些不同将避免使用过程中带来的困惑。这些不同包括：</p>
+
+<ul>
+<li><strong>直接记录<code>快照</code>，而不是差异比较:</strong> 其他系统只关心文件内容的改变，而Git更像是将变化的文件快照后，保存在微型的文件系统中。出于性能考虑，Git不会再次存储未改变的文件，而只是对上一次保存的快照做一个链接。</li>
+<li><strong>几乎所有操作都是<code>本地执行</code>:</strong>由于Git在磁盘上保存有所有当前项目的历史更新，因此绝大部分操作只需要访问本地文件。能够提交本地，而SVN等工具却不支持。</li>
+<li><strong>时刻保持<code>数据完整性</code>:</strong>Git在保存数据之前，所有数据都要进行内容的<code>校验和（checksum）</code>计算(使用<strong>SHA–1 hash</strong>)。Git不是使用文件名记录数据，而是通过记录在数据库中地址化的文件哈希值。</li>
+<li><strong>多操作仅<code>添加数据</code>:</strong>常用的 Git 操作大多仅仅是把数据添加到数据库。一旦提交快照之后就完全不用担心丢失数据。</li>
+<li><strong>文件的<code>三种状态</code>:</strong>已提交（committed），已修改（modified）和已暂存（staged）。已提交表示该文件已经被安全地保存在本地数据库中了；已修改表示修改了某个文件，但还没有提交保存；已暂存表示把已修改的文件放在下次提交时要保存的清单中。</li>
+</ul>
+
+
+<h3>获得Git仓库</h3>
+
+<p>主要有两种方式：<strong>使用已存在仓库</strong> 和 <strong>从另一个服务器克隆仓库</strong></p>
+
+<h4>使用已存在仓库</h4>
+
+<p>使用Git命令</p>
+
+<pre><code>$ git init
+</code></pre>
+
+<p>该命令完成以下内容：</p>
+
+<ul>
+<li>在当前目录<strong>创建子目录(.git）</strong>,该目录记录所有Git仓库结构必要的文件</li>
+<li>使用该命令后，你的项目中的<strong>所有文件并未被追踪</strong></li>
+</ul>
+
+
+<h4>克隆仓库</h4>
+
+<p>使用命令</p>
+
+<pre><code>$ git clone
+</code></pre>
+
+<p>需要注意，与奇特VCS不同，clone不同于checkout。</p>
+
+<ul>
+<li>clone:保存服务器中有的所有数据，即使未联网，也能够完成之前版本的回滚</li>
+<li>checkout:只获取当前版本数据，查看历史版本信息需要联网</li>
+</ul>
+
+
+<p>Clone命令的使用举例：</p>
+
+<pre><code># 克隆一个远程服务器仓库
+$ git clone git://github.com/schacon/grit.git
+# 克隆的仓库将保存在mygrit文件夹中 - 相当于为克隆仓库取别名
+$ git clone git://github.com/schacon/grit.git mygrit
+</code></pre>
+
+<p>支持的传输协议包括：<code>git://</code> 、 <code>http(s)://</code> 或 <code>user@server:/path.git</code></p>
+
+<h3>向Git仓库记录改变</h3>
+
+<p>每一个在你的工作空间的文件都处在<strong>已追踪(Tracked)</strong>或<strong>未追踪(Untracked)</strong>状态。</p>
+
+<ul>
+<li><strong>已追踪(Tracked):</strong>指被纳入版本管理的文件，工作一段时间后，它的状态可能是<em>未更新</em>，<em>已修改</em>或者<em>已暂存</em>。</li>
+<li><strong>未追踪(Untracked):</strong>所有其他文件都属于未跟踪文件，既没有上次更新时的快照，也不在当前的暂存区域。</li>
+</ul>
+
+
+<p>文件的状态周期图如下所示。</p>
+
+<p><img src="/images/blog/2014/05/140529082705.png" alt="image" /></p>
+
+<h4>查看文件状态</h4>
+
+<p>查看文件状态：</p>
+
+<pre><code># 输入命令
+$ git status
+# 输出结果
+On branch master    #显示当前分支
+nothing to commit, working directory clean   #当前状态信息
+</code></pre>
+
+<p>使用<code>git status</code>获得的状态信息包括：</p>
+
+<ul>
+<li><strong>nothing to commit, working directory clean:</strong> 表示在当前工作环境，没有已追踪的文件是被修改的</li>
+<li><strong>Untracked files:</strong> 查看未被追踪的文件</li>
+<li><strong>Changes to be committed:</strong> 执行git add命令后，文件被暂存</li>
+<li><strong>Changes not staged for commit:</strong>表示已经被追踪的文件被修改，并且还未被暂存。执行git add暂存文件后，又对该文件修改会出现该情况。此时如果commit，将会提交暂存数据，而不是已修改数据，需要执行git add重新暂存。</li>
+</ul>
+
+
+<h4>追踪新的文件和暂存文件</h4>
+
+<p>追踪文件的改变可以使用<code>git add</code>命令：</p>
+
+<pre><code># 添加当前工作环境中名为README的未追踪文件
+$ git add README
+</code></pre>
+
+<h4>忽略文件</h4>
+
+<p>忽略不想追踪的文件，可以通过使用<code>.gitignore</code>文件，该文件包含以下内容：</p>
+
+<pre><code># 使用cat在命令行输出.gitignore文件中的内容
+$ cat .gitignore
+
+# .gitignore文件内容输出
+*.[oa]      #忽视所有以.o或.a为后缀结尾的文件
+*~          #忽视文本编辑软件(例如Emacs)的暂存文件
+!lib.a      #前面通过.[oa]忽略所有*.a文件，这里例外lib.a
+/TODO       #忽略根目录的TODO文件，注意不是某个子目录的TODO文件
+build/      #忽略所有build目录下的文件
+doc/*.txt   #忽略所有doc文件夹下的*.txt文件，注意不包括doc的子目录中的文件
+doc/**/*.txt    #忽略所有doc文件夹下的*.txt文件，包括所有子目录
+</code></pre>
+
+<h4>查看暂存和为暂存文件的改变内容</h4>
+
+<p>使用<code>git diff</code>命令可以查看文件的改变内容</p>
+
+<pre><code>$ git diff  #比较已修改未暂存文件和已暂存文件
+
+$ git diff --cached     #比较已暂存文件和最近一次提交文件
+$ git diff --staged     #同上，相比cached更容易记忆
+</code></pre>
+
+<p>如果修改的文件已暂存，意味着<code>git diff</code>命令不会有任何输出。通过<code>git status</code>查看当前文件的状态</p>
+
+<h4>提交改变</h4>
+
+<p>提交可以使用命令<code>git commit</code>。需要注意的是，commit <strong>只提交已暂存的文件</strong> ，所有新建或修改过却没有执行<code>git add</code>命令的都不包含在本次提交中。</p>
+
+<p>因此最好先执行<code>git status</code>查看文件是否都已经被暂存，然后再执行该命令<code>git commit</code>。</p>
+
+<pre><code>#执行该命令会打开文本编辑器以便输入本次提交的说明。
+$ git commit
+
+#使用-m参数，直接输入提交说明
+$ git commit -m "Story 182: Fix benchmarks for speed"
+#输出以下内容
+[master 463dc4f] Story 182: Fix benchmarks for speed
+ 2 files changed, 3 insertions(+)
+ create mode 100644 README
+</code></pre>
+
+<p>每次执行提交操作，都是对项目做一次快照，以后可以回到这个这个状态，或者进行比较。</p>
+
+<h4>跳过暂存区域</h4>
+
+<p>如果觉得每次提交前都需要暂存很麻烦，可以通过在提交时添加<code>-a
+</code>标记，Git会在提交前自动暂存所有已追踪文件，让你跳过执行<code>git add</code>步骤。</p>
+
+<pre><code>$ git commit -a -m 'added new benchmarks'
+</code></pre>
+
+<h4>删除文件</h4>
+
+<p>从Git中删除文件，需要将该文件从被追踪文件集合(更精确的说是暂存区域)中移除。</p>
+
+<p>如果直接执行<code>rm</code>命令删除命令，并不能将文件从暂存空间移除。接着执行<code>git rm</code>命令，将文件从暂存空间移除。</p>
+
+<p>如果删除之前修改过并且已经放到暂存区域(还没有提交)的话，则必须要用强制删除选项 <code>-f</code>（即 force 的首字母），以防误删除文件后丢失修改的内容。</p>
+
+<p>如果想保持文件在磁盘中，但是又想删除该文件在暂存空间的记录。这种情况的典型例子是你不小心暂存了想要放入<code>.gitignore</code>中的文件。可以通过使用<code>--cached</code>解决。</p>
+
+<pre><code>#从暂存空间移除readme.txt文件，但在磁盘保留该文件
+$ git rm --cached readme.txt
+</code></pre>
+
+<h4>移动文件</h4>
+
+<p>不像其他的 VCS 系统，Git 并不跟踪文件移动操作。如果在 Git 中重命名了某个文件，仓库中存储的元数据并不会体现出这是一次改名操作。</p>
+
+<p>移动过文件使用命令<code>git mv</code></p>
+
+<pre><code>$ git mv file_from file_to
+
+# 举例
+$ git mv README.txt README
+$ git status
+On branch master
+Changes to be committed:
+(use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    renamed:    README.txt -&gt; README
+
+# 举例中的代码相当于
+$ mv README.txt README
+$ git rm README.txt
+$ git add README
+</code></pre>
+
+<h3>查看提交历史</h3>
+
+<p>使用<code>git log</code>命令</p>
+
+<pre><code>$ git log
+</code></pre>
+
+<p>未带参数的<code>git log</code>命令，会以逆时间顺序列出项目库的提交列表。</p>
+
+<p><code>git log</code>的参数</p>
+
+<ul>
+<li><code>-p</code>: 显示每次提交的内容差异</li>
+<li><code>-&lt;n&gt;</code>: 只显示最新的n条</li>
+<li><code>-p --word-diff</code>: <code>--word-diff</code>接在<code>-p</code>之后，使用文字描述差异</li>
+<li><code>-U1</code>: 设置上下文只显示一行</li>
+<li><code>--stat</code>: 仅显示简要的增改行数统计</li>
+<li><code>--pretty</code>: 可以指定使用完全不同于默认格式的方式展示提交历史</li>
+</ul>
+
+
+<p><code>--pretty</code>的使用</p>
+
+<pre><code>$ git log --pretty=oneline|short|full|fuller|format`
+
+
+$ git log --pretty=format:"%h - %an, %ar : %s"
+ca82a6d - Scott Chacon, 11 months ago : changed the version number
+085bb3b - Scott Chacon, 11 months ago : removed unnecessary test code
+a11bef0 - Scott Chacon, 11 months ago : first commit
+</code></pre>
+
+<h3>撤销操作</h3>
+
+<h4>改变最近一次提交</h4>
+
+<p>当你的一次提交中忘记添加一些文件时，可以在<code>git add</code>补充的文件后，使用<code>--amend</code>来修改最近一次提交。</p>
+
+<pre><code>$ git commit -m 'initial commit'    #最近一次提交
+$ git add forgotten_file            #添加要提交的文件
+$ git commit --amend                #修改最新一次提交
+</code></pre>
+
+<p>执行<code>git commit --amend</code>后，会合并两个commit为一个commit，使用原来的提交描述<code>initial commit</code>，并添加提交文件<code>forgotten_file</code>。</p>
+
+<h4>撤销暂存文件</h4>
+
+<p>如果不小使用<code>git add</code>命令添加文件不想提交的文件到暂存空间，可以通过<code>git reset HEAD &lt;file&gt;</code>命令来撤销。举例：</p>
+
+<pre><code># 执行撤销操作之前
+$ git add .     #添加当前目录下的所有文件到暂存空间
+$ git status    #查看状态
+On branch master
+Changes to be committed:
+(use "git reset HEAD &lt;file&gt;..." to unstage)  #操作提示
+
+    modified:   README.txt      #暂存的文件
+    modified:   benchmarks.rb
+
+#执行撤销操作
+$ git reset HEAD benchmarks.rb      #执行撤销命令
+Unstaged changes after reset:       
+M       benchmarks.rb               #该文件的暂存被撤销
+$ git status        #查看状态
+On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    modified:   README.txt      #该文件仍在暂存空间
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   benchmarks.rb   #该文件的暂存已被撤销
+</code></pre>
+
+<h4>撤销文件的修改</h4>
+
+<p>对与已修改未暂存的文件，可以通过<code>git checkout -- &lt;file&gt;</code>来撤销修改。</p>
+
+<p>这是条危险的命令，所有对文件的修改都没有了，因为我们刚刚把之前版本的文件复制过来重写了此文件。</p>
+
+<p>注：任何已经提交到 Git 的都可以被恢复。即便在已经删除的分支中的提交，或者用 &mdash;amend 重新改写的提交，都可以被恢复。你可能失去的数据，仅限于<strong>没有提交过的</strong>，对 Git 来说它们就像从未存在过一样。</p>
+
+<h3>远程仓库的使用</h3>
+
+<h4>查看远程仓库</h4>
+
+<p>要查看当前配置有哪些远程仓库，可以用 <code>git remote</code> 命令</p>
+
+<p>在克隆完某个项目后，至少可以看到一个名为 <code>origin</code> 的远程库，Git 默认使用这个名字来标识你所克隆的原始仓库。</p>
+
+<pre><code># 克隆远程仓库
+$ git clone git://github.com/schacon/ticgit.git
+# 进入克隆仓库的文件夹
+$ cd ticgit
+# 显示当前文件夹中的远程仓库
+$ git remote
+origin
+
+# 使用 -v 显示远程的名称以及URL
+$ git remote -v
+origin  git://github.com/schacon/ticgit.git (fetch)
+origin  git://github.com/schacon/ticgit.git (push)
+
+# 如果有不止一个远程仓库，该命令会列出全部
+$ cd grit
+$ git remote -v
+bakkdoor  git://github.com/bakkdoor/grit.git
+cho45     git://github.com/cho45/grit.git
+defunkt   git://github.com/defunkt/grit.git
+koke      git://github.com/koke/grit.git
+origin    git@github.com:mojombo/grit.git
+</code></pre>
+
+<p>注意，只有<code>origin</code>仓库使用SSH URL，因此只能对该仓库执行Push操作</p>
+
+<h4>添加远程仓库</h4>
+
+<p>使用命令<code>git remote add [shortname] [url]</code></p>
+
+<pre><code>$ git remote    #查看当前已有的远程仓库
+origin
+$ git remote add pb git://github.com/paulboone/ticgit.git   #添加远程仓库，并命名为pb
+$ git remote -v     再次查看已有远程仓库
+origin  git://github.com/schacon/ticgit.git
+pb  git://github.com/paulboone/ticgit.git   #新添加的远程仓库
+</code></pre>
+
+<h4>从远程仓库抓取数据</h4>
+
+<p>从远程仓库抓取数据，可以使用<code>$ git fetch [remote-name]</code>。该命令从远程仓库抓取所有<strong>当前你没有的数据</strong>，且获得远程仓库中的<strong>所有分支</strong>，你能够在任何时候合并或者检查这些分支。</p>
+
+<p><code>git fetch origin</code> 能够获取所有来自克隆仓库的更新数据。</p>
+
+<p>使用<code>git pull</code>命令，自动从最初的克隆库<strong>抓取</strong>数据并<strong>合并</strong>当前工作分支。</p>
+
+<h4>推送数据到远程仓库</h4>
+
+<p>使用命令 <code>git push [remote-name] [branch-name]</code></p>
+
+<pre><code>$ git push origin master
+</code></pre>
+
+<p>执行该命令，需要对目标远程仓库有写权限，并且在同一时间没有其他人执行该操作。</p>
+
+<p>如果有人先于你执行该操作，你的操作将会被服务器拒绝。此时需要做的是抓起其他人的数据，并在合并之后提交你的更新。</p>
+
+<h4>查看远程仓库信息</h4>
+
+<p>查看远程仓库信息使用命令<code>git remote show [remote-name]</code></p>
+
+<pre><code>$ git remote show origin    # 查看origin远程仓库的信息
+* remote origin
+  URL: git@github.com:defunkt/github.git
+  Remote branch merged with 'git pull' while on branch issues       # 运行 git pull 时将自动合并
+    issues
+  Remote branch merged with 'git pull' while on branch master
+    master  # 运行 git pull 时将自动合并
+  New remote branches (next fetch will store in remotes/origin)
+    caching     # 还没有同步到本地的远程分支
+  Stale tracking branches (use 'git remote prune')
+    libwalker   # 已同步到本地的远端分支在远端服务器上已被删除
+    walker2     # 同上
+  Tracked remote branches
+    acl
+    apiv2
+    dashboard2
+    issues
+    master
+    postgres
+  Local branch pushed with 'git push'   
+    master:master   # 执行git push时缺省推送的分支
+</code></pre>
+
+<h4>远程仓库的重命名和删除</h4>
+
+<p>重命名远程参考，使用命令 <code>git remote rename from_name to_name</code></p>
+
+<pre><code>$ git remote rename pb paul 
+$ git remote
+origin
+paul
+</code></pre>
+
+<p>注意远程仓库的重命名会引起分支的变化</p>
+
+<p>移除远程仓库，使用命令<code>git remote rm</code></p>
+
+<pre><code>$ git remote rm paul
+$ git remote
+origin
+</code></pre>
+
+<h3>标签</h3>
+
+<h3>技巧和窍门</h3>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Parse Note]]></title>
@@ -77,427 +701,6 @@ NSString *FBTokenInformationUserFBIDKey = @"";
 </code></pre>
 
 <p>参考自：<a href="http://stackoverflow.com/questions/15457136/parse-for-ios-errors-when-trying-to-run-the-app">stackoverflow.com</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[BaaS 笔记]]></title>
-    <link href="http://lzteng.com/Diary/2014/02/26/baas-note/"/>
-    <updated>2014-02-26T22:22:03+08:00</updated>
-    <id>http://lzteng.com/Diary/2014/02/26/baas-note</id>
-    <content type="html"><![CDATA[<h2>什么是BaaS</h2>
-
-<p>BaaS, 后端即服务，是Backend as a Service的缩写</p>
-
-<p>BaaS是指专为移动应用开发者提供整合云后端的服务。开发者无需过多研究服务器端程序，而只需调用云计算平台提供的API，使用相应SDK，就能迅速完成数据存储、账户管理、消息推送、社交网络整合等功能。</p>
-
-<!-- more -->
-
-
-<h2>国外的BaaS</h2>
-
-<h3>StackMob</h3>
-
-<p><a href="https://www.stackmob.com/product/">StackMob</a>是一家提供移动应用后端服务的公司，成立于2010年1月，有人把StackMob称为移动版的Heroku。StackMob的创始人之一Ty Amell，2004年从西北大学获得MIS专业的学士学位。2007-2009年间，他在知名的音乐分享网站imeem担任工程经理，负责移动和前端产品，经历了从0到120万用户的全过程。他意识到，如果能够建立一个平台，帮助许许多多移动开发者提供后端云服务，便能够大大简化他们的工作。</p>
-
-<p>StackMob平台分为三个版本，Standard、Pro，还有Enterprise，各个版本的功能表可以参照<a href="https://www.stackmob.com/pricing/">Pricing</a></p>
-
-<p>StackMob按照功能收费，可以再<a href="https://marketplace.stackmob.com/">Marketplace</a>看到所有提供的功能，并有标注收费还是免费。</p>
-
-<h3>Parse</h3>
-
-<p><a href="https://www.parse.com/products">Parse</a>是由YC孵化出来的，专为移动应用提供后台服务的云计算平台，为开发者包办繁琐的后台服务，让开发者只需专注于具体的开发工作。它提供任意数据保存，照片或其它文件存储，发送推送通知，创建用户帐号，使用地理位置数据以及添加Facebook/Twitter帐号登录等服务。</p>
-
-<p>Parse用户无需再费时费力地折腾Facebook帐号连接和推送通知等服务器端的功能，只需把相应SDK拖放到应用内即可。</p>
-
-<p>Band of the Day是苹果App Store 2011年度一款重量级的应用，它就使用了Parse的服务。此外，有些大公司也在使用Parse。</p>
-
-<p>Parse资费可以查看<a href="https://www.parse.com/plans">Pricing</a>，主要分为三个版本，Basic，Pro，和Enterprice。</p>
-
-<ul>
-<li>Basic版本每月拥有一百万的REQUEST和PUSH支持，超出部分额外计费。</li>
-<li>Pro版本每月1500w的REQUEST还有500w的PUSH, 还有其他附加功能，每月需要199美元</li>
-<li>Enterprise为定制版本，根据定制收费</li>
-</ul>
-
-
-<p><a href="http://www.zhihu.com/question/22098754">http://www.zhihu.com/question/22098754</a>
-<a href="http://17startup.com/startuplist/view/752">http://17startup.com/startuplist/view/752</a>
-<a href="http://blog.csdn.net/kavensu/article/details/17767239">http://blog.csdn.net/kavensu/article/details/17767239</a></p>
-
-<h3>其他</h3>
-
-<ul>
-<li><a href="http://www.kinvey.com/">Kinvey</a></li>
-<li><a href="http://www.sencha.com/products/io">Sencha.io</a></li>
-<li><a href="http://aws.amazon.com/cn/ec2/">Amazon EC2</a></li>
-</ul>
-
-
-<h2>国内的BaaS</h2>
-
-<h3>Bmob</h3>
-
-<p><a href="http://www.bmob.cn/">Bmob</a>是国内第一家专注于移动应用云存储的平台，是基于PaaS模式的云计算平台。开发者可以使用Bmob设计存储框架、获取应用密钥、下载SDK并嵌入应用程序、调用相应API，应用发布后查看存储的统计分析数据，整个流程能够快速实现，并且Bmob的云服务是免费的。</p>
-
-<h3>AVOS Cloud</h3>
-
-<p>基本上是模仿Parse设计的，界面设计的很不错，并且官方称坚持每周更新。官方讨论群活跃，一般一问问题都会有专门的人员给予简答，赞一个。不过或许是因为工作量和进度规划问题，AVOS的官方版本中还存在一些问题，比如官方指南中就有各种排版问题和文字错误，并且内容大多是从Parse上翻译的，有些看不明白的地方，到时可以去Parse上参考一下。</p>
-
-<p>AVOS Cloud的在国内的响应速度比较好，不需要翻墙浏览查看文档，这一点是目前对Parse的优势。不过Parse在相应速度上还是比较客观的，对速度要求不大，并且想体验更多功能的还是可以先拿Parse练练手。</p>
-
-<p>AVOS也有提供官方Demo，不过有一个Demo好像还是移植的，界面都乱了，o(╯□╰)o，这一点可以看看Parse的，虽然不是太好，但是可以马上运行。</p>
-
-<p>目前AVOS还在不断完善，相信会越来越好，加入更多本地化元素，支持国产</p>
-
-<h3>其他</h3>
-
-<p><a href="http://amtbaas.com/">Amtbaas.com</a></p>
-
-<blockquote><p>更多内容可以参考：</p>
-
-<ul>
-<li><a href="http://www.csdn.net/article/2013-03-06/2814373-baas-for-mobile-backend-development">六大BaaS产品推荐：移动开发必备的后端云服务</a></li>
-<li><a href="http://keegan-lee.diandian.com/post/2012-11-10/40041810560">移动后端服务BaaS现状</a></li>
-<li><a href="http://17startup.com/startuplist/view/752">为开发者提供各类服务(BaaS)的公司</a></li>
-</ul>
-</blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress Settings]]></title>
-    <link href="http://lzteng.com/Technology/2014/02/22/octopress-settings/"/>
-    <updated>2014-02-22T10:56:34+08:00</updated>
-    <id>http://lzteng.com/Technology/2014/02/22/octopress-settings</id>
-    <content type="html"><![CDATA[<h2>Post Settings</h2>
-
-<h3>截图配置</h3>
-
-<p>使用Octopress进行博客编写，截图是一件麻烦的事情，未配置的情况下，添加一个截图需要：</p>
-
-<ul>
-<li>使用截图工具进行截图</li>
-<li>将截图放置在blog中的图片目录</li>
-<li>获取保存的截图地址</li>
-<li>使用octopress的图片标签进行图片插入</li>
-</ul>
-
-
-<p>o(╯□╰)o&hellip;单就这个方式来说，一点都不优雅，需要花费好多时间</p>
-
-<p>下面将对我在MAC系统上为方便截图进行的配置。</p>
-
-<!-- more -->
-
-
-<h4>使用系统截图工具Screencapture</h4>
-
-<p><code>ScreenCapture</code> 是MAC系统自带的截图工具，支持快捷键和shell激活。</p>
-
-<p>这里主要使用Shell脚本激活的方式进行截图。</p>
-
-<h5>Screencapture 快捷键</h5>
-
-<ul>
-<li>Shift+Command+3  截取全屏幕至桌面</li>
-<li>Shift+Command+4  截取部分屏幕至桌面</li>
-<li>Shift+Command+4+空格 截取窗口或原件至桌面</li>
-<li>Shift+Command+4 然后Esc  退出截屏</li>
-<li>Shift+Command+Control+3  截取全屏幕至剪贴板</li>
-<li>Shift+Command+Control+4  截取部分屏幕至剪贴板</li>
-<li>Shift+Command+Control+4+空格 截取窗口或原件至剪贴板</li>
-<li>Shift+Command+4 拉出选框 然后 空格 移动选框</li>
-<li>Shift+Command+4 然后 Shift  保持选框高度（宽度），修改宽度（高度）</li>
-<li>Shift+Command+4 然后 Option  保持选框中心，修改半径</li>
-</ul>
-
-
-<h5>Screencapture Shell 命令</h5>
-
-<pre><code>screencapture -h
-</code></pre>
-
-<p>使用<code>-h</code>参数，能够获得帮助说明，顾不对其他使用方法进行赘述。</p>
-
-<p>这里主要使用<code>-i</code>进行区域截图。</p>
-
-<p>例如：</p>
-
-<pre><code>screencapture -i "/你的截图保存位置";
-</code></pre>
-
-<p>执行这条命令，将会激活截图。此时：</p>
-
-<ul>
-<li>按下Control键，表示截图将会输出至剪贴板</li>
-<li>按下Space键，表示进行窗口截图，再次按下则返回区域截图</li>
-<li>按下Espace，表示取消本次截图</li>
-</ul>
-
-
-<h4>使用 Alfred 定制工作流</h4>
-
-<p>Alfred是MAC下一款优秀的快速启动工具，使用它能够配置工作流，方便使用简单的命令或者快捷键实现一系列复杂的操作。</p>
-
-<h5>添加新的工作流</h5>
-
-<p>打开Alfred的<code>Preferences</code>，在<code>Workflows</code>中添加新的<code>Empty Workflow</code></p>
-
-<p><img src="/images/blog/2014/02/140222132445.png" alt="image" /></p>
-
-<h5>添加触发事件</h5>
-
-<p>这里选择快捷触发。</p>
-
-<p>点击添加按钮，选择 Trigger &ndash;> Hotkey， 你可以选择你喜欢的方式来触发截图</p>
-
-<p>如下图：</p>
-
-<p><img src="/images/blog/2014/02/140222132722.png" alt="image" /></p>
-
-<h5>添加操作脚本</h5>
-
-<p>点击添加按钮，选择 Actions &ndash;> Runscript</p>
-
-<p>在Script中添加以下代码：</p>
-
-<pre><code># 参数配置
-year=$(date +%Y);
-month=$(date +%m);
-image_name="$(date +%y%m%d%H%M%S).png";
-octopress_path="/Users/zwein/Blog/zwein27.github.io";
-imagePath="${octopress_path}/source/images/blog/${year}/${month}/";
-
-# 根据年月放置文件夹
-if [ ! -d "${imagePath}" ]
-then
-    mkdir -p "${imagePath}"; 
-fi
-
-# 截图
-# 参数可以输入-h查看
-screencapture -iS "${imagePath}${image_name}";
-
-# 使用系统自带的“预览”程序，进行图片的注释
-# 打开“预览”程序，也可以通过使用screencapture的 P 参数。
-open -a /Applications/Preview.app "${imagePath}${image_name}";
-
-# 输出图片在Blog中的位置到剪贴板
-echo "/images/blog/${year}/${month}/${image_name}" | pbcopy;
-</code></pre>
-
-<p>这样就完成了截图的配置。</p>
-
-<p>输入设置的快捷键， 可以进行截图，通过按下Space切换截图形式，按下Escape选择是否取消当前截图。</p>
-
-<p>截完的图片的保存位置可以再Script脚本中配置，截图完成后打开Preview进行预览和简单的配置。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[联想V470黑苹果 去除白名单 & 驱动 & 功能配置]]></title>
-    <link href="http://lzteng.com/Technology/2014/02/16/v470-whitelist/"/>
-    <updated>2014-02-16T22:22:07+08:00</updated>
-    <id>http://lzteng.com/Technology/2014/02/16/v470-whitelist</id>
-    <content type="html"><![CDATA[<pre><code>******设备信息******
-系统版本 : OS X 10.9.1 (13B42)
-处理器名称 : Intel Core i5
-内存 : 8 GB
-显卡 : Intel HD Graphics 3000
-声卡 : ALC272
-硬盘 : HGST HTS721010A9E630   
-光驱 : TSSTcorp CDDVDW TS-L633F
-无线网卡 : BCM94322HM8L
-</code></pre>
-
-<!-- more -->
-
-
-<h2>去除白名单</h2>
-
-<ol>
-<li>下载工具文件<a href="http://pan.baidu.com/s/1kTnyTP9">Lenovo_V470_43CN43WW_NWL</a></li>
-<li>解压并打开<code>bios_mod</code>文件夹</li>
-<li>该文件夹中的<code>BIOS1.WPH</code>即修改后的BIOS文件，并且该文件夹下整合了刷BIOS的工具</li>
-<li>用管理员身份运行cmd，并转到<code>bios_mod</code>文件夹下</li>
-<li>输入<code>winflash.exe /sd /sv BIOS1.WPH</code>回车，等待操作完成，重启机器，进入win操作系统，安装网卡驱动，运行一切正常。</li>
-</ol>
-
-
-<p>注：刷BIOS后，如果重启后，提示检测不到硬件或者安装驱动后没有无线信号灯问题。可以重新启动进入CMOS设置，调入默认值，重启即可。</p>
-
-<p>网卡选择<code>BCM94322HM8L</code>，通吃MAC OS X 10.6-10.9, 直接免驱。
-刷BIOS过程不需要硬件ID，解压完文件直接输入命令，等待操作完成即可。</p>
-
-<h2>V470黑苹果驱动配置</h2>
-
-<h3>声卡</h3>
-
-<p><a href="http://pan.baidu.com/s/1c0xM7kc">ALC272声卡驱动文件</a>
-在黑苹果环境下直接打开安装即可</p>
-
-<h3>亮度调节</h3>
-
-<p>节约时间，没有去弄调整亮度的小太阳，而是使用第三方工具<a href="http://pan.baidu.com/s/1dD9pNTv">shades</a>
-安装完成后，可以在系统<code>偏好设置</code>中进行设置，桌面顶部会有快捷操作图标，能够进行亮度调节。设置成开机启动后，能够自动调节亮度为上一次关机时的状态。</p>
-
-<h3>睡眠后的系统故障</h3>
-
-<p>黑苹果长时间不动，会自动进入睡眠状态，唤醒之后发现鼠标挂了，=。=，表现是鼠标可移动，但是左右键均失灵。</p>
-
-<p>解决办法：
-系统“偏好设置”->“安全性与隐私”->配置成如下图所示即可。
-<img src="/images/blog/Snip20140216_4.png" alt="排除睡眠后的系统故障" /></p>
-
-<h2>黑苹果系统配置</h2>
-
-<h3>终端运行Sublime Text</h3>
-
-<p>有两种方法</p>
-
-<ul>
-<li>使用软连接</li>
-</ul>
-
-
-<p>终端下输入</p>
-
-<pre><code>ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-</code></pre>
-
-<ul>
-<li>使用 alias (别名)</li>
-</ul>
-
-
-<p>终端下输入：</p>
-
-<pre><code>sudo vi  /etc/bashrc
-</code></pre>
-
-<p>在最下面添加一下代码并保持(VIM如何保存这里不再赘述)</p>
-
-<pre><code>alias subl='open -a "Sublime Text"'
-</code></pre>
-
-<p>这里subl可以是任意值，以后可以使用该名称打开Sublime Text</p>
-
-<p>推荐使用alias，方便配置，并且不需要添加额外的文件</p>
-
-<h3>Finder里显示隐藏文件</h3>
-
-<p>设置Finder里显示隐藏文件</p>
-
-<pre><code>defaults write com.apple.finder AppleShowAllFiles -bool true
-</code></pre>
-
-<p>设置Finder里不显示隐藏文件</p>
-
-<pre><code>defaults write com.apple.finder AppleShowAllFiles -bool false
-</code></pre>
-
-<h3>使黑苹果对NTFS文件具有读写权限</h3>
-
-<p>原本黑苹果下只能够查看NTFS文件系统中的文件，通过安装<a href="http://dl.vmall.com/c0witnfz2p">Paragon NTFS</a>这个应用，能够让你正常访问并操作NTFS系统下的文件。</p>
-
-<h3>查看MAC是64位还是32位</h3>
-
-<ul>
-<li>方法一</li>
-</ul>
-
-
-<p>点击工具栏左上角点击 （苹果Logo）标志，关于本机  &mdash;>  更多信息 &mdash;> 系统报告  &mdash;>(左侧栏中)软件</p>
-
-<p><img src="http://img.my.csdn.net/uploads/201304/08/1365377909_7832.png" alt="方法1" /></p>
-
-<ul>
-<li>方法二</li>
-</ul>
-
-
-<p>打开终端，输入命令 <code>uname -a</code> 回车
-  <strong>x86_64 表示系统为64位
-  i686 表示系统32位的</strong></p>
-
-<p><img src="http://img.my.csdn.net/uploads/201304/08/1365377936_4073.png" alt="方法2" /></p>
-
-<ul>
-<li>方法三</li>
-</ul>
-
-
-<p>在终端输入命令</p>
-
-<pre><code>ioreg -l -p IODeviceTree | grep "firmware-abi" | sed -e 's/[^0-9A-Z]//g'
-</code></pre>
-
-<p><strong>输出：EFI64 －－就说明系统是64位
-输出：EFI32 －－就说明系统是32位</strong></p>
-
-<p><img src="http://img.my.csdn.net/uploads/201304/08/1365377947_2498.png" alt="方法3" /></p>
-
-<h2>Mac 应用程序</h2>
-
-<h3>Mac下文件清理工具</h3>
-
-<p>在Mac下，可以使用<a href="http://dl.vmall.com/c03sn0hxaz">CleanMyMac2</a>来清理一些垃圾文件。</p>
-
-<blockquote><p>参考：
-<a href="http://www.biosrepair.com/bios/ibmbmd.htm">Biosrepair</a>
-<a href="http://www.bios-mods.com/forum/Thread-REQUEST-Lenovo-V470-4396-WhiteList-Removal">Bios-Mod</a>
-<a href="http://blog.csdn.net/duxinfeng2010/article/details/8629435">新风作浪的博客专栏</a></p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress 域名定制]]></title>
-    <link href="http://lzteng.com/Technology/2014/02/06/octopress-domain-settings/"/>
-    <updated>2014-02-06T19:28:35+08:00</updated>
-    <id>http://lzteng.com/Technology/2014/02/06/octopress-domain-settings</id>
-    <content type="html"><![CDATA[<p>使用Github Pages搭建博客进行的差不多了，原本就想注册一个属于自己的域名，今天特定实施了一下</p>
-
-<h2>选择域名注册服务机构</h2>
-
-<p>比较了挺多域名注册服务提供商，比如国内的万网，还有国外的Godaddy等等，最后选择了国外的<code>Godaddy</code>。下面对一些我觉得比较好的域名注册提供商进行比较。</p>
-
-<!-- more -->
-
-
-<h3><a href="http://www.godaddy.com/">Godaddy</a></h3>
-
-<p>根据网络上的评论，Godaddy的规模是最大的，也经常会有一些优惠，优惠码可以通过搜索<code>Godaddy 优惠码</code>找到很多，不过现在并没有太多的价格优势。笔者选择购买的.com域名，未优惠的价格为$12.99，使用优惠码<code>iap899c1</code>优惠后的价格为$8.99，便宜的比较多。值得一提的是Godaddy支持<code>支付宝</code>付款，并且直接选择美元支付在切换到支付宝付款页面时会便宜几块钱。实际笔者购买该域名话费为55.66元，还算可以。</p>
-
-<p>网络上有很多Godaddy的优惠码，很多网页也会不定期的更新，在笔者买的时候有找到$1.99的优惠码，无奈该优惠码仅支持美国籍的信用卡付款，而且一个信用卡用户仅能使用一次，因此最后没有选择这个方式，还在淘宝上花了不少时间,T.T&hellip;.</p>
-
-<p>这里再推荐个提供<code>优惠码</code>的的网站，方便大家找到合适的优惠码:<a href="http://coupons.namedog.com/">NameDog</a></p>
-
-<h3><a href="https://www.name.com/">Name</a></h3>
-
-<p>相比Godaddy，Name的优惠码没有那么多，但是有提供whois隐私保护免费的优惠码，这项服务用来保护注明注册者的隐私信息，原价有的地方$9.99，Name上是$1.99好像，使用优惠码可以免费，对于隐私保密方面有特殊要求的用户可以选择在Name购买。对于com域名，name上1年要$9.99没有，这是在不用优惠码的情况下的，相对Godaddy来说还算便宜，不过由于其还不支持支付宝付款，对于国内用户来说不是很方便。</p>
-
-<h3><a href="http://www.net.cn/">万网</a></h3>
-
-<p>笔者购买域名的时候万网的广告做的铺天盖地，看到也确实便宜，对比Godaddy来说是便宜的，首付49元，后期续费都是55元。要知道，Godaddy上要使用优惠码才能达到和万网续费一个水平的价格，而且貌似优惠码的优惠力度越来越小了。没有选择万网是因为万网是国内产品，想到可能会面临的备案等麻烦，还是选择了拥抱外面的世界了。</p>
-
-<h2>域名配置</h2>
-
-<h3>配置Godaddy域名解析</h3>
-
-<p>在Godaddy上购买域名成功之后，可以到其<a href="https://dcc.godaddy.com/">控制面板</a>配置域名解析。考虑到主要在国内使用，笔者选择<a href="https://www.dnspod.cn">Dnspod</a>来解析域名。首先需要在Dnspod上注册一个账号，然后新建一个域名，并正确配置A记录和CNAME记录，记录成功后可以根据官方提供的<a href="https://support.dnspod.cn/Kb/showarticle/tsid/42/">教程</a>修改Godaddy的NameServers。</p>
-
-<h3>配置Github Pages</h3>
-
-<p>在Octopress根目录的source文件夹下新建CNAME文件，并在里面输入想要绑定的域名。比如顶级域名 example.com 或者二级域名 xxx.example.com.
-由于DNS解析改成使用Dnspod, 所以可以在Dnspod上配置CNAME信息。</p>
-
-<p>如笔者在Dnspod上添加记录为：主机记录(@)，记录类型(CNAME)，记录值(xxxx.github.io)。</p>
-
-<p>并且在CNAME中填写lzteng.com
-这样使用lzteng.com，便可以自动解析到笔者的Github Pages</p>
-
-<p>注意：配置DNS可能需要72小时以内的时间，需要耐心等待，笔者设置完成后还没1个小时便可以访问了。</p>
 ]]></content>
   </entry>
   

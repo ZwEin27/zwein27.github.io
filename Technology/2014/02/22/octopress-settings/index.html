@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="cn"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress Settings - lzteng</title>
+  <title>Octopress 配置 - lzteng</title>
   <meta name="author" content="ZwEin">
 
   
@@ -180,7 +180,7 @@
 
     
     <h1 class="entry-title">
-        Octopress Settings
+        Octopress 配置
         
     </h1>
     
@@ -348,7 +348,7 @@
 year=$(date +%Y);
 month=$(date +%m);
 image_name="$(date +%y%m%d%H%M%S).png";
-octopress_path="/Users/zwein/Blog/zwein27.github.io";
+octopress_path="/Users/zwein/Blog/zwein27.github.io";   #这里修改为自己的Octopress项目地址
 imagePath="${octopress_path}/source/images/blog/${year}/${month}/";
 
 # 根据年月放置文件夹
@@ -366,14 +366,16 @@ screencapture -iS "${imagePath}${image_name}";
 open -a /Applications/Preview.app "${imagePath}${image_name}";
 
 # 输出图片在Blog中的位置到剪贴板
-echo "/images/blog/${year}/${month}/${image_name}" | pbcopy;
+echo "![image](/images/blog/${year}/${month}/${image_name})" | pbcopy;
 </code></pre>
 
-<p>这样就完成了截图的配置。</p>
+<p>然后建立连接后就完成了截图的配置。</p>
+
+<p><img src="/images/blog/2014/05/140528102245.png" alt="image" /></p>
 
 <p>输入设置的快捷键， 可以进行截图，通过按下Space切换截图形式，按下Escape选择是否取消当前截图。</p>
 
-<p>截完的图片的保存位置可以再Script脚本中配置，截图完成后打开Preview进行预览和简单的配置。</p>
+<p>截完的图片的保存位置可以在Script脚本中配置，截图完成后打开Preview进行预览和简单的配置。</p>
 
 <p class='post-footer'>版权所有 ©ZwEin | 转载请注明出处：<a href='http://lzteng.com/Technology/2014/02/22/octopress-settings/'>http://lzteng.com/Technology/2014/02/22/octopress-settings/</a></p>
 
@@ -630,7 +632,7 @@ $(function(){
 <!-- wumii -->
     <script type="text/javascript">
     var wumiiPermaLink = ""; //请用代码生成文章永久的链接
-    var wumiiTitle = "Octopress Settings"; //请用代码生成文章标题
+    var wumiiTitle = "Octopress 配置"; //请用代码生成文章标题
     var wumiiTags = "Octopress"; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
     var wumiiCategories = [Octopress]; //请用代码生成文章分类，分类名放在 JSONArray 中，如: ["分类1", "分类2"]
     var wumiiSitePrefix = "http://zwein27.github.io/";
