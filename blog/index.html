@@ -178,6 +178,177 @@
     
 
     
+      <h1 class="entry-title"><a href="/Diary/2014/06/12/objective-c-associative-references/">Objective-C Associative References</a></h1>
+    
+
+
+    
+      <div class="meta text-muted text-uppercase">
+        <div class="seperator"></div>
+        
+        
+
+        <!-- disqus comments -->
+        
+
+        <!-- duoshuo comments -->
+         
+          <a class="comments" href="/Diary/2014/06/12/objective-c-associative-references/#comments"
+             data-thread-key="/Diary/2014/06/12/objective-c-associative-references/">
+             <i class="fa fa-comment">
+                <span class="ds-thread-count" data-thread-key="/Diary/2014/06/12/objective-c-associative-references/"></span>
+             </i>
+            </a>
+            
+        <div class="date">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-06-12T09:53:08+08:00" pubdate data-updated="true">Jun 12<span>th</span>, 2014</time>
+        </div>
+           
+
+         
+      </div>
+    
+    
+  </header>
+
+
+
+
+
+  <div class="entry-content clearfix"><h2>Note</h2>
+
+<h3>About</h3>
+
+<p><strong>Associative Reference 关联引用</strong>，使用关联引用，能够模拟添加一个实例变量到一个已有的类中，能够添加存储到一个对象中而不需要改变类的定义。</p>
+
+<p>这一特性有很多用途，但是最广泛的用途是允许<code>Category</code>通过<code>properties</code>添加数据</p>
+
+<p>关联引用是基于键的内存地址，并不是一个值</p>
+
+<p>根据传递给<code>setAssociatedObject</code>的参数，关联引用能够正确的处理copy, assign, 或 retain</p>
+
+<p>结合<a href="http://book.douban.com/subject/25804280/">iOS Programming Pushing the Limits</a>中的具体实例进行说明。</p>
+
+<h3>Usage</h3>
+
+<h4>创建关联</h4>
+
+<p>可以使用 <code>objc_setAssociatedObject</code> 来创建关联引用</p>
+
+<pre><code>void objc_setAssociatedObject( id object,  // 来源的源对象
+                                void *key,  // 具备唯一性，通常使用static variable
+                                id value,   // 传递nil可以清空已存在的值 (即取消关联)
+                                objc_AssociationPolicy policy)  // 指定关联对象的策略
+</code></pre>
+
+<p>policy相关的关联引用行为如下所示</p>
+
+<pre><code>enum {
+   OBJC_ASSOCIATION_ASSIGN = 0,            // 为关联对象指定一个弱引用
+   OBJC_ASSOCIATION_RETAIN_NONATOMIC = 1,   // 为关联对象指定强引用，且该关联不具备原子性
+   OBJC_ASSOCIATION_COPY_NONATOMIC = 3,     // 指定关联对象是拷贝的，且该关联不具备原子性
+   OBJC_ASSOCIATION_RETAIN = 01401,         // 为关联对象指定强引用，且该关联具备原子性
+   OBJC_ASSOCIATION_COPY = 01403            // 指定关联对象是拷贝的，且该关联具备原子性
+};  
+</code></pre>
+
+<h4>取回关联对象</h4>
+
+<p>可以使用 <code>objc_getAssociatedObject</code> 来取回关联对象</p>
+
+<pre><code>id objc_getAssociatedObject( id object,     // 来源的源对象
+                              void *key)    // 要取回的关联的键，该键具有唯一性
+</code></pre>
+
+<h2>Practice</h2>
+
+<h3>创建关联实例</h3>
+
+<pre><code>static char overviewKey;
+NSArray *array = @[@"One", @"Two", @"Three"];
+NSString *overview = @"First three numbers";
+objc_setAssociatedObject (
+                          array,
+                          &amp;overviewKey,
+                          overview,
+                          OBJC_ASSOCIATION_RETAIN
+                          );
+</code></pre>
+
+<h3>取回关联对象实例</h3>
+
+<pre><code>NSString *associatedObject =
+    (NSString *)objc_getAssociatedObject(array, &amp;overviewKey);
+</code></pre>
+
+<h3>取消关联实例</h3>
+
+<pre><code>objc_setAssociatedObject(array, &amp;overviewKey, nil, OBJC_ASSOCIATION_ASSIGN);
+</code></pre>
+
+<h3>Category中使用关联引用来添加property</h3>
+
+<p>假设有这样一个类Person，你希望使用Category添加一个名为<code>emailAddress</code>的Property。</p>
+
+<pre><code>@interface Person : NSObject
+    @property (nonatomic, readwrite, copy) NSString *name;
+@end
+    @implementation Person
+@end
+</code></pre>
+
+<p>使用<code>associative reference</code> 添加这个新的Property如下所示</p>
+
+<pre><code>#import &lt;objc/runtime.h&gt;
+
+@interface Person (EmailAddress)
+    @property (readwrite, copy) NSString *emailAddress;
+@end
+
+@implementation Person (EmailAddress)
+static char emailAddressKey;
+- (NSString *)emailAddress {
+    return objc_getAssociatedObject(self, &amp;emailAddressKey);
+}
+
+- (void)setEmailAddress:(NSString *)emailAddress {
+        objc_setAssociatedObject(self, &amp;emailAddressKey, emailAddress, OBJC_ASSOCIATION_COPY);
+}
+@end
+</code></pre>
+
+<p class='post-footer'>版权所有 ©ZwEin | 转载请注明出处：<a href='http://lzteng.com/Diary/2014/06/12/objective-c-associative-references/'>http://lzteng.com/Diary/2014/06/12/objective-c-associative-references/</a></p>
+
+</div>
+
+  
+
+  
+
+
+
+ 
+</article>
+			  
+		      
+			  	<article class="post">
+  <header class="page-header">
+    
+
+    
       <h1 class="entry-title"><a href="/Diary/2014/06/02/git-note-troubleshooting/">Git 笔记 问题解决篇</a></h1>
     
 
@@ -1084,99 +1255,6 @@ $ git branch -d [branch-name]
         
              
               <a href="http://lzteng.com/blog/tags/index.html#DIY-ref">DIY </a>
-              
-            
-        
-        
-      </div>
-    </footer>
-  
-
-
-
- 
-</article>
-			  
-		      
-			  	<article class="post">
-  <header class="page-header">
-    
-
-    
-      <h1 class="entry-title"><a href="/Technology/2014/02/06/octopress-domain-settings/">Octopress 域名定制</a></h1>
-    
-
-
-    
-      <div class="meta text-muted text-uppercase">
-        <div class="seperator"></div>
-        
-        
-
-        <!-- disqus comments -->
-        
-
-        <!-- duoshuo comments -->
-         
-          <a class="comments" href="/Technology/2014/02/06/octopress-domain-settings/#comments"
-             data-thread-key="/Technology/2014/02/06/octopress-domain-settings/">
-             <i class="fa fa-comment">
-                <span class="ds-thread-count" data-thread-key="/Technology/2014/02/06/octopress-domain-settings/"></span>
-             </i>
-            </a>
-            
-        <div class="date">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-<time datetime="2014-02-06T19:28:35+08:00" pubdate data-updated="true">Feb 6<span>th</span>, 2014</time>
-        </div>
-           
-
-         
-      </div>
-    
-    
-  </header>
-
-
-
-
-
-  <div class="entry-content clearfix"><p>使用Github Pages搭建博客进行的差不多了，原本就想注册一个属于自己的域名，今天特定实施了一下</p>
-
-<h2>选择域名注册服务机构</h2>
-
-<p>比较了挺多域名注册服务提供商，比如国内的万网，还有国外的Godaddy等等，最后选择了国外的<code>Godaddy</code>。下面对一些我觉得比较好的域名注册提供商进行比较。</p>
-
-</div>
-
-  
-
-  
-    <footer>
-      <a class="more-link" rel="full-article" href="/Technology/2014/02/06/octopress-domain-settings/">More &rarr;</a>
-    
-      <!-- add tags after post -->
-      <div class="article_tag">
-        <i class="fa fa-bookmark"></i>
-        
-        
-             
-              <a href="http://lzteng.com/blog/tags/index.html#Octopress-ref">Octopress </a>
-              
-             
-              <a href="http://lzteng.com/blog/tags/index.html#WebDev-ref">WebDev </a>
               
             
         
